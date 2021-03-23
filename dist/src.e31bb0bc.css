@@ -9,6 +9,29 @@ body {
 body .global-container {
   padding: 1rem;
 }
+body .zero-element {
+  padding: 0;
+  margin: 0;
+}
+.header-container {
+  background-color: #ffffff;
+  color: #0006B4;
+  height: 5rem;
+  padding: 0.25rem 1rem;
+  position: relative;
+  border-bottom: 1px solid #cccccc;
+}
+.header-main-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+.header-main-text .plus-green {
+  color: #49D900;
+}
 .map {
   height: 500px;
   width: 100%;
@@ -23,8 +46,16 @@ body .global-container {
   left: 75%;
   text-align: center;
 }
-footer {
-  width: 100%;
+.footer-container {
+  background-color: #ffffff;
+  color: #0006B4;
+  height: 5rem;
+  padding: 0.25rem 1rem;
+  position: relative;
+  border-top: 1px solid #cccccc;
+}
+.footer-main-text {
+  padding-top: 1rem;
 }
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
