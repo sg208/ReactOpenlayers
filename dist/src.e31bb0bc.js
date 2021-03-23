@@ -29688,7 +29688,7 @@ var Header = /*#__PURE__*/function (_Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("header", {
+      return _react.default.createElement("header", {
         role: "banner"
       }, "This is Header Layout Component");
     }
@@ -77560,7 +77560,7 @@ function defaults(opt_options) {
 
   return interactions;
 }
-},{"./Collection.js":"../node_modules/ol/Collection.js","./interaction/DoubleClickZoom.js":"../node_modules/ol/interaction/DoubleClickZoom.js","./interaction/DragPan.js":"../node_modules/ol/interaction/DragPan.js","./interaction/DragRotate.js":"../node_modules/ol/interaction/DragRotate.js","./interaction/DragZoom.js":"../node_modules/ol/interaction/DragZoom.js","./interaction/KeyboardPan.js":"../node_modules/ol/interaction/KeyboardPan.js","./interaction/KeyboardZoom.js":"../node_modules/ol/interaction/KeyboardZoom.js","./Kinetic.js":"../node_modules/ol/Kinetic.js","./interaction/MouseWheelZoom.js":"../node_modules/ol/interaction/MouseWheelZoom.js","./interaction/PinchRotate.js":"../node_modules/ol/interaction/PinchRotate.js","./interaction/PinchZoom.js":"../node_modules/ol/interaction/PinchZoom.js","./interaction/DragAndDrop.js":"../node_modules/ol/interaction/DragAndDrop.js","./interaction/DragBox.js":"../node_modules/ol/interaction/DragBox.js","./interaction/DragRotateAndZoom.js":"../node_modules/ol/interaction/DragRotateAndZoom.js","./interaction/Draw.js":"../node_modules/ol/interaction/Draw.js","./interaction/Extent.js":"../node_modules/ol/interaction/Extent.js","./interaction/Interaction.js":"../node_modules/ol/interaction/Interaction.js","./interaction/Modify.js":"../node_modules/ol/interaction/Modify.js","./interaction/Pointer.js":"../node_modules/ol/interaction/Pointer.js","./interaction/Select.js":"../node_modules/ol/interaction/Select.js","./interaction/Snap.js":"../node_modules/ol/interaction/Snap.js","./interaction/Translate.js":"../node_modules/ol/interaction/Translate.js"}],"../node_modules/ol/map.js":[function(require,module,exports) {
+},{"./Collection.js":"../node_modules/ol/Collection.js","./interaction/DoubleClickZoom.js":"../node_modules/ol/interaction/DoubleClickZoom.js","./interaction/DragPan.js":"../node_modules/ol/interaction/DragPan.js","./interaction/DragRotate.js":"../node_modules/ol/interaction/DragRotate.js","./interaction/DragZoom.js":"../node_modules/ol/interaction/DragZoom.js","./interaction/KeyboardPan.js":"../node_modules/ol/interaction/KeyboardPan.js","./interaction/KeyboardZoom.js":"../node_modules/ol/interaction/KeyboardZoom.js","./Kinetic.js":"../node_modules/ol/Kinetic.js","./interaction/MouseWheelZoom.js":"../node_modules/ol/interaction/MouseWheelZoom.js","./interaction/PinchRotate.js":"../node_modules/ol/interaction/PinchRotate.js","./interaction/PinchZoom.js":"../node_modules/ol/interaction/PinchZoom.js","./interaction/DragAndDrop.js":"../node_modules/ol/interaction/DragAndDrop.js","./interaction/DragBox.js":"../node_modules/ol/interaction/DragBox.js","./interaction/DragRotateAndZoom.js":"../node_modules/ol/interaction/DragRotateAndZoom.js","./interaction/Draw.js":"../node_modules/ol/interaction/Draw.js","./interaction/Extent.js":"../node_modules/ol/interaction/Extent.js","./interaction/Interaction.js":"../node_modules/ol/interaction/Interaction.js","./interaction/Modify.js":"../node_modules/ol/interaction/Modify.js","./interaction/Pointer.js":"../node_modules/ol/interaction/Pointer.js","./interaction/Select.js":"../node_modules/ol/interaction/Select.js","./interaction/Snap.js":"../node_modules/ol/interaction/Snap.js","./interaction/Translate.js":"../node_modules/ol/interaction/Translate.js"}],"../node_modules/ol/Map.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -77692,55 +77692,23 @@ function (_super) {
 
 var _default = Map;
 exports.default = _default;
-},{"./renderer/Composite.js":"../node_modules/ol/renderer/Composite.js","./PluggableMap.js":"../node_modules/ol/PluggableMap.js","./obj.js":"../node_modules/ol/obj.js","./control.js":"../node_modules/ol/control.js","./interaction.js":"../node_modules/ol/interaction.js"}],"../node_modules/ol/view.js":[function(require,module,exports) {
+},{"./renderer/Composite.js":"../node_modules/ol/renderer/Composite.js","./PluggableMap.js":"../node_modules/ol/PluggableMap.js","./obj.js":"../node_modules/ol/obj.js","./control.js":"../node_modules/ol/control.js","./interaction.js":"../node_modules/ol/interaction.js"}],"../node_modules/ol/geom/GeometryCollection.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createCenterConstraint = createCenterConstraint;
-exports.createResolutionConstraint = createResolutionConstraint;
-exports.createRotationConstraint = createRotationConstraint;
-exports.isNoopAnimation = isNoopAnimation;
 exports.default = void 0;
 
-var _Object = _interopRequireDefault(require("./Object.js"));
+var _EventType = _interopRequireDefault(require("../events/EventType.js"));
 
-var _GeometryType = _interopRequireDefault(require("./geom/GeometryType.js"));
+var _Geometry = _interopRequireDefault(require("./Geometry.js"));
 
-var _Units = _interopRequireDefault(require("./proj/Units.js"));
+var _GeometryType = _interopRequireDefault(require("./GeometryType.js"));
 
-var _ViewHint = _interopRequireDefault(require("./ViewHint.js"));
+var _extent = require("../extent.js");
 
-var _ViewProperty = _interopRequireDefault(require("./ViewProperty.js"));
-
-var _common = require("./tilegrid/common.js");
-
-var _proj = require("./proj.js");
-
-var _functions = require("./functions.js");
-
-var _coordinate = require("./coordinate.js");
-
-var _asserts = require("./asserts.js");
-
-var _obj = require("./obj.js");
-
-var _centerconstraint = require("./centerconstraint.js");
-
-var _math = require("./math.js");
-
-var _resolutionconstraint = require("./resolutionconstraint.js");
-
-var _rotationconstraint = require("./rotationconstraint.js");
-
-var _easing = require("./easing.js");
-
-var _extent = require("./extent.js");
-
-var _array = require("./array.js");
-
-var _Polygon = require("./geom/Polygon.js");
+var _events = require("../events.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -77768,1980 +77736,711 @@ var __extends = void 0 && (void 0).__extends || function () {
   };
 }();
 /**
- * @module ol/View
+ * @module ol/geom/GeometryCollection
  */
 
 
-/**
- * An animation configuration
- *
- * @typedef {Object} Animation
- * @property {import("./coordinate.js").Coordinate} [sourceCenter]
- * @property {import("./coordinate.js").Coordinate} [targetCenter]
- * @property {number} [sourceResolution]
- * @property {number} [targetResolution]
- * @property {number} [sourceRotation]
- * @property {number} [targetRotation]
- * @property {import("./coordinate.js").Coordinate} [anchor]
- * @property {number} start
- * @property {number} duration
- * @property {boolean} complete
- * @property {function(number):number} easing
- * @property {function(boolean):void} callback
- */
-
-/**
- * @typedef {Object} Constraints
- * @property {import("./centerconstraint.js").Type} center
- * @property {import("./resolutionconstraint.js").Type} resolution
- * @property {import("./rotationconstraint.js").Type} rotation
- */
-
-/**
- * @typedef {Object} FitOptions
- * @property {import("./size.js").Size} [size] The size in pixels of the box to fit
- * the extent into. Default is the current size of the first map in the DOM that
- * uses this view, or `[100, 100]` if no such map is found.
- * @property {!Array<number>} [padding=[0, 0, 0, 0]] Padding (in pixels) to be
- * cleared inside the view. Values in the array are top, right, bottom and left
- * padding.
- * @property {boolean} [nearest=false] If the view `constrainResolution` option is `true`,
- * get the nearest extent instead of the closest that actually fits the view.
- * @property {number} [minResolution=0] Minimum resolution that we zoom to.
- * @property {number} [maxZoom] Maximum zoom level that we zoom to. If
- * `minResolution` is given, this property is ignored.
- * @property {number} [duration] The duration of the animation in milliseconds.
- * By default, there is no animation to the target extent.
- * @property {function(number):number} [easing] The easing function used during
- * the animation (defaults to {@link module:ol/easing~inAndOut}).
- * The function will be called for each frame with a number representing a
- * fraction of the animation's duration.  The function should return a number
- * between 0 and 1 representing the progress toward the destination state.
- * @property {function(boolean):void} [callback] Function called when the view is in
- * its final position. The callback will be called with `true` if the animation
- * series completed on its own or `false` if it was cancelled.
- */
-
-/**
- * @typedef {Object} ViewOptions
- * @property {import("./coordinate.js").Coordinate} [center] The initial center for
- * the view. If a user projection is not set, the coordinate system for the center is
- * specified with the `projection` option. Layer sources will not be fetched if this
- * is not set, but the center can be set later with {@link #setCenter}.
- * @property {boolean|number} [constrainRotation=true] Rotation constraint.
- * `false` means no constraint. `true` means no constraint, but snap to zero
- * near zero. A number constrains the rotation to that number of values. For
- * example, `4` will constrain the rotation to 0, 90, 180, and 270 degrees.
- * @property {boolean} [enableRotation=true] Enable rotation.
- * If `false`, a rotation constraint that always sets the rotation to zero is
- * used. The `constrainRotation` option has no effect if `enableRotation` is
- * `false`.
- * @property {import("./extent.js").Extent} [extent] The extent that constrains the
- * view, in other words, nothing outside of this extent can be visible on the map.
- * @property {boolean} [constrainOnlyCenter=false] If true, the extent
- * constraint will only apply to the view center and not the whole extent.
- * @property {boolean} [smoothExtentConstraint=true] If true, the extent
- * constraint will be applied smoothly, i.e. allow the view to go slightly outside
- * of the given `extent`.
- * @property {number} [maxResolution] The maximum resolution used to determine
- * the resolution constraint. It is used together with `minResolution` (or
- * `maxZoom`) and `zoomFactor`. If unspecified it is calculated in such a way
- * that the projection's validity extent fits in a 256x256 px tile. If the
- * projection is Spherical Mercator (the default) then `maxResolution` defaults
- * to `40075016.68557849 / 256 = 156543.03392804097`.
- * @property {number} [minResolution] The minimum resolution used to determine
- * the resolution constraint.  It is used together with `maxResolution` (or
- * `minZoom`) and `zoomFactor`.  If unspecified it is calculated assuming 29
- * zoom levels (with a factor of 2). If the projection is Spherical Mercator
- * (the default) then `minResolution` defaults to
- * `40075016.68557849 / 256 / Math.pow(2, 28) = 0.0005831682455839253`.
- * @property {number} [maxZoom=28] The maximum zoom level used to determine the
- * resolution constraint. It is used together with `minZoom` (or
- * `maxResolution`) and `zoomFactor`.  Note that if `minResolution` is also
- * provided, it is given precedence over `maxZoom`.
- * @property {number} [minZoom=0] The minimum zoom level used to determine the
- * resolution constraint. It is used together with `maxZoom` (or
- * `minResolution`) and `zoomFactor`.  Note that if `maxResolution` is also
- * provided, it is given precedence over `minZoom`.
- * @property {boolean} [multiWorld=false] If `false` the view is constrained so
- * only one world is visible, and you cannot pan off the edge.  If `true` the map
- * may show multiple worlds at low zoom levels.  Only used if the `projection` is
- * global.  Note that if `extent` is also provided it is given precedence.
- * @property {boolean} [constrainResolution=false] If true, the view will always
- * animate to the closest zoom level after an interaction; false means
- * intermediary zoom levels are allowed.
- * @property {boolean} [smoothResolutionConstraint=true] If true, the resolution
- * min/max values will be applied smoothly, i. e. allow the view to exceed slightly
- * the given resolution or zoom bounds.
- * @property {boolean} [showFullExtent=false] Allow the view to be zoomed out to
- * show the full configured extent. By default, when a view is configured with an
- * extent, users will not be able to zoom out so the viewport exceeds the extent in
- * either dimension. This means the full extent may not be visible if the viewport
- * is taller or wider than the aspect ratio of the configured extent. If
- * showFullExtent is true, the user will be able to zoom out so that the viewport
- * exceeds the height or width of the configured extent, but not both, allowing the
- * full extent to be shown.
- * @property {import("./proj.js").ProjectionLike} [projection='EPSG:3857'] The
- * projection. The default is Spherical Mercator.
- * @property {number} [resolution] The initial resolution for the view. The
- * units are `projection` units per pixel (e.g. meters per pixel). An
- * alternative to setting this is to set `zoom`. Layer sources will not be
- * fetched if neither this nor `zoom` are defined, but they can be set later
- * with {@link #setZoom} or {@link #setResolution}.
- * @property {Array<number>} [resolutions] Resolutions to determine the
- * resolution constraint. If set the `maxResolution`, `minResolution`,
- * `minZoom`, `maxZoom`, and `zoomFactor` options are ignored.
- * @property {number} [rotation=0] The initial rotation for the view in radians
- * (positive rotation clockwise, 0 means North).
- * @property {number} [zoom] Only used if `resolution` is not defined. Zoom
- * level used to calculate the initial resolution for the view.
- * @property {number} [zoomFactor=2] The zoom factor used to compute the
- * corresponding resolution.
- * @property {!Array<number>} [padding=[0, 0, 0, 0]] Padding (in css pixels).
- * If the map viewport is partially covered with other content (overlays) along
- * its edges, this setting allows to shift the center of the viewport away from
- * that content. The order of the values is top, right, bottom, left.
- */
-
-/**
- * @typedef {Object} AnimationOptions
- * @property {import("./coordinate.js").Coordinate} [center] The center of the view at the end of
- * the animation.
- * @property {number} [zoom] The zoom level of the view at the end of the
- * animation. This takes precedence over `resolution`.
- * @property {number} [resolution] The resolution of the view at the end
- * of the animation.  If `zoom` is also provided, this option will be ignored.
- * @property {number} [rotation] The rotation of the view at the end of
- * the animation.
- * @property {import("./coordinate.js").Coordinate} [anchor] Optional anchor to remain fixed
- * during a rotation or resolution animation.
- * @property {number} [duration=1000] The duration of the animation in milliseconds.
- * @property {function(number):number} [easing] The easing function used
- * during the animation (defaults to {@link module:ol/easing~inAndOut}).
- * The function will be called for each frame with a number representing a
- * fraction of the animation's duration.  The function should return a number
- * between 0 and 1 representing the progress toward the destination state.
- */
-
-/**
- * @typedef {Object} State
- * @property {import("./coordinate.js").Coordinate} center
- * @property {import("./proj/Projection.js").default} projection
- * @property {number} resolution
- * @property {number} rotation
- * @property {number} zoom
- */
-
-/**
- * Default min zoom level for the map view.
- * @type {number}
- */
-var DEFAULT_MIN_ZOOM = 0;
 /**
  * @classdesc
- * A View object represents a simple 2D view of the map.
- *
- * This is the object to act upon to change the center, resolution,
- * and rotation of the map.
- *
- * A View has a `projection`. The projection determines the
- * coordinate system of the center, and its units determine the units of the
- * resolution (projection units per pixel). The default projection is
- * Spherical Mercator (EPSG:3857).
- *
- * ### The view states
- *
- * A View is determined by three states: `center`, `resolution`,
- * and `rotation`. Each state has a corresponding getter and setter, e.g.
- * `getCenter` and `setCenter` for the `center` state.
- *
- * The `zoom` state is actually not saved on the view: all computations
- * internally use the `resolution` state. Still, the `setZoom` and `getZoom`
- * methods are available, as well as `getResolutionForZoom` and
- * `getZoomForResolution` to switch from one system to the other.
- *
- * ### The constraints
- *
- * `setCenter`, `setResolution` and `setRotation` can be used to change the
- * states of the view, but any constraint defined in the constructor will
- * be applied along the way.
- *
- * A View object can have a *resolution constraint*, a *rotation constraint*
- * and a *center constraint*.
- *
- * The *resolution constraint* typically restricts min/max values and
- * snaps to specific resolutions. It is determined by the following
- * options: `resolutions`, `maxResolution`, `maxZoom` and `zoomFactor`.
- * If `resolutions` is set, the other three options are ignored. See
- * documentation for each option for more information. By default, the view
- * only has a min/max restriction and allow intermediary zoom levels when
- * pinch-zooming for example.
- *
- * The *rotation constraint* snaps to specific angles. It is determined
- * by the following options: `enableRotation` and `constrainRotation`.
- * By default rotation is allowed and its value is snapped to zero when approaching the
- * horizontal.
- *
- * The *center constraint* is determined by the `extent` option. By
- * default the view center is not constrained at all.
- *
- * ### Changing the view state
- *
- * It is important to note that `setZoom`, `setResolution`, `setCenter` and
- * `setRotation` are subject to the above mentioned constraints. As such, it
- * may sometimes not be possible to know in advance the resulting state of the
- * View. For example, calling `setResolution(10)` does not guarantee that
- * `getResolution()` will return `10`.
- *
- * A consequence of this is that, when applying a delta on the view state, one
- * should use `adjustCenter`, `adjustRotation`, `adjustZoom` and `adjustResolution`
- * rather than the corresponding setters. This will let view do its internal
- * computations. Besides, the `adjust*` methods also take an `opt_anchor`
- * argument which allows specifying an origin for the transformation.
- *
- * ### Interacting with the view
- *
- * View constraints are usually only applied when the view is *at rest*, meaning that
- * no interaction or animation is ongoing. As such, if the user puts the view in a
- * state that is not equivalent to a constrained one (e.g. rotating the view when
- * the snap angle is 0), an animation will be triggered at the interaction end to
- * put back the view to a stable state;
+ * An array of {@link module:ol/geom/Geometry} objects.
  *
  * @api
  */
-
-var View =
+var GeometryCollection =
 /** @class */
 function (_super) {
-  __extends(View, _super);
+  __extends(GeometryCollection, _super);
   /**
-   * @param {ViewOptions=} opt_options View options.
+   * @param {Array<Geometry>=} opt_geometries Geometries.
    */
 
 
-  function View(opt_options) {
+  function GeometryCollection(opt_geometries) {
     var _this = _super.call(this) || this;
-
-    var options = (0, _obj.assign)({}, opt_options);
     /**
      * @private
-     * @type {Array<number>}
+     * @type {Array<Geometry>}
      */
 
-    _this.hints_ = [0, 0];
+
+    _this.geometries_ = opt_geometries ? opt_geometries : null;
     /**
-     * @private
-     * @type {Array<Array<Animation>>}
+     * @type {Array<import("../events.js").EventsKey>}
      */
 
-    _this.animations_ = [];
-    /**
-     * @private
-     * @type {number|undefined}
-     */
+    _this.changeEventsKeys_ = [];
 
-    _this.updateAnimationKey_;
-    /**
-     * @private
-     * @const
-     * @type {import("./proj/Projection.js").default}
-     */
-
-    _this.projection_ = (0, _proj.createProjection)(options.projection, 'EPSG:3857');
-    /**
-     * @private
-     * @type {import("./size.js").Size}
-     */
-
-    _this.viewportSize_ = [100, 100];
-    /**
-     * @private
-     * @type {import("./coordinate.js").Coordinate|undefined}
-     */
-
-    _this.targetCenter_ = null;
-    /**
-     * @private
-     * @type {number|undefined}
-     */
-
-    _this.targetResolution_;
-    /**
-     * @private
-     * @type {number|undefined}
-     */
-
-    _this.targetRotation_;
-    /**
-     * @private
-     * @type {import("./coordinate.js").Coordinate|undefined}
-     */
-
-    _this.cancelAnchor_ = undefined;
-
-    if (options.center) {
-      options.center = (0, _proj.fromUserCoordinate)(options.center, _this.projection_);
-    }
-
-    if (options.extent) {
-      options.extent = (0, _proj.fromUserExtent)(options.extent, _this.projection_);
-    }
-
-    _this.applyOptions_(options);
+    _this.listenGeometriesChange_();
 
     return _this;
   }
   /**
-   * Set up the view with the given options.
-   * @param {ViewOptions} options View options.
+   * @private
    */
 
 
-  View.prototype.applyOptions_ = function (options) {
-    /**
-     * @type {Object<string, *>}
-     */
-    var properties = {};
-    var resolutionConstraintInfo = createResolutionConstraint(options);
-    /**
-     * @private
-     * @type {number}
-     */
-
-    this.maxResolution_ = resolutionConstraintInfo.maxResolution;
-    /**
-     * @private
-     * @type {number}
-     */
-
-    this.minResolution_ = resolutionConstraintInfo.minResolution;
-    /**
-     * @private
-     * @type {number}
-     */
-
-    this.zoomFactor_ = resolutionConstraintInfo.zoomFactor;
-    /**
-     * @private
-     * @type {Array<number>|undefined}
-     */
-
-    this.resolutions_ = options.resolutions;
-    /**
-     * Padding (in css pixels).
-     * If the map viewport is partially covered with other content (overlays) along
-     * its edges, this setting allows to shift the center of the viewport away from that
-     * content. The order of the values in the array is top, right, bottom, left.
-     * The default is no padding, which is equivalent to `[0, 0, 0, 0]`.
-     * @type {Array<number>|undefined}
-     * @api
-     */
-
-    this.padding = options.padding;
-    /**
-     * @private
-     * @type {number}
-     */
-
-    this.minZoom_ = resolutionConstraintInfo.minZoom;
-    var centerConstraint = createCenterConstraint(options);
-    var resolutionConstraint = resolutionConstraintInfo.constraint;
-    var rotationConstraint = createRotationConstraint(options);
-    /**
-     * @private
-     * @type {Constraints}
-     */
-
-    this.constraints_ = {
-      center: centerConstraint,
-      resolution: resolutionConstraint,
-      rotation: rotationConstraint
-    };
-    this.setRotation(options.rotation !== undefined ? options.rotation : 0);
-    this.setCenterInternal(options.center !== undefined ? options.center : null);
-
-    if (options.resolution !== undefined) {
-      this.setResolution(options.resolution);
-    } else if (options.zoom !== undefined) {
-      this.setZoom(options.zoom);
-    }
-
-    this.setProperties(properties);
-    /**
-     * @private
-     * @type {ViewOptions}
-     */
-
-    this.options_ = options;
+  GeometryCollection.prototype.unlistenGeometriesChange_ = function () {
+    this.changeEventsKeys_.forEach(_events.unlistenByKey);
+    this.changeEventsKeys_.length = 0;
   };
   /**
-   * Get an updated version of the view options used to construct the view.  The
-   * current resolution (or zoom), center, and rotation are applied to any stored
-   * options.  The provided options can be used to apply new min/max zoom or
-   * resolution limits.
-   * @param {ViewOptions} newOptions New options to be applied.
-   * @return {ViewOptions} New options updated with the current view state.
+   * @private
    */
 
 
-  View.prototype.getUpdatedOptions_ = function (newOptions) {
-    var options = (0, _obj.assign)({}, this.options_); // preserve resolution (or zoom)
-
-    if (options.resolution !== undefined) {
-      options.resolution = this.getResolution();
-    } else {
-      options.zoom = this.getZoom();
-    } // preserve center
-
-
-    options.center = this.getCenterInternal(); // preserve rotation
-
-    options.rotation = this.getRotation();
-    return (0, _obj.assign)({}, options, newOptions);
-  };
-  /**
-   * Animate the view.  The view's center, zoom (or resolution), and rotation
-   * can be animated for smooth transitions between view states.  For example,
-   * to animate the view to a new zoom level:
-   *
-   *     view.animate({zoom: view.getZoom() + 1});
-   *
-   * By default, the animation lasts one second and uses in-and-out easing.  You
-   * can customize this behavior by including `duration` (in milliseconds) and
-   * `easing` options (see {@link module:ol/easing}).
-   *
-   * To chain together multiple animations, call the method with multiple
-   * animation objects.  For example, to first zoom and then pan:
-   *
-   *     view.animate({zoom: 10}, {center: [0, 0]});
-   *
-   * If you provide a function as the last argument to the animate method, it
-   * will get called at the end of an animation series.  The callback will be
-   * called with `true` if the animation series completed on its own or `false`
-   * if it was cancelled.
-   *
-   * Animations are cancelled by user interactions (e.g. dragging the map) or by
-   * calling `view.setCenter()`, `view.setResolution()`, or `view.setRotation()`
-   * (or another method that calls one of these).
-   *
-   * @param {...(AnimationOptions|function(boolean): void)} var_args Animation
-   *     options.  Multiple animations can be run in series by passing multiple
-   *     options objects.  To run multiple animations in parallel, call the method
-   *     multiple times.  An optional callback can be provided as a final
-   *     argument.  The callback will be called with a boolean indicating whether
-   *     the animation completed without being cancelled.
-   * @api
-   */
-
-
-  View.prototype.animate = function (var_args) {
-    if (this.isDef() && !this.getAnimating()) {
-      this.resolveConstraints(0);
-    }
-
-    var args = new Array(arguments.length);
-
-    for (var i = 0; i < args.length; ++i) {
-      var options = arguments[i];
-
-      if (options.center) {
-        options = (0, _obj.assign)({}, options);
-        options.center = (0, _proj.fromUserCoordinate)(options.center, this.getProjection());
-      }
-
-      if (options.anchor) {
-        options = (0, _obj.assign)({}, options);
-        options.anchor = (0, _proj.fromUserCoordinate)(options.anchor, this.getProjection());
-      }
-
-      args[i] = options;
-    }
-
-    this.animateInternal.apply(this, args);
-  };
-  /**
-   * @param {...(AnimationOptions|function(boolean): void)} var_args Animation options.
-   */
-
-
-  View.prototype.animateInternal = function (var_args) {
-    var animationCount = arguments.length;
-    var callback;
-
-    if (animationCount > 1 && typeof arguments[animationCount - 1] === 'function') {
-      callback = arguments[animationCount - 1];
-      --animationCount;
-    }
-
-    if (!this.isDef()) {
-      // if view properties are not yet set, shortcut to the final state
-      var state = arguments[animationCount - 1];
-
-      if (state.center) {
-        this.setCenterInternal(state.center);
-      }
-
-      if (state.zoom !== undefined) {
-        this.setZoom(state.zoom);
-      }
-
-      if (state.rotation !== undefined) {
-        this.setRotation(state.rotation);
-      }
-
-      if (callback) {
-        animationCallback(callback, true);
-      }
-
+  GeometryCollection.prototype.listenGeometriesChange_ = function () {
+    if (!this.geometries_) {
       return;
     }
 
-    var start = Date.now();
-    var center = this.targetCenter_.slice();
-    var resolution = this.targetResolution_;
-    var rotation = this.targetRotation_;
-    var series = [];
+    for (var i = 0, ii = this.geometries_.length; i < ii; ++i) {
+      this.changeEventsKeys_.push((0, _events.listen)(this.geometries_[i], _EventType.default.CHANGE, this.changed, this));
+    }
+  };
+  /**
+   * Make a complete copy of the geometry.
+   * @return {!GeometryCollection} Clone.
+   * @api
+   */
 
-    for (var i = 0; i < animationCount; ++i) {
-      var options =
-      /** @type {AnimationOptions} */
-      arguments[i];
-      var animation = {
-        start: start,
-        complete: false,
-        anchor: options.anchor,
-        duration: options.duration !== undefined ? options.duration : 1000,
-        easing: options.easing || _easing.inAndOut,
-        callback: callback
-      };
 
-      if (options.center) {
-        animation.sourceCenter = center;
-        animation.targetCenter = options.center.slice();
-        center = animation.targetCenter;
+  GeometryCollection.prototype.clone = function () {
+    var geometryCollection = new GeometryCollection(null);
+    geometryCollection.setGeometries(this.geometries_);
+    geometryCollection.applyProperties(this);
+    return geometryCollection;
+  };
+  /**
+   * @param {number} x X.
+   * @param {number} y Y.
+   * @param {import("../coordinate.js").Coordinate} closestPoint Closest point.
+   * @param {number} minSquaredDistance Minimum squared distance.
+   * @return {number} Minimum squared distance.
+   */
+
+
+  GeometryCollection.prototype.closestPointXY = function (x, y, closestPoint, minSquaredDistance) {
+    if (minSquaredDistance < (0, _extent.closestSquaredDistanceXY)(this.getExtent(), x, y)) {
+      return minSquaredDistance;
+    }
+
+    var geometries = this.geometries_;
+
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      minSquaredDistance = geometries[i].closestPointXY(x, y, closestPoint, minSquaredDistance);
+    }
+
+    return minSquaredDistance;
+  };
+  /**
+   * @param {number} x X.
+   * @param {number} y Y.
+   * @return {boolean} Contains (x, y).
+   */
+
+
+  GeometryCollection.prototype.containsXY = function (x, y) {
+    var geometries = this.geometries_;
+
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      if (geometries[i].containsXY(x, y)) {
+        return true;
       }
+    }
 
-      if (options.zoom !== undefined) {
-        animation.sourceResolution = resolution;
-        animation.targetResolution = this.getResolutionForZoom(options.zoom);
-        resolution = animation.targetResolution;
-      } else if (options.resolution) {
-        animation.sourceResolution = resolution;
-        animation.targetResolution = options.resolution;
-        resolution = animation.targetResolution;
-      }
-
-      if (options.rotation !== undefined) {
-        animation.sourceRotation = rotation;
-        var delta = (0, _math.modulo)(options.rotation - rotation + Math.PI, 2 * Math.PI) - Math.PI;
-        animation.targetRotation = rotation + delta;
-        rotation = animation.targetRotation;
-      } // check if animation is a no-op
+    return false;
+  };
+  /**
+   * @param {import("../extent.js").Extent} extent Extent.
+   * @protected
+   * @return {import("../extent.js").Extent} extent Extent.
+   */
 
 
-      if (isNoopAnimation(animation)) {
-        animation.complete = true; // we still push it onto the series for callback handling
+  GeometryCollection.prototype.computeExtent = function (extent) {
+    (0, _extent.createOrUpdateEmpty)(extent);
+    var geometries = this.geometries_;
+
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      (0, _extent.extend)(extent, geometries[i].getExtent());
+    }
+
+    return extent;
+  };
+  /**
+   * Return the geometries that make up this geometry collection.
+   * @return {Array<Geometry>} Geometries.
+   * @api
+   */
+
+
+  GeometryCollection.prototype.getGeometries = function () {
+    return cloneGeometries(this.geometries_);
+  };
+  /**
+   * @return {Array<Geometry>} Geometries.
+   */
+
+
+  GeometryCollection.prototype.getGeometriesArray = function () {
+    return this.geometries_;
+  };
+  /**
+   * @return {Array<Geometry>} Geometries.
+   */
+
+
+  GeometryCollection.prototype.getGeometriesArrayRecursive = function () {
+    /** @type {Array<Geometry>} */
+    var geometriesArray = [];
+    var geometries = this.geometries_;
+
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      if (geometries[i].getType() === this.getType()) {
+        geometriesArray = geometriesArray.concat(
+        /** @type {GeometryCollection} */
+        geometries[i].getGeometriesArrayRecursive());
       } else {
-        start += animation.duration;
-      }
-
-      series.push(animation);
-    }
-
-    this.animations_.push(series);
-    this.setHint(_ViewHint.default.ANIMATING, 1);
-    this.updateAnimations_();
-  };
-  /**
-   * Determine if the view is being animated.
-   * @return {boolean} The view is being animated.
-   * @api
-   */
-
-
-  View.prototype.getAnimating = function () {
-    return this.hints_[_ViewHint.default.ANIMATING] > 0;
-  };
-  /**
-   * Determine if the user is interacting with the view, such as panning or zooming.
-   * @return {boolean} The view is being interacted with.
-   * @api
-   */
-
-
-  View.prototype.getInteracting = function () {
-    return this.hints_[_ViewHint.default.INTERACTING] > 0;
-  };
-  /**
-   * Cancel any ongoing animations.
-   * @api
-   */
-
-
-  View.prototype.cancelAnimations = function () {
-    this.setHint(_ViewHint.default.ANIMATING, -this.hints_[_ViewHint.default.ANIMATING]);
-    var anchor;
-
-    for (var i = 0, ii = this.animations_.length; i < ii; ++i) {
-      var series = this.animations_[i];
-
-      if (series[0].callback) {
-        animationCallback(series[0].callback, false);
-      }
-
-      if (!anchor) {
-        for (var j = 0, jj = series.length; j < jj; ++j) {
-          var animation = series[j];
-
-          if (!animation.complete) {
-            anchor = animation.anchor;
-            break;
-          }
-        }
+        geometriesArray.push(geometries[i]);
       }
     }
 
-    this.animations_.length = 0;
-    this.cancelAnchor_ = anchor;
+    return geometriesArray;
   };
   /**
-   * Update all animations.
+   * Create a simplified version of this geometry using the Douglas Peucker algorithm.
+   * @param {number} squaredTolerance Squared tolerance.
+   * @return {GeometryCollection} Simplified GeometryCollection.
    */
 
 
-  View.prototype.updateAnimations_ = function () {
-    if (this.updateAnimationKey_ !== undefined) {
-      cancelAnimationFrame(this.updateAnimationKey_);
-      this.updateAnimationKey_ = undefined;
+  GeometryCollection.prototype.getSimplifiedGeometry = function (squaredTolerance) {
+    if (this.simplifiedGeometryRevision !== this.getRevision()) {
+      this.simplifiedGeometryMaxMinSquaredTolerance = 0;
+      this.simplifiedGeometryRevision = this.getRevision();
     }
 
-    if (!this.getAnimating()) {
-      return;
+    if (squaredTolerance < 0 || this.simplifiedGeometryMaxMinSquaredTolerance !== 0 && squaredTolerance < this.simplifiedGeometryMaxMinSquaredTolerance) {
+      return this;
     }
 
-    var now = Date.now();
-    var more = false;
+    var simplifiedGeometries = [];
+    var geometries = this.geometries_;
+    var simplified = false;
 
-    for (var i = this.animations_.length - 1; i >= 0; --i) {
-      var series = this.animations_[i];
-      var seriesComplete = true;
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      var geometry = geometries[i];
+      var simplifiedGeometry = geometry.getSimplifiedGeometry(squaredTolerance);
+      simplifiedGeometries.push(simplifiedGeometry);
 
-      for (var j = 0, jj = series.length; j < jj; ++j) {
-        var animation = series[j];
-
-        if (animation.complete) {
-          continue;
-        }
-
-        var elapsed = now - animation.start;
-        var fraction = animation.duration > 0 ? elapsed / animation.duration : 1;
-
-        if (fraction >= 1) {
-          animation.complete = true;
-          fraction = 1;
-        } else {
-          seriesComplete = false;
-        }
-
-        var progress = animation.easing(fraction);
-
-        if (animation.sourceCenter) {
-          var x0 = animation.sourceCenter[0];
-          var y0 = animation.sourceCenter[1];
-          var x1 = animation.targetCenter[0];
-          var y1 = animation.targetCenter[1];
-          var x = x0 + progress * (x1 - x0);
-          var y = y0 + progress * (y1 - y0);
-          this.targetCenter_ = [x, y];
-        }
-
-        if (animation.sourceResolution && animation.targetResolution) {
-          var resolution = progress === 1 ? animation.targetResolution : animation.sourceResolution + progress * (animation.targetResolution - animation.sourceResolution);
-
-          if (animation.anchor) {
-            var size = this.getViewportSize_(this.getRotation());
-            var constrainedResolution = this.constraints_.resolution(resolution, 0, size, true);
-            this.targetCenter_ = this.calculateCenterZoom(constrainedResolution, animation.anchor);
-          }
-
-          this.targetResolution_ = resolution;
-          this.applyTargetState_(true);
-        }
-
-        if (animation.sourceRotation !== undefined && animation.targetRotation !== undefined) {
-          var rotation = progress === 1 ? (0, _math.modulo)(animation.targetRotation + Math.PI, 2 * Math.PI) - Math.PI : animation.sourceRotation + progress * (animation.targetRotation - animation.sourceRotation);
-
-          if (animation.anchor) {
-            var constrainedRotation = this.constraints_.rotation(rotation, true);
-            this.targetCenter_ = this.calculateCenterRotate(constrainedRotation, animation.anchor);
-          }
-
-          this.targetRotation_ = rotation;
-        }
-
-        this.applyTargetState_(true);
-        more = true;
-
-        if (!animation.complete) {
-          break;
-        }
+      if (simplifiedGeometry !== geometry) {
+        simplified = true;
       }
-
-      if (seriesComplete) {
-        this.animations_[i] = null;
-        this.setHint(_ViewHint.default.ANIMATING, -1);
-        var callback = series[0].callback;
-
-        if (callback) {
-          animationCallback(callback, true);
-        }
-      }
-    } // prune completed series
-
-
-    this.animations_ = this.animations_.filter(Boolean);
-
-    if (more && this.updateAnimationKey_ === undefined) {
-      this.updateAnimationKey_ = requestAnimationFrame(this.updateAnimations_.bind(this));
-    }
-  };
-  /**
-   * @param {number} rotation Target rotation.
-   * @param {import("./coordinate.js").Coordinate} anchor Rotation anchor.
-   * @return {import("./coordinate.js").Coordinate|undefined} Center for rotation and anchor.
-   */
-
-
-  View.prototype.calculateCenterRotate = function (rotation, anchor) {
-    var center;
-    var currentCenter = this.getCenterInternal();
-
-    if (currentCenter !== undefined) {
-      center = [currentCenter[0] - anchor[0], currentCenter[1] - anchor[1]];
-      (0, _coordinate.rotate)(center, rotation - this.getRotation());
-      (0, _coordinate.add)(center, anchor);
     }
 
-    return center;
-  };
-  /**
-   * @param {number} resolution Target resolution.
-   * @param {import("./coordinate.js").Coordinate} anchor Zoom anchor.
-   * @return {import("./coordinate.js").Coordinate|undefined} Center for resolution and anchor.
-   */
-
-
-  View.prototype.calculateCenterZoom = function (resolution, anchor) {
-    var center;
-    var currentCenter = this.getCenterInternal();
-    var currentResolution = this.getResolution();
-
-    if (currentCenter !== undefined && currentResolution !== undefined) {
-      var x = anchor[0] - resolution * (anchor[0] - currentCenter[0]) / currentResolution;
-      var y = anchor[1] - resolution * (anchor[1] - currentCenter[1]) / currentResolution;
-      center = [x, y];
-    }
-
-    return center;
-  };
-  /**
-   * Returns the current viewport size.
-   * @private
-   * @param {number=} opt_rotation Take into account the rotation of the viewport when giving the size
-   * @return {import("./size.js").Size} Viewport size or `[100, 100]` when no viewport is found.
-   */
-
-
-  View.prototype.getViewportSize_ = function (opt_rotation) {
-    var size = this.viewportSize_;
-
-    if (opt_rotation) {
-      var w = size[0];
-      var h = size[1];
-      return [Math.abs(w * Math.cos(opt_rotation)) + Math.abs(h * Math.sin(opt_rotation)), Math.abs(w * Math.sin(opt_rotation)) + Math.abs(h * Math.cos(opt_rotation))];
+    if (simplified) {
+      var simplifiedGeometryCollection = new GeometryCollection(null);
+      simplifiedGeometryCollection.setGeometriesArray(simplifiedGeometries);
+      return simplifiedGeometryCollection;
     } else {
-      return size;
+      this.simplifiedGeometryMaxMinSquaredTolerance = squaredTolerance;
+      return this;
     }
   };
   /**
-   * Stores the viewport size on the view. The viewport size is not read every time from the DOM
-   * to avoid performance hit and layout reflow.
-   * This should be done on map size change.
-   * Note: the constraints are not resolved during an animation to avoid stopping it
-   * @param {import("./size.js").Size=} opt_size Viewport size; if undefined, [100, 100] is assumed
-   */
-
-
-  View.prototype.setViewportSize = function (opt_size) {
-    this.viewportSize_ = Array.isArray(opt_size) ? opt_size.slice() : [100, 100];
-
-    if (!this.getAnimating()) {
-      this.resolveConstraints(0);
-    }
-  };
-  /**
-   * Get the view center.
-   * @return {import("./coordinate.js").Coordinate|undefined} The center of the view.
-   * @observable
+   * Get the type of this geometry.
+   * @return {import("./GeometryType.js").default} Geometry type.
    * @api
    */
 
 
-  View.prototype.getCenter = function () {
-    var center = this.getCenterInternal();
-
-    if (!center) {
-      return center;
-    }
-
-    return (0, _proj.toUserCoordinate)(center, this.getProjection());
+  GeometryCollection.prototype.getType = function () {
+    return _GeometryType.default.GEOMETRY_COLLECTION;
   };
   /**
-   * Get the view center without transforming to user projection.
-   * @return {import("./coordinate.js").Coordinate|undefined} The center of the view.
-   */
-
-
-  View.prototype.getCenterInternal = function () {
-    return (
-      /** @type {import("./coordinate.js").Coordinate|undefined} */
-      this.get(_ViewProperty.default.CENTER)
-    );
-  };
-  /**
-   * @return {Constraints} Constraints.
-   */
-
-
-  View.prototype.getConstraints = function () {
-    return this.constraints_;
-  };
-  /**
-   * @return {boolean} Resolution constraint is set
-   */
-
-
-  View.prototype.getConstrainResolution = function () {
-    return this.options_.constrainResolution;
-  };
-  /**
-   * @param {Array<number>=} opt_hints Destination array.
-   * @return {Array<number>} Hint.
-   */
-
-
-  View.prototype.getHints = function (opt_hints) {
-    if (opt_hints !== undefined) {
-      opt_hints[0] = this.hints_[0];
-      opt_hints[1] = this.hints_[1];
-      return opt_hints;
-    } else {
-      return this.hints_.slice();
-    }
-  };
-  /**
-   * Calculate the extent for the current view state and the passed size.
-   * The size is the pixel dimensions of the box into which the calculated extent
-   * should fit. In most cases you want to get the extent of the entire map,
-   * that is `map.getSize()`.
-   * @param {import("./size.js").Size=} opt_size Box pixel size. If not provided, the size
-   * of the map that uses this view will be used.
-   * @return {import("./extent.js").Extent} Extent.
+   * Test if the geometry and the passed extent intersect.
+   * @param {import("../extent.js").Extent} extent Extent.
+   * @return {boolean} `true` if the geometry and the extent intersect.
    * @api
    */
 
 
-  View.prototype.calculateExtent = function (opt_size) {
-    var extent = this.calculateExtentInternal(opt_size);
-    return (0, _proj.toUserExtent)(extent, this.getProjection());
-  };
-  /**
-   * @param {import("./size.js").Size=} opt_size Box pixel size. If not provided,
-   * the map's last known viewport size will be used.
-   * @return {import("./extent.js").Extent} Extent.
-   */
+  GeometryCollection.prototype.intersectsExtent = function (extent) {
+    var geometries = this.geometries_;
 
-
-  View.prototype.calculateExtentInternal = function (opt_size) {
-    var size = opt_size || this.getViewportSize_();
-    var center =
-    /** @type {!import("./coordinate.js").Coordinate} */
-    this.getCenterInternal();
-    (0, _asserts.assert)(center, 1); // The view center is not defined
-
-    var resolution =
-    /** @type {!number} */
-    this.getResolution();
-    (0, _asserts.assert)(resolution !== undefined, 2); // The view resolution is not defined
-
-    var rotation =
-    /** @type {!number} */
-    this.getRotation();
-    (0, _asserts.assert)(rotation !== undefined, 3); // The view rotation is not defined
-
-    return (0, _extent.getForViewAndSize)(center, resolution, rotation, size);
-  };
-  /**
-   * Get the maximum resolution of the view.
-   * @return {number} The maximum resolution of the view.
-   * @api
-   */
-
-
-  View.prototype.getMaxResolution = function () {
-    return this.maxResolution_;
-  };
-  /**
-   * Get the minimum resolution of the view.
-   * @return {number} The minimum resolution of the view.
-   * @api
-   */
-
-
-  View.prototype.getMinResolution = function () {
-    return this.minResolution_;
-  };
-  /**
-   * Get the maximum zoom level for the view.
-   * @return {number} The maximum zoom level.
-   * @api
-   */
-
-
-  View.prototype.getMaxZoom = function () {
-    return (
-      /** @type {number} */
-      this.getZoomForResolution(this.minResolution_)
-    );
-  };
-  /**
-   * Set a new maximum zoom level for the view.
-   * @param {number} zoom The maximum zoom level.
-   * @api
-   */
-
-
-  View.prototype.setMaxZoom = function (zoom) {
-    this.applyOptions_(this.getUpdatedOptions_({
-      maxZoom: zoom
-    }));
-  };
-  /**
-   * Get the minimum zoom level for the view.
-   * @return {number} The minimum zoom level.
-   * @api
-   */
-
-
-  View.prototype.getMinZoom = function () {
-    return (
-      /** @type {number} */
-      this.getZoomForResolution(this.maxResolution_)
-    );
-  };
-  /**
-   * Set a new minimum zoom level for the view.
-   * @param {number} zoom The minimum zoom level.
-   * @api
-   */
-
-
-  View.prototype.setMinZoom = function (zoom) {
-    this.applyOptions_(this.getUpdatedOptions_({
-      minZoom: zoom
-    }));
-  };
-  /**
-   * Set whether the view shoud allow intermediary zoom levels.
-   * @param {boolean} enabled Whether the resolution is constrained.
-   * @api
-   */
-
-
-  View.prototype.setConstrainResolution = function (enabled) {
-    this.applyOptions_(this.getUpdatedOptions_({
-      constrainResolution: enabled
-    }));
-  };
-  /**
-   * Get the view projection.
-   * @return {import("./proj/Projection.js").default} The projection of the view.
-   * @api
-   */
-
-
-  View.prototype.getProjection = function () {
-    return this.projection_;
-  };
-  /**
-   * Get the view resolution.
-   * @return {number|undefined} The resolution of the view.
-   * @observable
-   * @api
-   */
-
-
-  View.prototype.getResolution = function () {
-    return (
-      /** @type {number|undefined} */
-      this.get(_ViewProperty.default.RESOLUTION)
-    );
-  };
-  /**
-   * Get the resolutions for the view. This returns the array of resolutions
-   * passed to the constructor of the View, or undefined if none were given.
-   * @return {Array<number>|undefined} The resolutions of the view.
-   * @api
-   */
-
-
-  View.prototype.getResolutions = function () {
-    return this.resolutions_;
-  };
-  /**
-   * Get the resolution for a provided extent (in map units) and size (in pixels).
-   * @param {import("./extent.js").Extent} extent Extent.
-   * @param {import("./size.js").Size=} opt_size Box pixel size.
-   * @return {number} The resolution at which the provided extent will render at
-   *     the given size.
-   * @api
-   */
-
-
-  View.prototype.getResolutionForExtent = function (extent, opt_size) {
-    return this.getResolutionForExtentInternal((0, _proj.fromUserExtent)(extent, this.getProjection()), opt_size);
-  };
-  /**
-   * Get the resolution for a provided extent (in map units) and size (in pixels).
-   * @param {import("./extent.js").Extent} extent Extent.
-   * @param {import("./size.js").Size=} opt_size Box pixel size.
-   * @return {number} The resolution at which the provided extent will render at
-   *     the given size.
-   */
-
-
-  View.prototype.getResolutionForExtentInternal = function (extent, opt_size) {
-    var size = opt_size || this.getViewportSize_();
-    var xResolution = (0, _extent.getWidth)(extent) / size[0];
-    var yResolution = (0, _extent.getHeight)(extent) / size[1];
-    return Math.max(xResolution, yResolution);
-  };
-  /**
-   * Return a function that returns a value between 0 and 1 for a
-   * resolution. Exponential scaling is assumed.
-   * @param {number=} opt_power Power.
-   * @return {function(number): number} Resolution for value function.
-   */
-
-
-  View.prototype.getResolutionForValueFunction = function (opt_power) {
-    var power = opt_power || 2;
-    var maxResolution = this.getConstrainedResolution(this.maxResolution_);
-    var minResolution = this.minResolution_;
-    var max = Math.log(maxResolution / minResolution) / Math.log(power);
-    return (
-      /**
-       * @param {number} value Value.
-       * @return {number} Resolution.
-       */
-      function (value) {
-        var resolution = maxResolution / Math.pow(power, value * max);
-        return resolution;
-      }
-    );
-  };
-  /**
-   * Get the view rotation.
-   * @return {number} The rotation of the view in radians.
-   * @observable
-   * @api
-   */
-
-
-  View.prototype.getRotation = function () {
-    return (
-      /** @type {number} */
-      this.get(_ViewProperty.default.ROTATION)
-    );
-  };
-  /**
-   * Return a function that returns a resolution for a value between
-   * 0 and 1. Exponential scaling is assumed.
-   * @param {number=} opt_power Power.
-   * @return {function(number): number} Value for resolution function.
-   */
-
-
-  View.prototype.getValueForResolutionFunction = function (opt_power) {
-    var logPower = Math.log(opt_power || 2);
-    var maxResolution = this.getConstrainedResolution(this.maxResolution_);
-    var minResolution = this.minResolution_;
-    var max = Math.log(maxResolution / minResolution) / logPower;
-    return (
-      /**
-       * @param {number} resolution Resolution.
-       * @return {number} Value.
-       */
-      function (resolution) {
-        var value = Math.log(maxResolution / resolution) / logPower / max;
-        return value;
-      }
-    );
-  };
-  /**
-   * Returns the size of the viewport minus padding.
-   * @private
-   * @param {number=} opt_rotation Take into account the rotation of the viewport when giving the size
-   * @return {import("./size.js").Size} Viewport size reduced by the padding.
-   */
-
-
-  View.prototype.getViewportSizeMinusPadding_ = function (opt_rotation) {
-    var size = this.getViewportSize_(opt_rotation);
-    var padding = this.padding;
-
-    if (padding) {
-      size = [size[0] - padding[1] - padding[3], size[1] - padding[0] - padding[2]];
-    }
-
-    return size;
-  };
-  /**
-   * @return {State} View state.
-   */
-
-
-  View.prototype.getState = function () {
-    var projection = this.getProjection();
-    var resolution =
-    /** @type {number} */
-    this.getResolution();
-    var rotation = this.getRotation();
-    var center =
-    /** @type {import("./coordinate.js").Coordinate} */
-    this.getCenterInternal();
-    var padding = this.padding;
-
-    if (padding) {
-      var reducedSize = this.getViewportSizeMinusPadding_();
-      center = calculateCenterOn(center, this.getViewportSize_(), [reducedSize[0] / 2 + padding[3], reducedSize[1] / 2 + padding[0]], resolution, rotation);
-    }
-
-    return {
-      center: center.slice(0),
-      projection: projection !== undefined ? projection : null,
-      resolution: resolution,
-      rotation: rotation,
-      zoom: this.getZoom()
-    };
-  };
-  /**
-   * Get the current zoom level. This method may return non-integer zoom levels
-   * if the view does not constrain the resolution, or if an interaction or
-   * animation is underway.
-   * @return {number|undefined} Zoom.
-   * @api
-   */
-
-
-  View.prototype.getZoom = function () {
-    var zoom;
-    var resolution = this.getResolution();
-
-    if (resolution !== undefined) {
-      zoom = this.getZoomForResolution(resolution);
-    }
-
-    return zoom;
-  };
-  /**
-   * Get the zoom level for a resolution.
-   * @param {number} resolution The resolution.
-   * @return {number|undefined} The zoom level for the provided resolution.
-   * @api
-   */
-
-
-  View.prototype.getZoomForResolution = function (resolution) {
-    var offset = this.minZoom_ || 0;
-    var max, zoomFactor;
-
-    if (this.resolutions_) {
-      var nearest = (0, _array.linearFindNearest)(this.resolutions_, resolution, 1);
-      offset = nearest;
-      max = this.resolutions_[nearest];
-
-      if (nearest == this.resolutions_.length - 1) {
-        zoomFactor = 2;
-      } else {
-        zoomFactor = max / this.resolutions_[nearest + 1];
-      }
-    } else {
-      max = this.maxResolution_;
-      zoomFactor = this.zoomFactor_;
-    }
-
-    return offset + Math.log(max / resolution) / Math.log(zoomFactor);
-  };
-  /**
-   * Get the resolution for a zoom level.
-   * @param {number} zoom Zoom level.
-   * @return {number} The view resolution for the provided zoom level.
-   * @api
-   */
-
-
-  View.prototype.getResolutionForZoom = function (zoom) {
-    if (this.resolutions_) {
-      if (this.resolutions_.length <= 1) {
-        return 0;
-      }
-
-      var baseLevel = (0, _math.clamp)(Math.floor(zoom), 0, this.resolutions_.length - 2);
-      var zoomFactor = this.resolutions_[baseLevel] / this.resolutions_[baseLevel + 1];
-      return this.resolutions_[baseLevel] / Math.pow(zoomFactor, (0, _math.clamp)(zoom - baseLevel, 0, 1));
-    } else {
-      return this.maxResolution_ / Math.pow(this.zoomFactor_, zoom - this.minZoom_);
-    }
-  };
-  /**
-   * Fit the given geometry or extent based on the given map size and border.
-   * The size is pixel dimensions of the box to fit the extent into.
-   * In most cases you will want to use the map size, that is `map.getSize()`.
-   * Takes care of the map angle.
-   * @param {import("./geom/SimpleGeometry.js").default|import("./extent.js").Extent} geometryOrExtent The geometry or
-   *     extent to fit the view to.
-   * @param {FitOptions=} opt_options Options.
-   * @api
-   */
-
-
-  View.prototype.fit = function (geometryOrExtent, opt_options) {
-    /** @type {import("./geom/SimpleGeometry.js").default} */
-    var geometry;
-    (0, _asserts.assert)(Array.isArray(geometryOrExtent) || typeof
-    /** @type {?} */
-    geometryOrExtent.getSimplifiedGeometry === 'function', 24); // Invalid extent or geometry provided as `geometry`
-
-    if (Array.isArray(geometryOrExtent)) {
-      (0, _asserts.assert)(!(0, _extent.isEmpty)(geometryOrExtent), 25); // Cannot fit empty extent provided as `geometry`
-
-      var extent = (0, _proj.fromUserExtent)(geometryOrExtent, this.getProjection());
-      geometry = (0, _Polygon.fromExtent)(extent);
-    } else if (geometryOrExtent.getType() === _GeometryType.default.CIRCLE) {
-      var extent = (0, _proj.fromUserExtent)(geometryOrExtent.getExtent(), this.getProjection());
-      geometry = (0, _Polygon.fromExtent)(extent);
-      geometry.rotate(this.getRotation(), (0, _extent.getCenter)(extent));
-    } else {
-      var userProjection = (0, _proj.getUserProjection)();
-
-      if (userProjection) {
-        geometry =
-        /** @type {import("./geom/SimpleGeometry.js").default} */
-        geometryOrExtent.clone().transform(userProjection, this.getProjection());
-      } else {
-        geometry = geometryOrExtent;
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      if (geometries[i].intersectsExtent(extent)) {
+        return true;
       }
     }
 
-    this.fitInternal(geometry, opt_options);
+    return false;
   };
   /**
-   * @param {import("./geom/SimpleGeometry.js").default} geometry The geometry.
-   * @param {FitOptions=} opt_options Options.
+   * @return {boolean} Is empty.
    */
 
 
-  View.prototype.fitInternal = function (geometry, opt_options) {
-    var options = opt_options || {};
-    var size = options.size;
-
-    if (!size) {
-      size = this.getViewportSizeMinusPadding_();
-    }
-
-    var padding = options.padding !== undefined ? options.padding : [0, 0, 0, 0];
-    var nearest = options.nearest !== undefined ? options.nearest : false;
-    var minResolution;
-
-    if (options.minResolution !== undefined) {
-      minResolution = options.minResolution;
-    } else if (options.maxZoom !== undefined) {
-      minResolution = this.getResolutionForZoom(options.maxZoom);
-    } else {
-      minResolution = 0;
-    }
-
-    var coords = geometry.getFlatCoordinates(); // calculate rotated extent
-
-    var rotation = this.getRotation();
-    var cosAngle = Math.cos(-rotation);
-    var sinAngle = Math.sin(-rotation);
-    var minRotX = +Infinity;
-    var minRotY = +Infinity;
-    var maxRotX = -Infinity;
-    var maxRotY = -Infinity;
-    var stride = geometry.getStride();
-
-    for (var i = 0, ii = coords.length; i < ii; i += stride) {
-      var rotX = coords[i] * cosAngle - coords[i + 1] * sinAngle;
-      var rotY = coords[i] * sinAngle + coords[i + 1] * cosAngle;
-      minRotX = Math.min(minRotX, rotX);
-      minRotY = Math.min(minRotY, rotY);
-      maxRotX = Math.max(maxRotX, rotX);
-      maxRotY = Math.max(maxRotY, rotY);
-    } // calculate resolution
-
-
-    var resolution = this.getResolutionForExtentInternal([minRotX, minRotY, maxRotX, maxRotY], [size[0] - padding[1] - padding[3], size[1] - padding[0] - padding[2]]);
-    resolution = isNaN(resolution) ? minResolution : Math.max(resolution, minResolution);
-    resolution = this.getConstrainedResolution(resolution, nearest ? 0 : 1); // calculate center
-
-    sinAngle = -sinAngle; // go back to original rotation
-
-    var centerRotX = (minRotX + maxRotX) / 2;
-    var centerRotY = (minRotY + maxRotY) / 2;
-    centerRotX += (padding[1] - padding[3]) / 2 * resolution;
-    centerRotY += (padding[0] - padding[2]) / 2 * resolution;
-    var centerX = centerRotX * cosAngle - centerRotY * sinAngle;
-    var centerY = centerRotY * cosAngle + centerRotX * sinAngle;
-    var center = this.getConstrainedCenter([centerX, centerY], resolution);
-    var callback = options.callback ? options.callback : _functions.VOID;
-
-    if (options.duration !== undefined) {
-      this.animateInternal({
-        resolution: resolution,
-        center: center,
-        duration: options.duration,
-        easing: options.easing
-      }, callback);
-    } else {
-      this.targetResolution_ = resolution;
-      this.targetCenter_ = center;
-      this.applyTargetState_(false, true);
-      animationCallback(callback, true);
-    }
+  GeometryCollection.prototype.isEmpty = function () {
+    return this.geometries_.length === 0;
   };
   /**
-   * Center on coordinate and view position.
-   * @param {import("./coordinate.js").Coordinate} coordinate Coordinate.
-   * @param {import("./size.js").Size} size Box pixel size.
-   * @param {import("./pixel.js").Pixel} position Position on the view to center on.
+   * Rotate the geometry around a given coordinate. This modifies the geometry
+   * coordinates in place.
+   * @param {number} angle Rotation angle in radians.
+   * @param {import("../coordinate.js").Coordinate} anchor The rotation center.
    * @api
    */
 
 
-  View.prototype.centerOn = function (coordinate, size, position) {
-    this.centerOnInternal((0, _proj.fromUserCoordinate)(coordinate, this.getProjection()), size, position);
-  };
-  /**
-   * @param {import("./coordinate.js").Coordinate} coordinate Coordinate.
-   * @param {import("./size.js").Size} size Box pixel size.
-   * @param {import("./pixel.js").Pixel} position Position on the view to center on.
-   */
+  GeometryCollection.prototype.rotate = function (angle, anchor) {
+    var geometries = this.geometries_;
 
-
-  View.prototype.centerOnInternal = function (coordinate, size, position) {
-    this.setCenterInternal(calculateCenterOn(coordinate, size, position, this.getResolution(), this.getRotation()));
-  };
-  /**
-   * Calculates the shift between map and viewport center.
-   * @param {import("./coordinate.js").Coordinate} center Center.
-   * @param {number} resolution Resolution.
-   * @param {number} rotation Rotation.
-   * @param {import("./size.js").Size} size Size.
-   * @return {Array<number>|undefined} Center shift.
-   */
-
-
-  View.prototype.calculateCenterShift = function (center, resolution, rotation, size) {
-    var centerShift;
-    var padding = this.padding;
-
-    if (padding && center) {
-      var reducedSize = this.getViewportSizeMinusPadding_(-rotation);
-      var shiftedCenter = calculateCenterOn(center, size, [reducedSize[0] / 2 + padding[3], reducedSize[1] / 2 + padding[0]], resolution, rotation);
-      centerShift = [center[0] - shiftedCenter[0], center[1] - shiftedCenter[1]];
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      geometries[i].rotate(angle, anchor);
     }
 
-    return centerShift;
-  };
-  /**
-   * @return {boolean} Is defined.
-   */
-
-
-  View.prototype.isDef = function () {
-    return !!this.getCenterInternal() && this.getResolution() !== undefined;
-  };
-  /**
-   * Adds relative coordinates to the center of the view. Any extent constraint will apply.
-   * @param {import("./coordinate.js").Coordinate} deltaCoordinates Relative value to add.
-   * @api
-   */
-
-
-  View.prototype.adjustCenter = function (deltaCoordinates) {
-    var center = (0, _proj.toUserCoordinate)(this.targetCenter_, this.getProjection());
-    this.setCenter([center[0] + deltaCoordinates[0], center[1] + deltaCoordinates[1]]);
-  };
-  /**
-   * Adds relative coordinates to the center of the view. Any extent constraint will apply.
-   * @param {import("./coordinate.js").Coordinate} deltaCoordinates Relative value to add.
-   */
-
-
-  View.prototype.adjustCenterInternal = function (deltaCoordinates) {
-    var center = this.targetCenter_;
-    this.setCenterInternal([center[0] + deltaCoordinates[0], center[1] + deltaCoordinates[1]]);
-  };
-  /**
-   * Multiply the view resolution by a ratio, optionally using an anchor. Any resolution
-   * constraint will apply.
-   * @param {number} ratio The ratio to apply on the view resolution.
-   * @param {import("./coordinate.js").Coordinate=} opt_anchor The origin of the transformation.
-   * @api
-   */
-
-
-  View.prototype.adjustResolution = function (ratio, opt_anchor) {
-    var anchor = opt_anchor && (0, _proj.fromUserCoordinate)(opt_anchor, this.getProjection());
-    this.adjustResolutionInternal(ratio, anchor);
-  };
-  /**
-   * Multiply the view resolution by a ratio, optionally using an anchor. Any resolution
-   * constraint will apply.
-   * @param {number} ratio The ratio to apply on the view resolution.
-   * @param {import("./coordinate.js").Coordinate=} opt_anchor The origin of the transformation.
-   */
-
-
-  View.prototype.adjustResolutionInternal = function (ratio, opt_anchor) {
-    var isMoving = this.getAnimating() || this.getInteracting();
-    var size = this.getViewportSize_(this.getRotation());
-    var newResolution = this.constraints_.resolution(this.targetResolution_ * ratio, 0, size, isMoving);
-
-    if (opt_anchor) {
-      this.targetCenter_ = this.calculateCenterZoom(newResolution, opt_anchor);
-    }
-
-    this.targetResolution_ *= ratio;
-    this.applyTargetState_();
-  };
-  /**
-   * Adds a value to the view zoom level, optionally using an anchor. Any resolution
-   * constraint will apply.
-   * @param {number} delta Relative value to add to the zoom level.
-   * @param {import("./coordinate.js").Coordinate=} opt_anchor The origin of the transformation.
-   * @api
-   */
-
-
-  View.prototype.adjustZoom = function (delta, opt_anchor) {
-    this.adjustResolution(Math.pow(this.zoomFactor_, -delta), opt_anchor);
-  };
-  /**
-   * Adds a value to the view rotation, optionally using an anchor. Any rotation
-   * constraint will apply.
-   * @param {number} delta Relative value to add to the zoom rotation, in radians.
-   * @param {import("./coordinate.js").Coordinate=} opt_anchor The rotation center.
-   * @api
-   */
-
-
-  View.prototype.adjustRotation = function (delta, opt_anchor) {
-    if (opt_anchor) {
-      opt_anchor = (0, _proj.fromUserCoordinate)(opt_anchor, this.getProjection());
-    }
-
-    this.adjustRotationInternal(delta, opt_anchor);
-  };
-  /**
-   * @param {number} delta Relative value to add to the zoom rotation, in radians.
-   * @param {import("./coordinate.js").Coordinate=} opt_anchor The rotation center.
-   */
-
-
-  View.prototype.adjustRotationInternal = function (delta, opt_anchor) {
-    var isMoving = this.getAnimating() || this.getInteracting();
-    var newRotation = this.constraints_.rotation(this.targetRotation_ + delta, isMoving);
-
-    if (opt_anchor) {
-      this.targetCenter_ = this.calculateCenterRotate(newRotation, opt_anchor);
-    }
-
-    this.targetRotation_ += delta;
-    this.applyTargetState_();
-  };
-  /**
-   * Set the center of the current view. Any extent constraint will apply.
-   * @param {import("./coordinate.js").Coordinate|undefined} center The center of the view.
-   * @observable
-   * @api
-   */
-
-
-  View.prototype.setCenter = function (center) {
-    this.setCenterInternal((0, _proj.fromUserCoordinate)(center, this.getProjection()));
-  };
-  /**
-   * Set the center using the view projection (not the user projection).
-   * @param {import("./coordinate.js").Coordinate|undefined} center The center of the view.
-   */
-
-
-  View.prototype.setCenterInternal = function (center) {
-    this.targetCenter_ = center;
-    this.applyTargetState_();
-  };
-  /**
-   * @param {import("./ViewHint.js").default} hint Hint.
-   * @param {number} delta Delta.
-   * @return {number} New value.
-   */
-
-
-  View.prototype.setHint = function (hint, delta) {
-    this.hints_[hint] += delta;
     this.changed();
-    return this.hints_[hint];
   };
   /**
-   * Set the resolution for this view. Any resolution constraint will apply.
-   * @param {number|undefined} resolution The resolution of the view.
-   * @observable
+   * Scale the geometry (with an optional origin).  This modifies the geometry
+   * coordinates in place.
+   * @abstract
+   * @param {number} sx The scaling factor in the x-direction.
+   * @param {number=} opt_sy The scaling factor in the y-direction (defaults to sx).
+   * @param {import("../coordinate.js").Coordinate=} opt_anchor The scale origin (defaults to the center
+   *     of the geometry extent).
    * @api
    */
 
 
-  View.prototype.setResolution = function (resolution) {
-    this.targetResolution_ = resolution;
-    this.applyTargetState_();
+  GeometryCollection.prototype.scale = function (sx, opt_sy, opt_anchor) {
+    var anchor = opt_anchor;
+
+    if (!anchor) {
+      anchor = (0, _extent.getCenter)(this.getExtent());
+    }
+
+    var geometries = this.geometries_;
+
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      geometries[i].scale(sx, opt_sy, anchor);
+    }
+
+    this.changed();
   };
   /**
-   * Set the rotation for this view. Any rotation constraint will apply.
-   * @param {number} rotation The rotation of the view in radians.
-   * @observable
+   * Set the geometries that make up this geometry collection.
+   * @param {Array<Geometry>} geometries Geometries.
    * @api
    */
 
 
-  View.prototype.setRotation = function (rotation) {
-    this.targetRotation_ = rotation;
-    this.applyTargetState_();
+  GeometryCollection.prototype.setGeometries = function (geometries) {
+    this.setGeometriesArray(cloneGeometries(geometries));
   };
   /**
-   * Zoom to a specific zoom level. Any resolution constrain will apply.
-   * @param {number} zoom Zoom level.
+   * @param {Array<Geometry>} geometries Geometries.
+   */
+
+
+  GeometryCollection.prototype.setGeometriesArray = function (geometries) {
+    this.unlistenGeometriesChange_();
+    this.geometries_ = geometries;
+    this.listenGeometriesChange_();
+    this.changed();
+  };
+  /**
+   * Apply a transform function to the coordinates of the geometry.
+   * The geometry is modified in place.
+   * If you do not want the geometry modified in place, first `clone()` it and
+   * then use this function on the clone.
+   * @param {import("../proj.js").TransformFunction} transformFn Transform function.
+   * Called with a flat array of geometry coordinates.
    * @api
    */
 
 
-  View.prototype.setZoom = function (zoom) {
-    this.setResolution(this.getResolutionForZoom(zoom));
+  GeometryCollection.prototype.applyTransform = function (transformFn) {
+    var geometries = this.geometries_;
+
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      geometries[i].applyTransform(transformFn);
+    }
+
+    this.changed();
   };
   /**
-   * Recompute rotation/resolution/center based on target values.
-   * Note: we have to compute rotation first, then resolution and center considering that
-   * parameters can influence one another in case a view extent constraint is present.
-   * @param {boolean=} opt_doNotCancelAnims Do not cancel animations.
-   * @param {boolean=} opt_forceMoving Apply constraints as if the view is moving.
-   * @private
-   */
-
-
-  View.prototype.applyTargetState_ = function (opt_doNotCancelAnims, opt_forceMoving) {
-    var isMoving = this.getAnimating() || this.getInteracting() || opt_forceMoving; // compute rotation
-
-    var newRotation = this.constraints_.rotation(this.targetRotation_, isMoving);
-    var size = this.getViewportSize_(newRotation);
-    var newResolution = this.constraints_.resolution(this.targetResolution_, 0, size, isMoving);
-    var newCenter = this.constraints_.center(this.targetCenter_, newResolution, size, isMoving, this.calculateCenterShift(this.targetCenter_, newResolution, newRotation, size));
-
-    if (this.get(_ViewProperty.default.ROTATION) !== newRotation) {
-      this.set(_ViewProperty.default.ROTATION, newRotation);
-    }
-
-    if (this.get(_ViewProperty.default.RESOLUTION) !== newResolution) {
-      this.set(_ViewProperty.default.RESOLUTION, newResolution);
-    }
-
-    if (!this.get(_ViewProperty.default.CENTER) || !(0, _coordinate.equals)(this.get(_ViewProperty.default.CENTER), newCenter)) {
-      this.set(_ViewProperty.default.CENTER, newCenter);
-    }
-
-    if (this.getAnimating() && !opt_doNotCancelAnims) {
-      this.cancelAnimations();
-    }
-
-    this.cancelAnchor_ = undefined;
-  };
-  /**
-   * If any constraints need to be applied, an animation will be triggered.
-   * This is typically done on interaction end.
-   * Note: calling this with a duration of 0 will apply the constrained values straight away,
-   * without animation.
-   * @param {number=} opt_duration The animation duration in ms.
-   * @param {number=} opt_resolutionDirection Which direction to zoom.
-   * @param {import("./coordinate.js").Coordinate=} opt_anchor The origin of the transformation.
-   */
-
-
-  View.prototype.resolveConstraints = function (opt_duration, opt_resolutionDirection, opt_anchor) {
-    var duration = opt_duration !== undefined ? opt_duration : 200;
-    var direction = opt_resolutionDirection || 0;
-    var newRotation = this.constraints_.rotation(this.targetRotation_);
-    var size = this.getViewportSize_(newRotation);
-    var newResolution = this.constraints_.resolution(this.targetResolution_, direction, size);
-    var newCenter = this.constraints_.center(this.targetCenter_, newResolution, size, false, this.calculateCenterShift(this.targetCenter_, newResolution, newRotation, size));
-
-    if (duration === 0 && !this.cancelAnchor_) {
-      this.targetResolution_ = newResolution;
-      this.targetRotation_ = newRotation;
-      this.targetCenter_ = newCenter;
-      this.applyTargetState_();
-      return;
-    }
-
-    var anchor = opt_anchor || (duration === 0 ? this.cancelAnchor_ : undefined);
-    this.cancelAnchor_ = undefined;
-
-    if (this.getResolution() !== newResolution || this.getRotation() !== newRotation || !this.getCenterInternal() || !(0, _coordinate.equals)(this.getCenterInternal(), newCenter)) {
-      if (this.getAnimating()) {
-        this.cancelAnimations();
-      }
-
-      this.animateInternal({
-        rotation: newRotation,
-        center: newCenter,
-        resolution: newResolution,
-        duration: duration,
-        easing: _easing.easeOut,
-        anchor: anchor
-      });
-    }
-  };
-  /**
-   * Notify the View that an interaction has started.
-   * The view state will be resolved to a stable one if needed
-   * (depending on its constraints).
+   * Translate the geometry.  This modifies the geometry coordinates in place.  If
+   * instead you want a new geometry, first `clone()` this geometry.
+   * @param {number} deltaX Delta X.
+   * @param {number} deltaY Delta Y.
    * @api
    */
 
 
-  View.prototype.beginInteraction = function () {
-    this.resolveConstraints(0);
-    this.setHint(_ViewHint.default.INTERACTING, 1);
-  };
-  /**
-   * Notify the View that an interaction has ended. The view state will be resolved
-   * to a stable one if needed (depending on its constraints).
-   * @param {number=} opt_duration Animation duration in ms.
-   * @param {number=} opt_resolutionDirection Which direction to zoom.
-   * @param {import("./coordinate.js").Coordinate=} opt_anchor The origin of the transformation.
-   * @api
-   */
+  GeometryCollection.prototype.translate = function (deltaX, deltaY) {
+    var geometries = this.geometries_;
 
-
-  View.prototype.endInteraction = function (opt_duration, opt_resolutionDirection, opt_anchor) {
-    var anchor = opt_anchor && (0, _proj.fromUserCoordinate)(opt_anchor, this.getProjection());
-    this.endInteractionInternal(opt_duration, opt_resolutionDirection, anchor);
-  };
-  /**
-   * Notify the View that an interaction has ended. The view state will be resolved
-   * to a stable one if needed (depending on its constraints).
-   * @param {number=} opt_duration Animation duration in ms.
-   * @param {number=} opt_resolutionDirection Which direction to zoom.
-   * @param {import("./coordinate.js").Coordinate=} opt_anchor The origin of the transformation.
-   */
-
-
-  View.prototype.endInteractionInternal = function (opt_duration, opt_resolutionDirection, opt_anchor) {
-    this.setHint(_ViewHint.default.INTERACTING, -1);
-    this.resolveConstraints(opt_duration, opt_resolutionDirection, opt_anchor);
-  };
-  /**
-   * Get a valid position for the view center according to the current constraints.
-   * @param {import("./coordinate.js").Coordinate|undefined} targetCenter Target center position.
-   * @param {number=} opt_targetResolution Target resolution. If not supplied, the current one will be used.
-   * This is useful to guess a valid center position at a different zoom level.
-   * @return {import("./coordinate.js").Coordinate|undefined} Valid center position.
-   */
-
-
-  View.prototype.getConstrainedCenter = function (targetCenter, opt_targetResolution) {
-    var size = this.getViewportSize_(this.getRotation());
-    return this.constraints_.center(targetCenter, opt_targetResolution || this.getResolution(), size);
-  };
-  /**
-   * Get a valid zoom level according to the current view constraints.
-   * @param {number|undefined} targetZoom Target zoom.
-   * @param {number=} [opt_direction=0] Indicate which resolution should be used
-   * by a renderer if the view resolution does not match any resolution of the tile source.
-   * If 0, the nearest resolution will be used. If 1, the nearest lower resolution
-   * will be used. If -1, the nearest higher resolution will be used.
-   * @return {number|undefined} Valid zoom level.
-   */
-
-
-  View.prototype.getConstrainedZoom = function (targetZoom, opt_direction) {
-    var targetRes = this.getResolutionForZoom(targetZoom);
-    return this.getZoomForResolution(this.getConstrainedResolution(targetRes, opt_direction));
-  };
-  /**
-   * Get a valid resolution according to the current view constraints.
-   * @param {number|undefined} targetResolution Target resolution.
-   * @param {number=} [opt_direction=0] Indicate which resolution should be used
-   * by a renderer if the view resolution does not match any resolution of the tile source.
-   * If 0, the nearest resolution will be used. If 1, the nearest lower resolution
-   * will be used. If -1, the nearest higher resolution will be used.
-   * @return {number|undefined} Valid resolution.
-   */
-
-
-  View.prototype.getConstrainedResolution = function (targetResolution, opt_direction) {
-    var direction = opt_direction || 0;
-    var size = this.getViewportSize_(this.getRotation());
-    return this.constraints_.resolution(targetResolution, direction, size);
-  };
-
-  return View;
-}(_Object.default);
-/**
- * @param {Function} callback Callback.
- * @param {*} returnValue Return value.
- */
-
-
-function animationCallback(callback, returnValue) {
-  setTimeout(function () {
-    callback(returnValue);
-  }, 0);
-}
-/**
- * @param {ViewOptions} options View options.
- * @return {import("./centerconstraint.js").Type} The constraint.
- */
-
-
-function createCenterConstraint(options) {
-  if (options.extent !== undefined) {
-    var smooth = options.smoothExtentConstraint !== undefined ? options.smoothExtentConstraint : true;
-    return (0, _centerconstraint.createExtent)(options.extent, options.constrainOnlyCenter, smooth);
-  }
-
-  var projection = (0, _proj.createProjection)(options.projection, 'EPSG:3857');
-
-  if (options.multiWorld !== true && projection.isGlobal()) {
-    var extent = projection.getExtent().slice();
-    extent[0] = -Infinity;
-    extent[2] = Infinity;
-    return (0, _centerconstraint.createExtent)(extent, false, false);
-  }
-
-  return _centerconstraint.none;
-}
-/**
- * @param {ViewOptions} options View options.
- * @return {{constraint: import("./resolutionconstraint.js").Type, maxResolution: number,
- *     minResolution: number, minZoom: number, zoomFactor: number}} The constraint.
- */
-
-
-function createResolutionConstraint(options) {
-  var resolutionConstraint;
-  var maxResolution;
-  var minResolution; // TODO: move these to be ol constants
-  // see https://github.com/openlayers/openlayers/issues/2076
-
-  var defaultMaxZoom = 28;
-  var defaultZoomFactor = 2;
-  var minZoom = options.minZoom !== undefined ? options.minZoom : DEFAULT_MIN_ZOOM;
-  var maxZoom = options.maxZoom !== undefined ? options.maxZoom : defaultMaxZoom;
-  var zoomFactor = options.zoomFactor !== undefined ? options.zoomFactor : defaultZoomFactor;
-  var multiWorld = options.multiWorld !== undefined ? options.multiWorld : false;
-  var smooth = options.smoothResolutionConstraint !== undefined ? options.smoothResolutionConstraint : true;
-  var showFullExtent = options.showFullExtent !== undefined ? options.showFullExtent : false;
-  var projection = (0, _proj.createProjection)(options.projection, 'EPSG:3857');
-  var projExtent = projection.getExtent();
-  var constrainOnlyCenter = options.constrainOnlyCenter;
-  var extent = options.extent;
-
-  if (!multiWorld && !extent && projection.isGlobal()) {
-    constrainOnlyCenter = false;
-    extent = projExtent;
-  }
-
-  if (options.resolutions !== undefined) {
-    var resolutions = options.resolutions;
-    maxResolution = resolutions[minZoom];
-    minResolution = resolutions[maxZoom] !== undefined ? resolutions[maxZoom] : resolutions[resolutions.length - 1];
-
-    if (options.constrainResolution) {
-      resolutionConstraint = (0, _resolutionconstraint.createSnapToResolutions)(resolutions, smooth, !constrainOnlyCenter && extent, showFullExtent);
-    } else {
-      resolutionConstraint = (0, _resolutionconstraint.createMinMaxResolution)(maxResolution, minResolution, smooth, !constrainOnlyCenter && extent, showFullExtent);
+    for (var i = 0, ii = geometries.length; i < ii; ++i) {
+      geometries[i].translate(deltaX, deltaY);
     }
-  } else {
-    // calculate the default min and max resolution
-    var size = !projExtent ? // use an extent that can fit the whole world if need be
-    360 * _proj.METERS_PER_UNIT[_Units.default.DEGREES] / projection.getMetersPerUnit() : Math.max((0, _extent.getWidth)(projExtent), (0, _extent.getHeight)(projExtent));
-    var defaultMaxResolution = size / _common.DEFAULT_TILE_SIZE / Math.pow(defaultZoomFactor, DEFAULT_MIN_ZOOM);
-    var defaultMinResolution = defaultMaxResolution / Math.pow(defaultZoomFactor, defaultMaxZoom - DEFAULT_MIN_ZOOM); // user provided maxResolution takes precedence
 
-    maxResolution = options.maxResolution;
-
-    if (maxResolution !== undefined) {
-      minZoom = 0;
-    } else {
-      maxResolution = defaultMaxResolution / Math.pow(zoomFactor, minZoom);
-    } // user provided minResolution takes precedence
-
-
-    minResolution = options.minResolution;
-
-    if (minResolution === undefined) {
-      if (options.maxZoom !== undefined) {
-        if (options.maxResolution !== undefined) {
-          minResolution = maxResolution / Math.pow(zoomFactor, maxZoom);
-        } else {
-          minResolution = defaultMaxResolution / Math.pow(zoomFactor, maxZoom);
-        }
-      } else {
-        minResolution = defaultMinResolution;
-      }
-    } // given discrete zoom levels, minResolution may be different than provided
-
-
-    maxZoom = minZoom + Math.floor(Math.log(maxResolution / minResolution) / Math.log(zoomFactor));
-    minResolution = maxResolution / Math.pow(zoomFactor, maxZoom - minZoom);
-
-    if (options.constrainResolution) {
-      resolutionConstraint = (0, _resolutionconstraint.createSnapToPower)(zoomFactor, maxResolution, minResolution, smooth, !constrainOnlyCenter && extent, showFullExtent);
-    } else {
-      resolutionConstraint = (0, _resolutionconstraint.createMinMaxResolution)(maxResolution, minResolution, smooth, !constrainOnlyCenter && extent, showFullExtent);
-    }
-  }
-
-  return {
-    constraint: resolutionConstraint,
-    maxResolution: maxResolution,
-    minResolution: minResolution,
-    minZoom: minZoom,
-    zoomFactor: zoomFactor
+    this.changed();
   };
-}
+  /**
+   * Clean up.
+   */
+
+
+  GeometryCollection.prototype.disposeInternal = function () {
+    this.unlistenGeometriesChange_();
+
+    _super.prototype.disposeInternal.call(this);
+  };
+
+  return GeometryCollection;
+}(_Geometry.default);
 /**
- * @param {ViewOptions} options View options.
- * @return {import("./rotationconstraint.js").Type} Rotation constraint.
+ * @param {Array<Geometry>} geometries Geometries.
+ * @return {Array<Geometry>} Cloned geometries.
  */
 
 
-function createRotationConstraint(options) {
-  var enableRotation = options.enableRotation !== undefined ? options.enableRotation : true;
+function cloneGeometries(geometries) {
+  var clonedGeometries = [];
 
-  if (enableRotation) {
-    var constrainRotation = options.constrainRotation;
-
-    if (constrainRotation === undefined || constrainRotation === true) {
-      return (0, _rotationconstraint.createSnapToZero)();
-    } else if (constrainRotation === false) {
-      return _rotationconstraint.none;
-    } else if (typeof constrainRotation === 'number') {
-      return (0, _rotationconstraint.createSnapToN)(constrainRotation);
-    } else {
-      return _rotationconstraint.none;
-    }
-  } else {
-    return _rotationconstraint.disable;
-  }
-}
-/**
- * Determine if an animation involves no view change.
- * @param {Animation} animation The animation.
- * @return {boolean} The animation involves no view change.
- */
-
-
-function isNoopAnimation(animation) {
-  if (animation.sourceCenter && animation.targetCenter) {
-    if (!(0, _coordinate.equals)(animation.sourceCenter, animation.targetCenter)) {
-      return false;
-    }
+  for (var i = 0, ii = geometries.length; i < ii; ++i) {
+    clonedGeometries.push(geometries[i].clone());
   }
 
-  if (animation.sourceResolution !== animation.targetResolution) {
-    return false;
-  }
-
-  if (animation.sourceRotation !== animation.targetRotation) {
-    return false;
-  }
-
-  return true;
-}
-/**
- * @param {import("./coordinate.js").Coordinate} coordinate Coordinate.
- * @param {import("./size.js").Size} size Box pixel size.
- * @param {import("./pixel.js").Pixel} position Position on the view to center on.
- * @param {number} resolution Resolution.
- * @param {number} rotation Rotation.
- * @return {import("./coordinate.js").Coordinate} Shifted center.
- */
-
-
-function calculateCenterOn(coordinate, size, position, resolution, rotation) {
-  // calculate rotated position
-  var cosAngle = Math.cos(-rotation);
-  var sinAngle = Math.sin(-rotation);
-  var rotX = coordinate[0] * cosAngle - coordinate[1] * sinAngle;
-  var rotY = coordinate[1] * cosAngle + coordinate[0] * sinAngle;
-  rotX += (size[0] / 2 - position[0]) * resolution;
-  rotY += (position[1] - size[1] / 2) * resolution; // go back to original angle
-
-  sinAngle = -sinAngle; // go back to original rotation
-
-  var centerX = rotX * cosAngle - rotY * sinAngle;
-  var centerY = rotY * cosAngle + rotX * sinAngle;
-  return [centerX, centerY];
+  return clonedGeometries;
 }
 
-var _default = View;
+var _default = GeometryCollection;
 exports.default = _default;
-},{"./Object.js":"../node_modules/ol/Object.js","./geom/GeometryType.js":"../node_modules/ol/geom/GeometryType.js","./proj/Units.js":"../node_modules/ol/proj/Units.js","./ViewHint.js":"../node_modules/ol/ViewHint.js","./ViewProperty.js":"../node_modules/ol/ViewProperty.js","./tilegrid/common.js":"../node_modules/ol/tilegrid/common.js","./proj.js":"../node_modules/ol/proj.js","./functions.js":"../node_modules/ol/functions.js","./coordinate.js":"../node_modules/ol/coordinate.js","./asserts.js":"../node_modules/ol/asserts.js","./obj.js":"../node_modules/ol/obj.js","./centerconstraint.js":"../node_modules/ol/centerconstraint.js","./math.js":"../node_modules/ol/math.js","./resolutionconstraint.js":"../node_modules/ol/resolutionconstraint.js","./rotationconstraint.js":"../node_modules/ol/rotationconstraint.js","./easing.js":"../node_modules/ol/easing.js","./extent.js":"../node_modules/ol/extent.js","./array.js":"../node_modules/ol/array.js","./geom/Polygon.js":"../node_modules/ol/geom/Polygon.js"}],"../node_modules/ol/layer/TileProperty.js":[function(require,module,exports) {
+},{"../events/EventType.js":"../node_modules/ol/events/EventType.js","./Geometry.js":"../node_modules/ol/geom/Geometry.js","./GeometryType.js":"../node_modules/ol/geom/GeometryType.js","../extent.js":"../node_modules/ol/extent.js","../events.js":"../node_modules/ol/events.js"}],"../node_modules/ol/format/Feature.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.transformGeometryWithOptions = transformGeometryWithOptions;
+exports.transformExtentWithOptions = transformExtentWithOptions;
 exports.default = void 0;
 
-/**
- * @module ol/layer/TileProperty
- */
+var _Units = _interopRequireDefault(require("../proj/Units.js"));
 
-/**
- * @enum {string}
- */
-var _default = {
-  PRELOAD: 'preload',
-  USE_INTERIM_TILES_ON_ERROR: 'useInterimTilesOnError'
-};
-exports.default = _default;
-},{}],"../node_modules/ol/layer/BaseTile.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _Layer = _interopRequireDefault(require("./Layer.js"));
-
-var _TileProperty = _interopRequireDefault(require("./TileProperty.js"));
+var _util = require("../util.js");
 
 var _obj = require("../obj.js");
 
+var _proj = require("../proj.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @module ol/format/Feature
+ */
+
+/**
+ * @typedef {Object} ReadOptions
+ * @property {import("../proj.js").ProjectionLike} [dataProjection] Projection of the data we are reading.
+ * If not provided, the projection will be derived from the data (where possible) or
+ * the `dataProjection` of the format is assigned (where set). If the projection
+ * can not be derived from the data and if no `dataProjection` is set for a format,
+ * the features will not be reprojected.
+ * @property {import("../extent.js").Extent} [extent] Tile extent in map units of the tile being read.
+ * This is only required when reading data with tile pixels as geometry units. When configured,
+ * a `dataProjection` with `TILE_PIXELS` as `units` and the tile's pixel extent as `extent` needs to be
+ * provided.
+ * @property {import("../proj.js").ProjectionLike} [featureProjection] Projection of the feature geometries
+ * created by the format reader. If not provided, features will be returned in the
+ * `dataProjection`.
+ */
+
+/**
+ * @typedef {Object} WriteOptions
+ * @property {import("../proj.js").ProjectionLike} [dataProjection] Projection of the data we are writing.
+ * If not provided, the `dataProjection` of the format is assigned (where set).
+ * If no `dataProjection` is set for a format, the features will be returned
+ * in the `featureProjection`.
+ * @property {import("../proj.js").ProjectionLike} [featureProjection] Projection of the feature geometries
+ * that will be serialized by the format writer. If not provided, geometries are assumed
+ * to be in the `dataProjection` if that is set; in other words, they are not transformed.
+ * @property {boolean} [rightHanded] When writing geometries, follow the right-hand
+ * rule for linear ring orientation.  This means that polygons will have counter-clockwise
+ * exterior rings and clockwise interior rings.  By default, coordinates are serialized
+ * as they are provided at construction.  If `true`, the right-hand rule will
+ * be applied.  If `false`, the left-hand rule will be applied (clockwise for
+ * exterior and counter-clockwise for interior rings).  Note that not all
+ * formats support this.  The GeoJSON format does use this property when writing
+ * geometries.
+ * @property {number} [decimals] Maximum number of decimal places for coordinates.
+ * Coordinates are stored internally as floats, but floating-point arithmetic can create
+ * coordinates with a large number of decimal places, not generally wanted on output.
+ * Set a number here to round coordinates. Can also be used to ensure that
+ * coordinates read in can be written back out with the same number of decimals.
+ * Default is no rounding.
+ */
+
+/**
+ * @classdesc
+ * Abstract base class; normally only used for creating subclasses and not
+ * instantiated in apps.
+ * Base class for feature formats.
+ * {@link module:ol/format/Feature~FeatureFormat} subclasses provide the ability to decode and encode
+ * {@link module:ol/Feature~Feature} objects from a variety of commonly used geospatial
+ * file formats.  See the documentation for each format for more details.
+ *
+ * @abstract
+ * @api
+ */
+var FeatureFormat =
+/** @class */
+function () {
+  function FeatureFormat() {
+    /**
+     * @protected
+     * @type {import("../proj/Projection.js").default}
+     */
+    this.dataProjection = null;
+    /**
+     * @protected
+     * @type {import("../proj/Projection.js").default}
+     */
+
+    this.defaultFeatureProjection = null;
+  }
+  /**
+   * Adds the data projection to the read options.
+   * @param {Document|Element|Object|string} source Source.
+   * @param {ReadOptions=} opt_options Options.
+   * @return {ReadOptions|undefined} Options.
+   * @protected
+   */
+
+
+  FeatureFormat.prototype.getReadOptions = function (source, opt_options) {
+    var options;
+
+    if (opt_options) {
+      var dataProjection = opt_options.dataProjection ? (0, _proj.get)(opt_options.dataProjection) : this.readProjection(source);
+
+      if (opt_options.extent && dataProjection && dataProjection.getUnits() === _Units.default.TILE_PIXELS) {
+        dataProjection = (0, _proj.get)(dataProjection);
+        dataProjection.setWorldExtent(opt_options.extent);
+      }
+
+      options = {
+        dataProjection: dataProjection,
+        featureProjection: opt_options.featureProjection
+      };
+    }
+
+    return this.adaptOptions(options);
+  };
+  /**
+   * Sets the `dataProjection` on the options, if no `dataProjection`
+   * is set.
+   * @param {WriteOptions|ReadOptions|undefined} options
+   *     Options.
+   * @protected
+   * @return {WriteOptions|ReadOptions|undefined}
+   *     Updated options.
+   */
+
+
+  FeatureFormat.prototype.adaptOptions = function (options) {
+    return (0, _obj.assign)({
+      dataProjection: this.dataProjection,
+      featureProjection: this.defaultFeatureProjection
+    }, options);
+  };
+  /**
+   * @abstract
+   * @return {import("./FormatType.js").default} Format.
+   */
+
+
+  FeatureFormat.prototype.getType = function () {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Read a single feature from a source.
+   *
+   * @abstract
+   * @param {Document|Element|Object|string} source Source.
+   * @param {ReadOptions=} opt_options Read options.
+   * @return {import("../Feature.js").FeatureLike} Feature.
+   */
+
+
+  FeatureFormat.prototype.readFeature = function (source, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Read all features from a source.
+   *
+   * @abstract
+   * @param {Document|Element|ArrayBuffer|Object|string} source Source.
+   * @param {ReadOptions=} opt_options Read options.
+   * @return {Array<import("../Feature.js").FeatureLike>} Features.
+   */
+
+
+  FeatureFormat.prototype.readFeatures = function (source, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Read a single geometry from a source.
+   *
+   * @abstract
+   * @param {Document|Element|Object|string} source Source.
+   * @param {ReadOptions=} opt_options Read options.
+   * @return {import("../geom/Geometry.js").default} Geometry.
+   */
+
+
+  FeatureFormat.prototype.readGeometry = function (source, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Read the projection from a source.
+   *
+   * @abstract
+   * @param {Document|Element|Object|string} source Source.
+   * @return {import("../proj/Projection.js").default} Projection.
+   */
+
+
+  FeatureFormat.prototype.readProjection = function (source) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Encode a feature in this format.
+   *
+   * @abstract
+   * @param {import("../Feature.js").default} feature Feature.
+   * @param {WriteOptions=} opt_options Write options.
+   * @return {string} Result.
+   */
+
+
+  FeatureFormat.prototype.writeFeature = function (feature, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Encode an array of features in this format.
+   *
+   * @abstract
+   * @param {Array<import("../Feature.js").default>} features Features.
+   * @param {WriteOptions=} opt_options Write options.
+   * @return {string} Result.
+   */
+
+
+  FeatureFormat.prototype.writeFeatures = function (features, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Write a single geometry in this format.
+   *
+   * @abstract
+   * @param {import("../geom/Geometry.js").default} geometry Geometry.
+   * @param {WriteOptions=} opt_options Write options.
+   * @return {string} Result.
+   */
+
+
+  FeatureFormat.prototype.writeGeometry = function (geometry, opt_options) {
+    return (0, _util.abstract)();
+  };
+
+  return FeatureFormat;
+}();
+
+var _default = FeatureFormat;
+/**
+ * @param {import("../geom/Geometry.js").default} geometry Geometry.
+ * @param {boolean} write Set to true for writing, false for reading.
+ * @param {(WriteOptions|ReadOptions)=} opt_options Options.
+ * @return {import("../geom/Geometry.js").default} Transformed geometry.
+ */
+
+exports.default = _default;
+
+function transformGeometryWithOptions(geometry, write, opt_options) {
+  var featureProjection = opt_options ? (0, _proj.get)(opt_options.featureProjection) : null;
+  var dataProjection = opt_options ? (0, _proj.get)(opt_options.dataProjection) : null;
+  var transformed;
+
+  if (featureProjection && dataProjection && !(0, _proj.equivalent)(featureProjection, dataProjection)) {
+    transformed = (write ? geometry.clone() : geometry).transform(write ? featureProjection : dataProjection, write ? dataProjection : featureProjection);
+  } else {
+    transformed = geometry;
+  }
+
+  if (write && opt_options &&
+  /** @type {WriteOptions} */
+  opt_options.decimals !== undefined) {
+    var power_1 = Math.pow(10,
+    /** @type {WriteOptions} */
+    opt_options.decimals); // if decimals option on write, round each coordinate appropriately
+
+    /**
+     * @param {Array<number>} coordinates Coordinates.
+     * @return {Array<number>} Transformed coordinates.
+     */
+
+    var transform = function (coordinates) {
+      for (var i = 0, ii = coordinates.length; i < ii; ++i) {
+        coordinates[i] = Math.round(coordinates[i] * power_1) / power_1;
+      }
+
+      return coordinates;
+    };
+
+    if (transformed === geometry) {
+      transformed = geometry.clone();
+    }
+
+    transformed.applyTransform(transform);
+  }
+
+  return transformed;
+}
+/**
+ * @param {import("../extent.js").Extent} extent Extent.
+ * @param {ReadOptions=} opt_options Read options.
+ * @return {import("../extent.js").Extent} Transformed extent.
+ */
+
+
+function transformExtentWithOptions(extent, opt_options) {
+  var featureProjection = opt_options ? (0, _proj.get)(opt_options.featureProjection) : null;
+  var dataProjection = opt_options ? (0, _proj.get)(opt_options.dataProjection) : null;
+
+  if (featureProjection && dataProjection && !(0, _proj.equivalent)(featureProjection, dataProjection)) {
+    return (0, _proj.transformExtent)(extent, dataProjection, featureProjection);
+  } else {
+    return extent;
+  }
+}
+},{"../proj/Units.js":"../node_modules/ol/proj/Units.js","../util.js":"../node_modules/ol/util.js","../obj.js":"../node_modules/ol/obj.js","../proj.js":"../node_modules/ol/proj.js"}],"../node_modules/ol/format/JSONFeature.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Feature = _interopRequireDefault(require("./Feature.js"));
+
+var _FormatType = _interopRequireDefault(require("./FormatType.js"));
+
+var _util = require("../util.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var __extends = void 0 && (void 0).__extends || function () {
@@ -79768,297 +78467,231 @@ var __extends = void 0 && (void 0).__extends || function () {
   };
 }();
 /**
- * @module ol/layer/BaseTile
+ * @module ol/format/JSONFeature
  */
 
-
-/**
- * @typedef {Object} Options
- * @property {string} [className='ol-layer'] A CSS class name to set to the layer element.
- * @property {number} [opacity=1] Opacity (0, 1).
- * @property {boolean} [visible=true] Visibility.
- * @property {import("../extent.js").Extent} [extent] The bounding extent for layer rendering.  The layer will not be
- * rendered outside of this extent.
- * @property {number} [zIndex] The z-index for layer rendering.  At rendering time, the layers
- * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
- * for layers that are added to the map's `layers` collection, or `Infinity` when the layer's `setMap()`
- * method was used.
- * @property {number} [minResolution] The minimum resolution (inclusive) at which this layer will be
- * visible.
- * @property {number} [maxResolution] The maximum resolution (exclusive) below which this layer will
- * be visible.
- * @property {number} [minZoom] The minimum view zoom level (exclusive) above which this layer will be
- * visible.
- * @property {number} [maxZoom] The maximum view zoom level (inclusive) at which this layer will
- * be visible.
- * @property {number} [preload=0] Preload. Load low-resolution tiles up to `preload` levels. `0`
- * means no preloading.
- * @property {import("../source/Tile.js").default} [source] Source for this layer.
- * @property {import("../PluggableMap.js").default} [map] Sets the layer as overlay on a map. The map will not manage
- * this layer in its layers collection, and the layer will be rendered on top. This is useful for
- * temporary layers. The standard way to add a layer to a map and have it managed by the map is to
- * use {@link module:ol/Map#addLayer}.
- * @property {boolean} [useInterimTilesOnError=true] Use interim tiles on error.
- */
 
 /**
  * @classdesc
- * For layer sources that provide pre-rendered, tiled images in grids that are
- * organized by zoom levels for specific resolutions.
- * Note that any property set in the options is set as a {@link module:ol/Object~BaseObject}
- * property on the layer object; for example, setting `title: 'My Title'` in the
- * options means that `title` is observable, and has get/set accessors.
+ * Abstract base class; normally only used for creating subclasses and not
+ * instantiated in apps.
+ * Base class for JSON feature formats.
  *
- * @extends {Layer<import("../source/Tile.js").default>}
- * @api
+ * @abstract
  */
-var BaseTileLayer =
+var JSONFeature =
 /** @class */
 function (_super) {
-  __extends(BaseTileLayer, _super);
-  /**
-   * @param {Options=} opt_options Tile layer options.
-   */
+  __extends(JSONFeature, _super);
 
-
-  function BaseTileLayer(opt_options) {
-    var _this = this;
-
-    var options = opt_options ? opt_options : {};
-    var baseOptions = (0, _obj.assign)({}, options);
-    delete baseOptions.preload;
-    delete baseOptions.useInterimTilesOnError;
-    _this = _super.call(this, baseOptions) || this;
-
-    _this.setPreload(options.preload !== undefined ? options.preload : 0);
-
-    _this.setUseInterimTilesOnError(options.useInterimTilesOnError !== undefined ? options.useInterimTilesOnError : true);
-
-    return _this;
+  function JSONFeature() {
+    return _super.call(this) || this;
   }
   /**
-   * Return the level as number to which we will preload tiles up to.
-   * @return {number} The level to preload tiles up to.
-   * @observable
-   * @api
+   * @return {import("./FormatType.js").default} Format.
    */
 
 
-  BaseTileLayer.prototype.getPreload = function () {
-    return (
-      /** @type {number} */
-      this.get(_TileProperty.default.PRELOAD)
-    );
+  JSONFeature.prototype.getType = function () {
+    return _FormatType.default.JSON;
   };
   /**
-   * Set the level as number to which we will preload tiles up to.
-   * @param {number} preload The level to preload tiles up to.
-   * @observable
+   * Read a feature.  Only works for a single feature. Use `readFeatures` to
+   * read a feature collection.
+   *
+   * @param {ArrayBuffer|Document|Element|Object|string} source Source.
+   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+   * @return {import("../Feature.js").default} Feature.
    * @api
    */
 
 
-  BaseTileLayer.prototype.setPreload = function (preload) {
-    this.set(_TileProperty.default.PRELOAD, preload);
+  JSONFeature.prototype.readFeature = function (source, opt_options) {
+    return this.readFeatureFromObject(getObject(source), this.getReadOptions(source, opt_options));
   };
   /**
-   * Whether we use interim tiles on error.
-   * @return {boolean} Use interim tiles on error.
-   * @observable
+   * Read all features.  Works with both a single feature and a feature
+   * collection.
+   *
+   * @param {ArrayBuffer|Document|Element|Object|string} source Source.
+   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+   * @return {Array<import("../Feature.js").default>} Features.
    * @api
    */
 
 
-  BaseTileLayer.prototype.getUseInterimTilesOnError = function () {
-    return (
-      /** @type {boolean} */
-      this.get(_TileProperty.default.USE_INTERIM_TILES_ON_ERROR)
-    );
+  JSONFeature.prototype.readFeatures = function (source, opt_options) {
+    return this.readFeaturesFromObject(getObject(source), this.getReadOptions(source, opt_options));
   };
   /**
-   * Set whether we use interim tiles on error.
-   * @param {boolean} useInterimTilesOnError Use interim tiles on error.
-   * @observable
+   * @abstract
+   * @param {Object} object Object.
+   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+   * @protected
+   * @return {import("../Feature.js").default} Feature.
+   */
+
+
+  JSONFeature.prototype.readFeatureFromObject = function (object, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * @abstract
+   * @param {Object} object Object.
+   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+   * @protected
+   * @return {Array<import("../Feature.js").default>} Features.
+   */
+
+
+  JSONFeature.prototype.readFeaturesFromObject = function (object, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Read a geometry.
+   *
+   * @param {ArrayBuffer|Document|Element|Object|string} source Source.
+   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+   * @return {import("../geom/Geometry.js").default} Geometry.
    * @api
    */
 
 
-  BaseTileLayer.prototype.setUseInterimTilesOnError = function (useInterimTilesOnError) {
-    this.set(_TileProperty.default.USE_INTERIM_TILES_ON_ERROR, useInterimTilesOnError);
+  JSONFeature.prototype.readGeometry = function (source, opt_options) {
+    return this.readGeometryFromObject(getObject(source), this.getReadOptions(source, opt_options));
+  };
+  /**
+   * @abstract
+   * @param {Object} object Object.
+   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+   * @protected
+   * @return {import("../geom/Geometry.js").default} Geometry.
+   */
+
+
+  JSONFeature.prototype.readGeometryFromObject = function (object, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Read the projection.
+   *
+   * @param {ArrayBuffer|Document|Element|Object|string} source Source.
+   * @return {import("../proj/Projection.js").default} Projection.
+   * @api
+   */
+
+
+  JSONFeature.prototype.readProjection = function (source) {
+    return this.readProjectionFromObject(getObject(source));
+  };
+  /**
+   * @abstract
+   * @param {Object} object Object.
+   * @protected
+   * @return {import("../proj/Projection.js").default} Projection.
+   */
+
+
+  JSONFeature.prototype.readProjectionFromObject = function (object) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Encode a feature as string.
+   *
+   * @param {import("../Feature.js").default} feature Feature.
+   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+   * @return {string} Encoded feature.
+   * @api
+   */
+
+
+  JSONFeature.prototype.writeFeature = function (feature, opt_options) {
+    return JSON.stringify(this.writeFeatureObject(feature, opt_options));
+  };
+  /**
+   * @abstract
+   * @param {import("../Feature.js").default} feature Feature.
+   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+   * @return {Object} Object.
+   */
+
+
+  JSONFeature.prototype.writeFeatureObject = function (feature, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Encode an array of features as string.
+   *
+   * @param {Array<import("../Feature.js").default>} features Features.
+   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+   * @return {string} Encoded features.
+   * @api
+   */
+
+
+  JSONFeature.prototype.writeFeatures = function (features, opt_options) {
+    return JSON.stringify(this.writeFeaturesObject(features, opt_options));
+  };
+  /**
+   * @abstract
+   * @param {Array<import("../Feature.js").default>} features Features.
+   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+   * @return {Object} Object.
+   */
+
+
+  JSONFeature.prototype.writeFeaturesObject = function (features, opt_options) {
+    return (0, _util.abstract)();
+  };
+  /**
+   * Encode a geometry as string.
+   *
+   * @param {import("../geom/Geometry.js").default} geometry Geometry.
+   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+   * @return {string} Encoded geometry.
+   * @api
+   */
+
+
+  JSONFeature.prototype.writeGeometry = function (geometry, opt_options) {
+    return JSON.stringify(this.writeGeometryObject(geometry, opt_options));
+  };
+  /**
+   * @abstract
+   * @param {import("../geom/Geometry.js").default} geometry Geometry.
+   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+   * @return {Object} Object.
+   */
+
+
+  JSONFeature.prototype.writeGeometryObject = function (geometry, opt_options) {
+    return (0, _util.abstract)();
   };
 
-  return BaseTileLayer;
-}(_Layer.default);
-
-var _default = BaseTileLayer;
-exports.default = _default;
-},{"./Layer.js":"../node_modules/ol/layer/Layer.js","./TileProperty.js":"../node_modules/ol/layer/TileProperty.js","../obj.js":"../node_modules/ol/obj.js"}],"../node_modules/ol/TileRange.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createOrUpdate = createOrUpdate;
-exports.default = void 0;
-
+  return JSONFeature;
+}(_Feature.default);
 /**
- * @module ol/TileRange
- */
-
-/**
- * A representation of a contiguous block of tiles.  A tile range is specified
- * by its min/max tile coordinates and is inclusive of coordinates.
- */
-var TileRange =
-/** @class */
-function () {
-  /**
-   * @param {number} minX Minimum X.
-   * @param {number} maxX Maximum X.
-   * @param {number} minY Minimum Y.
-   * @param {number} maxY Maximum Y.
-   */
-  function TileRange(minX, maxX, minY, maxY) {
-    /**
-     * @type {number}
-     */
-    this.minX = minX;
-    /**
-     * @type {number}
-     */
-
-    this.maxX = maxX;
-    /**
-     * @type {number}
-     */
-
-    this.minY = minY;
-    /**
-     * @type {number}
-     */
-
-    this.maxY = maxY;
-  }
-  /**
-   * @param {import("./tilecoord.js").TileCoord} tileCoord Tile coordinate.
-   * @return {boolean} Contains tile coordinate.
-   */
-
-
-  TileRange.prototype.contains = function (tileCoord) {
-    return this.containsXY(tileCoord[1], tileCoord[2]);
-  };
-  /**
-   * @param {TileRange} tileRange Tile range.
-   * @return {boolean} Contains.
-   */
-
-
-  TileRange.prototype.containsTileRange = function (tileRange) {
-    return this.minX <= tileRange.minX && tileRange.maxX <= this.maxX && this.minY <= tileRange.minY && tileRange.maxY <= this.maxY;
-  };
-  /**
-   * @param {number} x Tile coordinate x.
-   * @param {number} y Tile coordinate y.
-   * @return {boolean} Contains coordinate.
-   */
-
-
-  TileRange.prototype.containsXY = function (x, y) {
-    return this.minX <= x && x <= this.maxX && this.minY <= y && y <= this.maxY;
-  };
-  /**
-   * @param {TileRange} tileRange Tile range.
-   * @return {boolean} Equals.
-   */
-
-
-  TileRange.prototype.equals = function (tileRange) {
-    return this.minX == tileRange.minX && this.minY == tileRange.minY && this.maxX == tileRange.maxX && this.maxY == tileRange.maxY;
-  };
-  /**
-   * @param {TileRange} tileRange Tile range.
-   */
-
-
-  TileRange.prototype.extend = function (tileRange) {
-    if (tileRange.minX < this.minX) {
-      this.minX = tileRange.minX;
-    }
-
-    if (tileRange.maxX > this.maxX) {
-      this.maxX = tileRange.maxX;
-    }
-
-    if (tileRange.minY < this.minY) {
-      this.minY = tileRange.minY;
-    }
-
-    if (tileRange.maxY > this.maxY) {
-      this.maxY = tileRange.maxY;
-    }
-  };
-  /**
-   * @return {number} Height.
-   */
-
-
-  TileRange.prototype.getHeight = function () {
-    return this.maxY - this.minY + 1;
-  };
-  /**
-   * @return {import("./size.js").Size} Size.
-   */
-
-
-  TileRange.prototype.getSize = function () {
-    return [this.getWidth(), this.getHeight()];
-  };
-  /**
-   * @return {number} Width.
-   */
-
-
-  TileRange.prototype.getWidth = function () {
-    return this.maxX - this.minX + 1;
-  };
-  /**
-   * @param {TileRange} tileRange Tile range.
-   * @return {boolean} Intersects.
-   */
-
-
-  TileRange.prototype.intersects = function (tileRange) {
-    return this.minX <= tileRange.maxX && this.maxX >= tileRange.minX && this.minY <= tileRange.maxY && this.maxY >= tileRange.minY;
-  };
-
-  return TileRange;
-}();
-/**
- * @param {number} minX Minimum X.
- * @param {number} maxX Maximum X.
- * @param {number} minY Minimum Y.
- * @param {number} maxY Maximum Y.
- * @param {TileRange=} tileRange TileRange.
- * @return {TileRange} Tile range.
+ * @param {Document|Element|Object|string} source Source.
+ * @return {Object} Object.
  */
 
 
-function createOrUpdate(minX, maxX, minY, maxY, tileRange) {
-  if (tileRange !== undefined) {
-    tileRange.minX = minX;
-    tileRange.maxX = maxX;
-    tileRange.minY = minY;
-    tileRange.maxY = maxY;
-    return tileRange;
+function getObject(source) {
+  if (typeof source === 'string') {
+    var object = JSON.parse(source);
+    return object ?
+    /** @type {Object} */
+    object : null;
+  } else if (source !== null) {
+    return source;
   } else {
-    return new TileRange(minX, maxX, minY, maxY);
+    return null;
   }
 }
 
-var _default = TileRange;
+var _default = JSONFeature;
 exports.default = _default;
-},{}],"../node_modules/ol/renderer/canvas/TileLayer.js":[function(require,module,exports) {
+},{"./Feature.js":"../node_modules/ol/format/Feature.js","./FormatType.js":"../node_modules/ol/format/FormatType.js","../util.js":"../node_modules/ol/util.js"}],"../node_modules/ol/format/GeoJSON.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -80066,28 +78699,39 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _Layer = _interopRequireDefault(require("./Layer.js"));
+var _Feature = _interopRequireDefault(require("../Feature.js"));
 
-var _TileRange = _interopRequireDefault(require("../../TileRange.js"));
+var _GeometryCollection = _interopRequireDefault(require("../geom/GeometryCollection.js"));
 
-var _TileState = _interopRequireDefault(require("../../TileState.js"));
+var _GeometryType = _interopRequireDefault(require("../geom/GeometryType.js"));
 
-var _transform = require("../../transform.js");
+var _JSONFeature = _interopRequireDefault(require("./JSONFeature.js"));
 
-var _obj = require("../../obj.js");
+var _LineString = _interopRequireDefault(require("../geom/LineString.js"));
 
-var _extent = require("../../extent.js");
+var _MultiLineString = _interopRequireDefault(require("../geom/MultiLineString.js"));
 
-var _canvas = require("../../render/canvas.js");
+var _MultiPoint = _interopRequireDefault(require("../geom/MultiPoint.js"));
 
-var _proj = require("../../proj.js");
+var _MultiPolygon = _interopRequireDefault(require("../geom/MultiPolygon.js"));
 
-var _util = require("../../util.js");
+var _Point = _interopRequireDefault(require("../geom/Point.js"));
 
-var _array = require("../../array.js");
+var _Polygon = _interopRequireDefault(require("../geom/Polygon.js"));
+
+var _asserts = require("../asserts.js");
+
+var _obj = require("../obj.js");
+
+var _proj = require("../proj.js");
+
+var _Feature2 = require("./Feature.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @module ol/format/GeoJSON
+ */
 var __extends = void 0 && (void 0).__extends || function () {
   var extendStatics = function (d, b) {
     extendStatics = Object.setPrototypeOf || {
@@ -80111,637 +78755,636 @@ var __extends = void 0 && (void 0).__extends || function () {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
 }();
+
 /**
- * @module ol/renderer/canvas/TileLayer
+ * @typedef {import("geojson").GeoJSON} GeoJSONObject
+ * @typedef {import("geojson").Feature} GeoJSONFeature
+ * @typedef {import("geojson").FeatureCollection} GeoJSONFeatureCollection
+ * @typedef {import("geojson").Geometry} GeoJSONGeometry
+ * @typedef {import("geojson").Point} GeoJSONPoint
+ * @typedef {import("geojson").LineString} GeoJSONLineString
+ * @typedef {import("geojson").Polygon} GeoJSONPolygon
+ * @typedef {import("geojson").MultiPoint} GeoJSONMultiPoint
+ * @typedef {import("geojson").MultiLineString} GeoJSONMultiLineString
+ * @typedef {import("geojson").MultiPolygon} GeoJSONMultiPolygon
+ * @typedef {import("geojson").GeometryCollection} GeoJSONGeometryCollection
  */
 
+/**
+ * @typedef {Object} Options
+ * @property {import("../proj.js").ProjectionLike} [dataProjection='EPSG:4326'] Default data projection.
+ * @property {import("../proj.js").ProjectionLike} [featureProjection] Projection for features read or
+ * written by the format.  Options passed to read or write methods will take precedence.
+ * @property {string} [geometryName] Geometry name to use when creating features.
+ * @property {boolean} [extractGeometryName=false] Certain GeoJSON providers include
+ * the geometry_name field in the feature GeoJSON. If set to `true` the GeoJSON reader
+ * will look for that field to set the geometry name. If both this field is set to `true`
+ * and a `geometryName` is provided, the `geometryName` will take precedence.
+ */
 
 /**
  * @classdesc
- * Canvas renderer for tile layers.
- * @api
- */
-var CanvasTileLayerRenderer =
-/** @class */
-function (_super) {
-  __extends(CanvasTileLayerRenderer, _super);
-  /**
-   * @param {import("../../layer/Tile.js").default|import("../../layer/VectorTile.js").default} tileLayer Tile layer.
-   */
-
-
-  function CanvasTileLayerRenderer(tileLayer) {
-    var _this = _super.call(this, tileLayer) || this;
-    /**
-     * Rendered extent has changed since the previous `renderFrame()` call
-     * @type {boolean}
-     */
-
-
-    _this.extentChanged = true;
-    /**
-     * @private
-     * @type {?import("../../extent.js").Extent}
-     */
-
-    _this.renderedExtent_ = null;
-    /**
-     * @protected
-     * @type {number}
-     */
-
-    _this.renderedPixelRatio;
-    /**
-     * @protected
-     * @type {import("../../proj/Projection.js").default}
-     */
-
-    _this.renderedProjection = null;
-    /**
-     * @protected
-     * @type {number}
-     */
-
-    _this.renderedRevision;
-    /**
-     * @protected
-     * @type {!Array<import("../../Tile.js").default>}
-     */
-
-    _this.renderedTiles = [];
-    /**
-     * @private
-     * @type {boolean}
-     */
-
-    _this.newTiles_ = false;
-    /**
-     * @protected
-     * @type {import("../../extent.js").Extent}
-     */
-
-    _this.tmpExtent = (0, _extent.createEmpty)();
-    /**
-     * @private
-     * @type {import("../../TileRange.js").default}
-     */
-
-    _this.tmpTileRange_ = new _TileRange.default(0, 0, 0, 0);
-    return _this;
-  }
-  /**
-   * @protected
-   * @param {import("../../Tile.js").default} tile Tile.
-   * @return {boolean} Tile is drawable.
-   */
-
-
-  CanvasTileLayerRenderer.prototype.isDrawableTile = function (tile) {
-    var tileLayer = this.getLayer();
-    var tileState = tile.getState();
-    var useInterimTilesOnError = tileLayer.getUseInterimTilesOnError();
-    return tileState == _TileState.default.LOADED || tileState == _TileState.default.EMPTY || tileState == _TileState.default.ERROR && !useInterimTilesOnError;
-  };
-  /**
-   * @param {number} z Tile coordinate z.
-   * @param {number} x Tile coordinate x.
-   * @param {number} y Tile coordinate y.
-   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
-   * @return {!import("../../Tile.js").default} Tile.
-   */
-
-
-  CanvasTileLayerRenderer.prototype.getTile = function (z, x, y, frameState) {
-    var pixelRatio = frameState.pixelRatio;
-    var projection = frameState.viewState.projection;
-    var tileLayer = this.getLayer();
-    var tileSource = tileLayer.getSource();
-    var tile = tileSource.getTile(z, x, y, pixelRatio, projection);
-
-    if (tile.getState() == _TileState.default.ERROR) {
-      if (!tileLayer.getUseInterimTilesOnError()) {
-        // When useInterimTilesOnError is false, we consider the error tile as loaded.
-        tile.setState(_TileState.default.LOADED);
-      } else if (tileLayer.getPreload() > 0) {
-        // Preloaded tiles for lower resolutions might have finished loading.
-        this.newTiles_ = true;
-      }
-    }
-
-    if (!this.isDrawableTile(tile)) {
-      tile = tile.getInterimTile();
-    }
-
-    return tile;
-  };
-  /**
-   * @param {Object<number, Object<string, import("../../Tile.js").default>>} tiles Lookup of loaded tiles by zoom level.
-   * @param {number} zoom Zoom level.
-   * @param {import("../../Tile.js").default} tile Tile.
-   * @return {boolean|void} If `false`, the tile will not be considered loaded.
-   */
-
-
-  CanvasTileLayerRenderer.prototype.loadedTileCallback = function (tiles, zoom, tile) {
-    if (this.isDrawableTile(tile)) {
-      return _super.prototype.loadedTileCallback.call(this, tiles, zoom, tile);
-    }
-
-    return false;
-  };
-  /**
-   * Determine whether render should be called.
-   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
-   * @return {boolean} Layer is ready to be rendered.
-   */
-
-
-  CanvasTileLayerRenderer.prototype.prepareFrame = function (frameState) {
-    return !!this.getLayer().getSource();
-  };
-  /**
-   * Render the layer.
-   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
-   * @param {HTMLElement} target Target that may be used to render content to.
-   * @return {HTMLElement} The rendered element.
-   */
-
-
-  CanvasTileLayerRenderer.prototype.renderFrame = function (frameState, target) {
-    var layerState = frameState.layerStatesArray[frameState.layerIndex];
-    var viewState = frameState.viewState;
-    var projection = viewState.projection;
-    var viewResolution = viewState.resolution;
-    var viewCenter = viewState.center;
-    var rotation = viewState.rotation;
-    var pixelRatio = frameState.pixelRatio;
-    var tileLayer = this.getLayer();
-    var tileSource = tileLayer.getSource();
-    var sourceRevision = tileSource.getRevision();
-    var tileGrid = tileSource.getTileGridForProjection(projection);
-    var z = tileGrid.getZForResolution(viewResolution, tileSource.zDirection);
-    var tileResolution = tileGrid.getResolution(z);
-    var extent = frameState.extent;
-    var layerExtent = layerState.extent && (0, _proj.fromUserExtent)(layerState.extent, projection);
-
-    if (layerExtent) {
-      extent = (0, _extent.getIntersection)(extent, (0, _proj.fromUserExtent)(layerState.extent, projection));
-    }
-
-    var tilePixelRatio = tileSource.getTilePixelRatio(pixelRatio); // desired dimensions of the canvas in pixels
-
-    var width = Math.round(frameState.size[0] * tilePixelRatio);
-    var height = Math.round(frameState.size[1] * tilePixelRatio);
-
-    if (rotation) {
-      var size = Math.round(Math.sqrt(width * width + height * height));
-      width = size;
-      height = size;
-    }
-
-    var dx = tileResolution * width / 2 / tilePixelRatio;
-    var dy = tileResolution * height / 2 / tilePixelRatio;
-    var canvasExtent = [viewCenter[0] - dx, viewCenter[1] - dy, viewCenter[0] + dx, viewCenter[1] + dy];
-    var tileRange = tileGrid.getTileRangeForExtentAndZ(extent, z);
-    /**
-     * @type {Object<number, Object<string, import("../../Tile.js").default>>}
-     */
-
-    var tilesToDrawByZ = {};
-    tilesToDrawByZ[z] = {};
-    var findLoadedTiles = this.createLoadedTileFinder(tileSource, projection, tilesToDrawByZ);
-    var tmpExtent = this.tmpExtent;
-    var tmpTileRange = this.tmpTileRange_;
-    this.newTiles_ = false;
-
-    for (var x = tileRange.minX; x <= tileRange.maxX; ++x) {
-      for (var y = tileRange.minY; y <= tileRange.maxY; ++y) {
-        var tile = this.getTile(z, x, y, frameState);
-
-        if (this.isDrawableTile(tile)) {
-          var uid = (0, _util.getUid)(this);
-
-          if (tile.getState() == _TileState.default.LOADED) {
-            tilesToDrawByZ[z][tile.tileCoord.toString()] = tile;
-            var inTransition = tile.inTransition(uid);
-
-            if (!this.newTiles_ && (inTransition || this.renderedTiles.indexOf(tile) === -1)) {
-              this.newTiles_ = true;
-            }
-          }
-
-          if (tile.getAlpha(uid, frameState.time) === 1) {
-            // don't look for alt tiles if alpha is 1
-            continue;
-          }
-        }
-
-        var childTileRange = tileGrid.getTileCoordChildTileRange(tile.tileCoord, tmpTileRange, tmpExtent);
-        var covered = false;
-
-        if (childTileRange) {
-          covered = findLoadedTiles(z + 1, childTileRange);
-        }
-
-        if (!covered) {
-          tileGrid.forEachTileCoordParentTileRange(tile.tileCoord, findLoadedTiles, tmpTileRange, tmpExtent);
-        }
-      }
-    }
-
-    var canvasScale = tileResolution / viewResolution; // set forward and inverse pixel transforms
-
-    (0, _transform.compose)(this.pixelTransform, frameState.size[0] / 2, frameState.size[1] / 2, 1 / tilePixelRatio, 1 / tilePixelRatio, rotation, -width / 2, -height / 2);
-    var canvasTransform = (0, _canvas.createTransformString)(this.pixelTransform);
-    this.useContainer(target, canvasTransform, layerState.opacity);
-    var context = this.context;
-    var canvas = context.canvas;
-    (0, _transform.makeInverse)(this.inversePixelTransform, this.pixelTransform); // set scale transform for calculating tile positions on the canvas
-
-    (0, _transform.compose)(this.tempTransform, width / 2, height / 2, canvasScale, canvasScale, 0, -width / 2, -height / 2);
-
-    if (canvas.width != width || canvas.height != height) {
-      canvas.width = width;
-      canvas.height = height;
-    } else if (!this.containerReused) {
-      context.clearRect(0, 0, width, height);
-    }
-
-    if (layerExtent) {
-      this.clipUnrotated(context, frameState, layerExtent);
-    }
-
-    (0, _obj.assign)(context, tileSource.getContextOptions());
-    this.preRender(context, frameState);
-    this.renderedTiles.length = 0;
-    /** @type {Array<number>} */
-
-    var zs = Object.keys(tilesToDrawByZ).map(Number);
-    zs.sort(_array.numberSafeCompareFunction);
-    var clips, clipZs, currentClip;
-
-    if (layerState.opacity === 1 && (!this.containerReused || tileSource.getOpaque(frameState.viewState.projection))) {
-      zs = zs.reverse();
-    } else {
-      clips = [];
-      clipZs = [];
-    }
-
-    for (var i = zs.length - 1; i >= 0; --i) {
-      var currentZ = zs[i];
-      var currentTilePixelSize = tileSource.getTilePixelSize(currentZ, pixelRatio, projection);
-      var currentResolution = tileGrid.getResolution(currentZ);
-      var currentScale = currentResolution / tileResolution;
-      var dx_1 = currentTilePixelSize[0] * currentScale * canvasScale;
-      var dy_1 = currentTilePixelSize[1] * currentScale * canvasScale;
-      var originTileCoord = tileGrid.getTileCoordForCoordAndZ((0, _extent.getTopLeft)(canvasExtent), currentZ);
-      var originTileExtent = tileGrid.getTileCoordExtent(originTileCoord);
-      var origin_1 = (0, _transform.apply)(this.tempTransform, [tilePixelRatio * (originTileExtent[0] - canvasExtent[0]) / tileResolution, tilePixelRatio * (canvasExtent[3] - originTileExtent[3]) / tileResolution]);
-      var tileGutter = tilePixelRatio * tileSource.getGutterForProjection(projection);
-      var tilesToDraw = tilesToDrawByZ[currentZ];
-
-      for (var tileCoordKey in tilesToDraw) {
-        var tile =
-        /** @type {import("../../ImageTile.js").default} */
-        tilesToDraw[tileCoordKey];
-        var tileCoord = tile.tileCoord; // Calculate integer positions and sizes so that tiles align
-
-        var floatX = origin_1[0] - (originTileCoord[1] - tileCoord[1]) * dx_1;
-        var nextX = Math.round(floatX + dx_1);
-        var floatY = origin_1[1] - (originTileCoord[2] - tileCoord[2]) * dy_1;
-        var nextY = Math.round(floatY + dy_1);
-        var x = Math.round(floatX);
-        var y = Math.round(floatY);
-        var w = nextX - x;
-        var h = nextY - y;
-        var transition = z === currentZ;
-        var inTransition = transition && tile.getAlpha((0, _util.getUid)(this), frameState.time) !== 1;
-
-        if (!inTransition) {
-          if (clips) {
-            // Clip mask for regions in this tile that already filled by a higher z tile
-            context.save();
-            currentClip = [x, y, x + w, y, x + w, y + h, x, y + h];
-
-            for (var i_1 = 0, ii = clips.length; i_1 < ii; ++i_1) {
-              if (z !== currentZ && currentZ < clipZs[i_1]) {
-                var clip = clips[i_1];
-                context.beginPath(); // counter-clockwise (outer ring) for current tile
-
-                context.moveTo(currentClip[0], currentClip[1]);
-                context.lineTo(currentClip[2], currentClip[3]);
-                context.lineTo(currentClip[4], currentClip[5]);
-                context.lineTo(currentClip[6], currentClip[7]); // clockwise (inner ring) for higher z tile
-
-                context.moveTo(clip[6], clip[7]);
-                context.lineTo(clip[4], clip[5]);
-                context.lineTo(clip[2], clip[3]);
-                context.lineTo(clip[0], clip[1]);
-                context.clip();
-              }
-            }
-
-            clips.push(currentClip);
-            clipZs.push(currentZ);
-          } else {
-            context.clearRect(x, y, w, h);
-          }
-        }
-
-        this.drawTileImage(tile, frameState, x, y, w, h, tileGutter, transition, layerState.opacity);
-
-        if (clips && !inTransition) {
-          context.restore();
-        }
-
-        this.renderedTiles.push(tile);
-        this.updateUsedTiles(frameState.usedTiles, tileSource, tile);
-      }
-    }
-
-    this.renderedRevision = sourceRevision;
-    this.renderedResolution = tileResolution;
-    this.extentChanged = !this.renderedExtent_ || !(0, _extent.equals)(this.renderedExtent_, canvasExtent);
-    this.renderedExtent_ = canvasExtent;
-    this.renderedPixelRatio = pixelRatio;
-    this.renderedProjection = projection;
-    this.manageTilePyramid(frameState, tileSource, tileGrid, pixelRatio, projection, extent, z, tileLayer.getPreload());
-    this.scheduleExpireCache(frameState, tileSource);
-    this.postRender(context, frameState);
-
-    if (layerState.extent) {
-      context.restore();
-    }
-
-    if (canvasTransform !== canvas.style.transform) {
-      canvas.style.transform = canvasTransform;
-    }
-
-    return this.container;
-  };
-  /**
-   * @param {import("../../ImageTile.js").default} tile Tile.
-   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
-   * @param {number} x Left of the tile.
-   * @param {number} y Top of the tile.
-   * @param {number} w Width of the tile.
-   * @param {number} h Height of the tile.
-   * @param {number} gutter Tile gutter.
-   * @param {boolean} transition Apply an alpha transition.
-   * @param {number} opacity Opacity.
-   */
-
-
-  CanvasTileLayerRenderer.prototype.drawTileImage = function (tile, frameState, x, y, w, h, gutter, transition, opacity) {
-    var image = this.getTileImage(tile);
-
-    if (!image) {
-      return;
-    }
-
-    var uid = (0, _util.getUid)(this);
-    var tileAlpha = transition ? tile.getAlpha(uid, frameState.time) : 1;
-    var alpha = opacity * tileAlpha;
-    var alphaChanged = alpha !== this.context.globalAlpha;
-
-    if (alphaChanged) {
-      this.context.save();
-      this.context.globalAlpha = alpha;
-    }
-
-    this.context.drawImage(image, gutter, gutter, image.width - 2 * gutter, image.height - 2 * gutter, x, y, w, h);
-
-    if (alphaChanged) {
-      this.context.restore();
-    }
-
-    if (tileAlpha !== 1) {
-      frameState.animate = true;
-    } else if (transition) {
-      tile.endTransition(uid);
-    }
-  };
-  /**
-   * @return {HTMLCanvasElement} Image
-   */
-
-
-  CanvasTileLayerRenderer.prototype.getImage = function () {
-    var context = this.context;
-    return context ? context.canvas : null;
-  };
-  /**
-   * Get the image from a tile.
-   * @param {import("../../ImageTile.js").default} tile Tile.
-   * @return {HTMLCanvasElement|HTMLImageElement|HTMLVideoElement} Image.
-   * @protected
-   */
-
-
-  CanvasTileLayerRenderer.prototype.getTileImage = function (tile) {
-    return tile.getImage();
-  };
-  /**
-   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
-   * @param {import("../../source/Tile.js").default} tileSource Tile source.
-   * @protected
-   */
-
-
-  CanvasTileLayerRenderer.prototype.scheduleExpireCache = function (frameState, tileSource) {
-    if (tileSource.canExpireCache()) {
-      /**
-       * @param {import("../../source/Tile.js").default} tileSource Tile source.
-       * @param {import("../../PluggableMap.js").default} map Map.
-       * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
-       */
-      var postRenderFunction = function (tileSource, map, frameState) {
-        var tileSourceKey = (0, _util.getUid)(tileSource);
-
-        if (tileSourceKey in frameState.usedTiles) {
-          tileSource.expireCache(frameState.viewState.projection, frameState.usedTiles[tileSourceKey]);
-        }
-      }.bind(null, tileSource);
-
-      frameState.postRenderFunctions.push(
-      /** @type {import("../../PluggableMap.js").PostRenderFunction} */
-      postRenderFunction);
-    }
-  };
-  /**
-   * @param {!Object<string, !Object<string, boolean>>} usedTiles Used tiles.
-   * @param {import("../../source/Tile.js").default} tileSource Tile source.
-   * @param {import('../../Tile.js').default} tile Tile.
-   * @protected
-   */
-
-
-  CanvasTileLayerRenderer.prototype.updateUsedTiles = function (usedTiles, tileSource, tile) {
-    // FIXME should we use tilesToDrawByZ instead?
-    var tileSourceKey = (0, _util.getUid)(tileSource);
-
-    if (!(tileSourceKey in usedTiles)) {
-      usedTiles[tileSourceKey] = {};
-    }
-
-    usedTiles[tileSourceKey][tile.getKey()] = true;
-  };
-  /**
-   * Manage tile pyramid.
-   * This function performs a number of functions related to the tiles at the
-   * current zoom and lower zoom levels:
-   * - registers idle tiles in frameState.wantedTiles so that they are not
-   *   discarded by the tile queue
-   * - enqueues missing tiles
-   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
-   * @param {import("../../source/Tile.js").default} tileSource Tile source.
-   * @param {import("../../tilegrid/TileGrid.js").default} tileGrid Tile grid.
-   * @param {number} pixelRatio Pixel ratio.
-   * @param {import("../../proj/Projection.js").default} projection Projection.
-   * @param {import("../../extent.js").Extent} extent Extent.
-   * @param {number} currentZ Current Z.
-   * @param {number} preload Load low resolution tiles up to 'preload' levels.
-   * @param {function(import("../../Tile.js").default)=} opt_tileCallback Tile callback.
-   * @protected
-   */
-
-
-  CanvasTileLayerRenderer.prototype.manageTilePyramid = function (frameState, tileSource, tileGrid, pixelRatio, projection, extent, currentZ, preload, opt_tileCallback) {
-    var tileSourceKey = (0, _util.getUid)(tileSource);
-
-    if (!(tileSourceKey in frameState.wantedTiles)) {
-      frameState.wantedTiles[tileSourceKey] = {};
-    }
-
-    var wantedTiles = frameState.wantedTiles[tileSourceKey];
-    var tileQueue = frameState.tileQueue;
-    var minZoom = tileGrid.getMinZoom();
-    var tileCount = 0;
-    var tile, tileRange, tileResolution, x, y, z;
-
-    for (z = minZoom; z <= currentZ; ++z) {
-      tileRange = tileGrid.getTileRangeForExtentAndZ(extent, z, tileRange);
-      tileResolution = tileGrid.getResolution(z);
-
-      for (x = tileRange.minX; x <= tileRange.maxX; ++x) {
-        for (y = tileRange.minY; y <= tileRange.maxY; ++y) {
-          if (currentZ - z <= preload) {
-            ++tileCount;
-            tile = tileSource.getTile(z, x, y, pixelRatio, projection);
-
-            if (tile.getState() == _TileState.default.IDLE) {
-              wantedTiles[tile.getKey()] = true;
-
-              if (!tileQueue.isKeyQueued(tile.getKey())) {
-                tileQueue.enqueue([tile, tileSourceKey, tileGrid.getTileCoordCenter(tile.tileCoord), tileResolution]);
-              }
-            }
-
-            if (opt_tileCallback !== undefined) {
-              opt_tileCallback(tile);
-            }
-          } else {
-            tileSource.useTile(z, x, y, projection);
-          }
-        }
-      }
-    }
-
-    tileSource.updateCacheSize(tileCount, projection);
-  };
-
-  return CanvasTileLayerRenderer;
-}(_Layer.default);
-/**
- * @function
- * @return {import("../../layer/Tile.js").default|import("../../layer/VectorTile.js").default}
- */
-
-
-CanvasTileLayerRenderer.prototype.getLayer;
-var _default = CanvasTileLayerRenderer;
-exports.default = _default;
-},{"./Layer.js":"../node_modules/ol/renderer/canvas/Layer.js","../../TileRange.js":"../node_modules/ol/TileRange.js","../../TileState.js":"../node_modules/ol/TileState.js","../../transform.js":"../node_modules/ol/transform.js","../../obj.js":"../node_modules/ol/obj.js","../../extent.js":"../node_modules/ol/extent.js","../../render/canvas.js":"../node_modules/ol/render/canvas.js","../../proj.js":"../node_modules/ol/proj.js","../../util.js":"../node_modules/ol/util.js","../../array.js":"../node_modules/ol/array.js"}],"../node_modules/ol/layer/tile.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _BaseTile = _interopRequireDefault(require("./BaseTile.js"));
-
-var _TileLayer = _interopRequireDefault(require("../renderer/canvas/TileLayer.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-/**
- * @module ol/layer/Tile
- */
-
-
-/**
- * @classdesc
- * For layer sources that provide pre-rendered, tiled images in grids that are
- * organized by zoom levels for specific resolutions.
- * Note that any property set in the options is set as a {@link module:ol/Object~BaseObject}
- * property on the layer object; for example, setting `title: 'My Title'` in the
- * options means that `title` is observable, and has get/set accessors.
+ * Feature format for reading and writing data in the GeoJSON format.
  *
  * @api
  */
-var TileLayer =
+var GeoJSON =
 /** @class */
 function (_super) {
-  __extends(TileLayer, _super);
+  __extends(GeoJSON, _super);
   /**
-   * @param {import("./BaseTile.js").Options=} opt_options Tile layer options.
+   * @param {Options=} opt_options Options.
    */
 
 
-  function TileLayer(opt_options) {
-    return _super.call(this, opt_options) || this;
+  function GeoJSON(opt_options) {
+    var _this = this;
+
+    var options = opt_options ? opt_options : {};
+    _this = _super.call(this) || this;
+    /**
+     * @type {import("../proj/Projection.js").default}
+     */
+
+    _this.dataProjection = (0, _proj.get)(options.dataProjection ? options.dataProjection : 'EPSG:4326');
+
+    if (options.featureProjection) {
+      _this.defaultFeatureProjection = (0, _proj.get)(options.featureProjection);
+    }
+    /**
+     * Name of the geometry attribute for features.
+     * @type {string|undefined}
+     * @private
+     */
+
+
+    _this.geometryName_ = options.geometryName;
+    /**
+     * Look for the geometry name in the feature GeoJSON
+     * @type {boolean|undefined}
+     * @private
+     */
+
+    _this.extractGeometryName_ = options.extractGeometryName;
+    return _this;
   }
   /**
-   * Create a renderer for this layer.
-   * @return {import("../renderer/Layer.js").default} A layer renderer.
+   * @param {Object} object Object.
+   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
    * @protected
+   * @return {import("../Feature.js").default} Feature.
    */
 
 
-  TileLayer.prototype.createRenderer = function () {
-    return new _TileLayer.default(this);
+  GeoJSON.prototype.readFeatureFromObject = function (object, opt_options) {
+    /**
+     * @type {GeoJSONFeature}
+     */
+    var geoJSONFeature = null;
+
+    if (object['type'] === 'Feature') {
+      geoJSONFeature =
+      /** @type {GeoJSONFeature} */
+      object;
+    } else {
+      geoJSONFeature = {
+        'type': 'Feature',
+        'geometry':
+        /** @type {GeoJSONGeometry} */
+        object,
+        'properties': null
+      };
+    }
+
+    var geometry = readGeometry(geoJSONFeature['geometry'], opt_options);
+    var feature = new _Feature.default();
+
+    if (this.geometryName_) {
+      feature.setGeometryName(this.geometryName_);
+    } else if (this.extractGeometryName_ && 'geometry_name' in geoJSONFeature !== undefined) {
+      feature.setGeometryName(geoJSONFeature['geometry_name']);
+    }
+
+    feature.setGeometry(geometry);
+
+    if ('id' in geoJSONFeature) {
+      feature.setId(geoJSONFeature['id']);
+    }
+
+    if (geoJSONFeature['properties']) {
+      feature.setProperties(geoJSONFeature['properties'], true);
+    }
+
+    return feature;
+  };
+  /**
+   * @param {Object} object Object.
+   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+   * @protected
+   * @return {Array<Feature>} Features.
+   */
+
+
+  GeoJSON.prototype.readFeaturesFromObject = function (object, opt_options) {
+    var geoJSONObject =
+    /** @type {GeoJSONObject} */
+    object;
+    /** @type {Array<import("../Feature.js").default>} */
+
+    var features = null;
+
+    if (geoJSONObject['type'] === 'FeatureCollection') {
+      var geoJSONFeatureCollection =
+      /** @type {GeoJSONFeatureCollection} */
+      object;
+      features = [];
+      var geoJSONFeatures = geoJSONFeatureCollection['features'];
+
+      for (var i = 0, ii = geoJSONFeatures.length; i < ii; ++i) {
+        features.push(this.readFeatureFromObject(geoJSONFeatures[i], opt_options));
+      }
+    } else {
+      features = [this.readFeatureFromObject(object, opt_options)];
+    }
+
+    return features;
+  };
+  /**
+   * @param {GeoJSONGeometry} object Object.
+   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+   * @protected
+   * @return {import("../geom/Geometry.js").default} Geometry.
+   */
+
+
+  GeoJSON.prototype.readGeometryFromObject = function (object, opt_options) {
+    return readGeometry(object, opt_options);
+  };
+  /**
+   * @param {Object} object Object.
+   * @protected
+   * @return {import("../proj/Projection.js").default} Projection.
+   */
+
+
+  GeoJSON.prototype.readProjectionFromObject = function (object) {
+    var crs = object['crs'];
+    var projection;
+
+    if (crs) {
+      if (crs['type'] == 'name') {
+        projection = (0, _proj.get)(crs['properties']['name']);
+      } else if (crs['type'] === 'EPSG') {
+        projection = (0, _proj.get)('EPSG:' + crs['properties']['code']);
+      } else {
+        (0, _asserts.assert)(false, 36); // Unknown SRS type
+      }
+    } else {
+      projection = this.dataProjection;
+    }
+
+    return (
+      /** @type {import("../proj/Projection.js").default} */
+      projection
+    );
+  };
+  /**
+   * Encode a feature as a GeoJSON Feature object.
+   *
+   * @param {import("../Feature.js").default} feature Feature.
+   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+   * @return {GeoJSONFeature} Object.
+   * @api
+   */
+
+
+  GeoJSON.prototype.writeFeatureObject = function (feature, opt_options) {
+    opt_options = this.adaptOptions(opt_options);
+    /** @type {GeoJSONFeature} */
+
+    var object = {
+      'type': 'Feature',
+      geometry: null,
+      properties: null
+    };
+    var id = feature.getId();
+
+    if (id !== undefined) {
+      object.id = id;
+    }
+
+    if (!feature.hasProperties()) {
+      return object;
+    }
+
+    var properties = feature.getProperties();
+    var geometry = feature.getGeometry();
+
+    if (geometry) {
+      object.geometry = writeGeometry(geometry, opt_options);
+      delete properties[feature.getGeometryName()];
+    }
+
+    if (!(0, _obj.isEmpty)(properties)) {
+      object.properties = properties;
+    }
+
+    return object;
+  };
+  /**
+   * Encode an array of features as a GeoJSON object.
+   *
+   * @param {Array<import("../Feature.js").default>} features Features.
+   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+   * @return {GeoJSONFeatureCollection} GeoJSON Object.
+   * @api
+   */
+
+
+  GeoJSON.prototype.writeFeaturesObject = function (features, opt_options) {
+    opt_options = this.adaptOptions(opt_options);
+    var objects = [];
+
+    for (var i = 0, ii = features.length; i < ii; ++i) {
+      objects.push(this.writeFeatureObject(features[i], opt_options));
+    }
+
+    return {
+      type: 'FeatureCollection',
+      features: objects
+    };
+  };
+  /**
+   * Encode a geometry as a GeoJSON object.
+   *
+   * @param {import("../geom/Geometry.js").default} geometry Geometry.
+   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+   * @return {GeoJSONGeometry|GeoJSONGeometryCollection} Object.
+   * @api
+   */
+
+
+  GeoJSON.prototype.writeGeometryObject = function (geometry, opt_options) {
+    return writeGeometry(geometry, this.adaptOptions(opt_options));
   };
 
-  return TileLayer;
-}(_BaseTile.default);
+  return GeoJSON;
+}(_JSONFeature.default);
+/**
+ * @param {GeoJSONGeometry|GeoJSONGeometryCollection} object Object.
+ * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+ * @return {import("../geom/Geometry.js").default} Geometry.
+ */
 
-var _default = TileLayer;
+
+function readGeometry(object, opt_options) {
+  if (!object) {
+    return null;
+  }
+  /**
+   * @type {import("../geom/Geometry.js").default}
+   */
+
+
+  var geometry;
+
+  switch (object['type']) {
+    case _GeometryType.default.POINT:
+      {
+        geometry = readPointGeometry(
+        /** @type {GeoJSONPoint} */
+        object);
+        break;
+      }
+
+    case _GeometryType.default.LINE_STRING:
+      {
+        geometry = readLineStringGeometry(
+        /** @type {GeoJSONLineString} */
+        object);
+        break;
+      }
+
+    case _GeometryType.default.POLYGON:
+      {
+        geometry = readPolygonGeometry(
+        /** @type {GeoJSONPolygon} */
+        object);
+        break;
+      }
+
+    case _GeometryType.default.MULTI_POINT:
+      {
+        geometry = readMultiPointGeometry(
+        /** @type {GeoJSONMultiPoint} */
+        object);
+        break;
+      }
+
+    case _GeometryType.default.MULTI_LINE_STRING:
+      {
+        geometry = readMultiLineStringGeometry(
+        /** @type {GeoJSONMultiLineString} */
+        object);
+        break;
+      }
+
+    case _GeometryType.default.MULTI_POLYGON:
+      {
+        geometry = readMultiPolygonGeometry(
+        /** @type {GeoJSONMultiPolygon} */
+        object);
+        break;
+      }
+
+    case _GeometryType.default.GEOMETRY_COLLECTION:
+      {
+        geometry = readGeometryCollectionGeometry(
+        /** @type {GeoJSONGeometryCollection} */
+        object);
+        break;
+      }
+
+    default:
+      {
+        throw new Error('Unsupported GeoJSON type: ' + object.type);
+      }
+  }
+
+  return (0, _Feature2.transformGeometryWithOptions)(geometry, false, opt_options);
+}
+/**
+ * @param {GeoJSONGeometryCollection} object Object.
+ * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
+ * @return {GeometryCollection} Geometry collection.
+ */
+
+
+function readGeometryCollectionGeometry(object, opt_options) {
+  var geometries = object['geometries'].map(
+  /**
+   * @param {GeoJSONGeometry} geometry Geometry.
+   * @return {import("../geom/Geometry.js").default} geometry Geometry.
+   */
+  function (geometry) {
+    return readGeometry(geometry, opt_options);
+  });
+  return new _GeometryCollection.default(geometries);
+}
+/**
+ * @param {GeoJSONPoint} object Object.
+ * @return {Point} Point.
+ */
+
+
+function readPointGeometry(object) {
+  return new _Point.default(object['coordinates']);
+}
+/**
+ * @param {GeoJSONLineString} object Object.
+ * @return {LineString} LineString.
+ */
+
+
+function readLineStringGeometry(object) {
+  return new _LineString.default(object['coordinates']);
+}
+/**
+ * @param {GeoJSONMultiLineString} object Object.
+ * @return {MultiLineString} MultiLineString.
+ */
+
+
+function readMultiLineStringGeometry(object) {
+  return new _MultiLineString.default(object['coordinates']);
+}
+/**
+ * @param {GeoJSONMultiPoint} object Object.
+ * @return {MultiPoint} MultiPoint.
+ */
+
+
+function readMultiPointGeometry(object) {
+  return new _MultiPoint.default(object['coordinates']);
+}
+/**
+ * @param {GeoJSONMultiPolygon} object Object.
+ * @return {MultiPolygon} MultiPolygon.
+ */
+
+
+function readMultiPolygonGeometry(object) {
+  return new _MultiPolygon.default(object['coordinates']);
+}
+/**
+ * @param {GeoJSONPolygon} object Object.
+ * @return {Polygon} Polygon.
+ */
+
+
+function readPolygonGeometry(object) {
+  return new _Polygon.default(object['coordinates']);
+}
+/**
+ * @param {import("../geom/Geometry.js").default} geometry Geometry.
+ * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+ * @return {GeoJSONGeometry} GeoJSON geometry.
+ */
+
+
+function writeGeometry(geometry, opt_options) {
+  geometry = (0, _Feature2.transformGeometryWithOptions)(geometry, true, opt_options);
+  var type = geometry.getType();
+  /** @type {GeoJSONGeometry} */
+
+  var geoJSON;
+
+  switch (type) {
+    case _GeometryType.default.POINT:
+      {
+        geoJSON = writePointGeometry(
+        /** @type {Point} */
+        geometry, opt_options);
+        break;
+      }
+
+    case _GeometryType.default.LINE_STRING:
+      {
+        geoJSON = writeLineStringGeometry(
+        /** @type {LineString} */
+        geometry, opt_options);
+        break;
+      }
+
+    case _GeometryType.default.POLYGON:
+      {
+        geoJSON = writePolygonGeometry(
+        /** @type {Polygon} */
+        geometry, opt_options);
+        break;
+      }
+
+    case _GeometryType.default.MULTI_POINT:
+      {
+        geoJSON = writeMultiPointGeometry(
+        /** @type {MultiPoint} */
+        geometry, opt_options);
+        break;
+      }
+
+    case _GeometryType.default.MULTI_LINE_STRING:
+      {
+        geoJSON = writeMultiLineStringGeometry(
+        /** @type {MultiLineString} */
+        geometry, opt_options);
+        break;
+      }
+
+    case _GeometryType.default.MULTI_POLYGON:
+      {
+        geoJSON = writeMultiPolygonGeometry(
+        /** @type {MultiPolygon} */
+        geometry, opt_options);
+        break;
+      }
+
+    case _GeometryType.default.GEOMETRY_COLLECTION:
+      {
+        geoJSON = writeGeometryCollectionGeometry(
+        /** @type {GeometryCollection} */
+        geometry, opt_options);
+        break;
+      }
+
+    case _GeometryType.default.CIRCLE:
+      {
+        geoJSON = {
+          type: 'GeometryCollection',
+          geometries: []
+        };
+        break;
+      }
+
+    default:
+      {
+        throw new Error('Unsupported geometry type: ' + type);
+      }
+  }
+
+  return geoJSON;
+}
+/**
+ * @param {GeometryCollection} geometry Geometry.
+ * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+ * @return {GeoJSONGeometryCollection} GeoJSON geometry collection.
+ */
+
+
+function writeGeometryCollectionGeometry(geometry, opt_options) {
+  var geometries = geometry.getGeometriesArray().map(function (geometry) {
+    var options = (0, _obj.assign)({}, opt_options);
+    delete options.featureProjection;
+    return writeGeometry(geometry, options);
+  });
+  return {
+    type: 'GeometryCollection',
+    geometries: geometries
+  };
+}
+/**
+ * @param {LineString} geometry Geometry.
+ * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+ * @return {GeoJSONGeometry} GeoJSON geometry.
+ */
+
+
+function writeLineStringGeometry(geometry, opt_options) {
+  return {
+    type: 'LineString',
+    coordinates: geometry.getCoordinates()
+  };
+}
+/**
+ * @param {MultiLineString} geometry Geometry.
+ * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+ * @return {GeoJSONGeometry} GeoJSON geometry.
+ */
+
+
+function writeMultiLineStringGeometry(geometry, opt_options) {
+  return {
+    type: 'MultiLineString',
+    coordinates: geometry.getCoordinates()
+  };
+}
+/**
+ * @param {MultiPoint} geometry Geometry.
+ * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+ * @return {GeoJSONGeometry} GeoJSON geometry.
+ */
+
+
+function writeMultiPointGeometry(geometry, opt_options) {
+  return {
+    type: 'MultiPoint',
+    coordinates: geometry.getCoordinates()
+  };
+}
+/**
+ * @param {MultiPolygon} geometry Geometry.
+ * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+ * @return {GeoJSONGeometry} GeoJSON geometry.
+ */
+
+
+function writeMultiPolygonGeometry(geometry, opt_options) {
+  var right;
+
+  if (opt_options) {
+    right = opt_options.rightHanded;
+  }
+
+  return {
+    type: 'MultiPolygon',
+    coordinates: geometry.getCoordinates(right)
+  };
+}
+/**
+ * @param {Point} geometry Geometry.
+ * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+ * @return {GeoJSONGeometry} GeoJSON geometry.
+ */
+
+
+function writePointGeometry(geometry, opt_options) {
+  return {
+    type: 'Point',
+    coordinates: geometry.getCoordinates()
+  };
+}
+/**
+ * @param {Polygon} geometry Geometry.
+ * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
+ * @return {GeoJSONGeometry} GeoJSON geometry.
+ */
+
+
+function writePolygonGeometry(geometry, opt_options) {
+  var right;
+
+  if (opt_options) {
+    right = opt_options.rightHanded;
+  }
+
+  return {
+    type: 'Polygon',
+    coordinates: geometry.getCoordinates(right)
+  };
+}
+
+var _default = GeoJSON;
 exports.default = _default;
-},{"./BaseTile.js":"../node_modules/ol/layer/BaseTile.js","../renderer/canvas/TileLayer.js":"../node_modules/ol/renderer/canvas/TileLayer.js"}],"../node_modules/ol/Tile.js":[function(require,module,exports) {
+},{"../Feature.js":"../node_modules/ol/Feature.js","../geom/GeometryCollection.js":"../node_modules/ol/geom/GeometryCollection.js","../geom/GeometryType.js":"../node_modules/ol/geom/GeometryType.js","./JSONFeature.js":"../node_modules/ol/format/JSONFeature.js","../geom/LineString.js":"../node_modules/ol/geom/LineString.js","../geom/MultiLineString.js":"../node_modules/ol/geom/MultiLineString.js","../geom/MultiPoint.js":"../node_modules/ol/geom/MultiPoint.js","../geom/MultiPolygon.js":"../node_modules/ol/geom/MultiPolygon.js","../geom/Point.js":"../node_modules/ol/geom/Point.js","../geom/Polygon.js":"../node_modules/ol/geom/Polygon.js","../asserts.js":"../node_modules/ol/asserts.js","../obj.js":"../node_modules/ol/obj.js","../proj.js":"../node_modules/ol/proj.js","./Feature.js":"../node_modules/ol/format/Feature.js"}],"../node_modules/ol/Tile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -82991,6 +81634,172 @@ var _default = {
    */
   TILELOADERROR: 'tileloaderror'
 };
+exports.default = _default;
+},{}],"../node_modules/ol/TileRange.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createOrUpdate = createOrUpdate;
+exports.default = void 0;
+
+/**
+ * @module ol/TileRange
+ */
+
+/**
+ * A representation of a contiguous block of tiles.  A tile range is specified
+ * by its min/max tile coordinates and is inclusive of coordinates.
+ */
+var TileRange =
+/** @class */
+function () {
+  /**
+   * @param {number} minX Minimum X.
+   * @param {number} maxX Maximum X.
+   * @param {number} minY Minimum Y.
+   * @param {number} maxY Maximum Y.
+   */
+  function TileRange(minX, maxX, minY, maxY) {
+    /**
+     * @type {number}
+     */
+    this.minX = minX;
+    /**
+     * @type {number}
+     */
+
+    this.maxX = maxX;
+    /**
+     * @type {number}
+     */
+
+    this.minY = minY;
+    /**
+     * @type {number}
+     */
+
+    this.maxY = maxY;
+  }
+  /**
+   * @param {import("./tilecoord.js").TileCoord} tileCoord Tile coordinate.
+   * @return {boolean} Contains tile coordinate.
+   */
+
+
+  TileRange.prototype.contains = function (tileCoord) {
+    return this.containsXY(tileCoord[1], tileCoord[2]);
+  };
+  /**
+   * @param {TileRange} tileRange Tile range.
+   * @return {boolean} Contains.
+   */
+
+
+  TileRange.prototype.containsTileRange = function (tileRange) {
+    return this.minX <= tileRange.minX && tileRange.maxX <= this.maxX && this.minY <= tileRange.minY && tileRange.maxY <= this.maxY;
+  };
+  /**
+   * @param {number} x Tile coordinate x.
+   * @param {number} y Tile coordinate y.
+   * @return {boolean} Contains coordinate.
+   */
+
+
+  TileRange.prototype.containsXY = function (x, y) {
+    return this.minX <= x && x <= this.maxX && this.minY <= y && y <= this.maxY;
+  };
+  /**
+   * @param {TileRange} tileRange Tile range.
+   * @return {boolean} Equals.
+   */
+
+
+  TileRange.prototype.equals = function (tileRange) {
+    return this.minX == tileRange.minX && this.minY == tileRange.minY && this.maxX == tileRange.maxX && this.maxY == tileRange.maxY;
+  };
+  /**
+   * @param {TileRange} tileRange Tile range.
+   */
+
+
+  TileRange.prototype.extend = function (tileRange) {
+    if (tileRange.minX < this.minX) {
+      this.minX = tileRange.minX;
+    }
+
+    if (tileRange.maxX > this.maxX) {
+      this.maxX = tileRange.maxX;
+    }
+
+    if (tileRange.minY < this.minY) {
+      this.minY = tileRange.minY;
+    }
+
+    if (tileRange.maxY > this.maxY) {
+      this.maxY = tileRange.maxY;
+    }
+  };
+  /**
+   * @return {number} Height.
+   */
+
+
+  TileRange.prototype.getHeight = function () {
+    return this.maxY - this.minY + 1;
+  };
+  /**
+   * @return {import("./size.js").Size} Size.
+   */
+
+
+  TileRange.prototype.getSize = function () {
+    return [this.getWidth(), this.getHeight()];
+  };
+  /**
+   * @return {number} Width.
+   */
+
+
+  TileRange.prototype.getWidth = function () {
+    return this.maxX - this.minX + 1;
+  };
+  /**
+   * @param {TileRange} tileRange Tile range.
+   * @return {boolean} Intersects.
+   */
+
+
+  TileRange.prototype.intersects = function (tileRange) {
+    return this.minX <= tileRange.maxX && this.maxX >= tileRange.minX && this.minY <= tileRange.maxY && this.maxY >= tileRange.minY;
+  };
+
+  return TileRange;
+}();
+/**
+ * @param {number} minX Minimum X.
+ * @param {number} maxX Maximum X.
+ * @param {number} minY Minimum Y.
+ * @param {number} maxY Maximum Y.
+ * @param {TileRange=} tileRange TileRange.
+ * @return {TileRange} Tile range.
+ */
+
+
+function createOrUpdate(minX, maxX, minY, maxY, tileRange) {
+  if (tileRange !== undefined) {
+    tileRange.minX = minX;
+    tileRange.maxX = maxX;
+    tileRange.minY = minY;
+    tileRange.maxY = maxY;
+    return tileRange;
+  } else {
+    return new TileRange(minX, maxX, minY, maxY);
+  }
+}
+
+var _default = TileRange;
 exports.default = _default;
 },{}],"../node_modules/ol/tilegrid/TileGrid.js":[function(require,module,exports) {
 "use strict";
@@ -85337,1824 +84146,7 @@ function (_super) {
 
 var _default = XYZ;
 exports.default = _default;
-},{"./TileImage.js":"../node_modules/ol/source/TileImage.js","../tilegrid.js":"../node_modules/ol/tilegrid.js"}],"../node_modules/ol/source/osm.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.ATTRIBUTION = void 0;
-
-var _XYZ = _interopRequireDefault(require("./XYZ.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @module ol/source/OSM
- */
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-/**
- * The attribution containing a link to the OpenStreetMap Copyright and License
- * page.
- * @const
- * @type {string}
- * @api
- */
-var ATTRIBUTION = '&#169; ' + '<a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> ' + 'contributors.';
-/**
- * @typedef {Object} Options
- * @property {import("./Source.js").AttributionLike} [attributions] Attributions.
- * @property {number} [cacheSize] Initial tile cache size. Will auto-grow to hold at least the number of tiles in the viewport.
- * @property {null|string} [crossOrigin='anonymous'] The `crossOrigin` attribute for loaded images.  Note that
- * you must provide a `crossOrigin` value if you want to access pixel data with the Canvas renderer.
- * See https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image for more detail.
- * @property {boolean} [imageSmoothing=true] Enable image smoothing.
- * @property {number} [maxZoom=19] Max zoom.
- * @property {boolean} [opaque=true] Whether the layer is opaque.
- * @property {number} [reprojectionErrorThreshold=0.5] Maximum allowed reprojection error (in pixels).
- * Higher values can increase reprojection performance, but decrease precision.
- * @property {import("../Tile.js").LoadFunction} [tileLoadFunction] Optional function to load a tile given a URL. The default is
- * ```js
- * function(imageTile, src) {
- *   imageTile.getImage().src = src;
- * };
- * ```
- * @property {number} [transition=250] Duration of the opacity transition for rendering.
- * To disable the opacity transition, pass `transition: 0`.
- * @property {string} [url='https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'] URL template.
- * Must include `{x}`, `{y}` or `{-y}`, and `{z}` placeholders.
- * @property {boolean} [wrapX=true] Whether to wrap the world horizontally.
- */
-
-/**
- * @classdesc
- * Layer source for the OpenStreetMap tile server.
- * @api
- */
-
-exports.ATTRIBUTION = ATTRIBUTION;
-
-var OSM =
-/** @class */
-function (_super) {
-  __extends(OSM, _super);
-  /**
-   * @param {Options=} [opt_options] Open Street Map options.
-   */
-
-
-  function OSM(opt_options) {
-    var _this = this;
-
-    var options = opt_options || {};
-    var attributions;
-
-    if (options.attributions !== undefined) {
-      attributions = options.attributions;
-    } else {
-      attributions = [ATTRIBUTION];
-    }
-
-    var crossOrigin = options.crossOrigin !== undefined ? options.crossOrigin : 'anonymous';
-    var url = options.url !== undefined ? options.url : 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    _this = _super.call(this, {
-      attributions: attributions,
-      attributionsCollapsible: false,
-      cacheSize: options.cacheSize,
-      crossOrigin: crossOrigin,
-      imageSmoothing: options.imageSmoothing,
-      maxZoom: options.maxZoom !== undefined ? options.maxZoom : 19,
-      opaque: options.opaque !== undefined ? options.opaque : true,
-      reprojectionErrorThreshold: options.reprojectionErrorThreshold,
-      tileLoadFunction: options.tileLoadFunction,
-      transition: options.transition,
-      url: url,
-      wrapX: options.wrapX
-    }) || this;
-    return _this;
-  }
-
-  return OSM;
-}(_XYZ.default);
-
-var _default = OSM;
-exports.default = _default;
-},{"./XYZ.js":"../node_modules/ol/source/XYZ.js"}],"../node_modules/ol/geom/GeometryCollection.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _EventType = _interopRequireDefault(require("../events/EventType.js"));
-
-var _Geometry = _interopRequireDefault(require("./Geometry.js"));
-
-var _GeometryType = _interopRequireDefault(require("./GeometryType.js"));
-
-var _extent = require("../extent.js");
-
-var _events = require("../events.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-/**
- * @module ol/geom/GeometryCollection
- */
-
-
-/**
- * @classdesc
- * An array of {@link module:ol/geom/Geometry} objects.
- *
- * @api
- */
-var GeometryCollection =
-/** @class */
-function (_super) {
-  __extends(GeometryCollection, _super);
-  /**
-   * @param {Array<Geometry>=} opt_geometries Geometries.
-   */
-
-
-  function GeometryCollection(opt_geometries) {
-    var _this = _super.call(this) || this;
-    /**
-     * @private
-     * @type {Array<Geometry>}
-     */
-
-
-    _this.geometries_ = opt_geometries ? opt_geometries : null;
-    /**
-     * @type {Array<import("../events.js").EventsKey>}
-     */
-
-    _this.changeEventsKeys_ = [];
-
-    _this.listenGeometriesChange_();
-
-    return _this;
-  }
-  /**
-   * @private
-   */
-
-
-  GeometryCollection.prototype.unlistenGeometriesChange_ = function () {
-    this.changeEventsKeys_.forEach(_events.unlistenByKey);
-    this.changeEventsKeys_.length = 0;
-  };
-  /**
-   * @private
-   */
-
-
-  GeometryCollection.prototype.listenGeometriesChange_ = function () {
-    if (!this.geometries_) {
-      return;
-    }
-
-    for (var i = 0, ii = this.geometries_.length; i < ii; ++i) {
-      this.changeEventsKeys_.push((0, _events.listen)(this.geometries_[i], _EventType.default.CHANGE, this.changed, this));
-    }
-  };
-  /**
-   * Make a complete copy of the geometry.
-   * @return {!GeometryCollection} Clone.
-   * @api
-   */
-
-
-  GeometryCollection.prototype.clone = function () {
-    var geometryCollection = new GeometryCollection(null);
-    geometryCollection.setGeometries(this.geometries_);
-    geometryCollection.applyProperties(this);
-    return geometryCollection;
-  };
-  /**
-   * @param {number} x X.
-   * @param {number} y Y.
-   * @param {import("../coordinate.js").Coordinate} closestPoint Closest point.
-   * @param {number} minSquaredDistance Minimum squared distance.
-   * @return {number} Minimum squared distance.
-   */
-
-
-  GeometryCollection.prototype.closestPointXY = function (x, y, closestPoint, minSquaredDistance) {
-    if (minSquaredDistance < (0, _extent.closestSquaredDistanceXY)(this.getExtent(), x, y)) {
-      return minSquaredDistance;
-    }
-
-    var geometries = this.geometries_;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      minSquaredDistance = geometries[i].closestPointXY(x, y, closestPoint, minSquaredDistance);
-    }
-
-    return minSquaredDistance;
-  };
-  /**
-   * @param {number} x X.
-   * @param {number} y Y.
-   * @return {boolean} Contains (x, y).
-   */
-
-
-  GeometryCollection.prototype.containsXY = function (x, y) {
-    var geometries = this.geometries_;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      if (geometries[i].containsXY(x, y)) {
-        return true;
-      }
-    }
-
-    return false;
-  };
-  /**
-   * @param {import("../extent.js").Extent} extent Extent.
-   * @protected
-   * @return {import("../extent.js").Extent} extent Extent.
-   */
-
-
-  GeometryCollection.prototype.computeExtent = function (extent) {
-    (0, _extent.createOrUpdateEmpty)(extent);
-    var geometries = this.geometries_;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      (0, _extent.extend)(extent, geometries[i].getExtent());
-    }
-
-    return extent;
-  };
-  /**
-   * Return the geometries that make up this geometry collection.
-   * @return {Array<Geometry>} Geometries.
-   * @api
-   */
-
-
-  GeometryCollection.prototype.getGeometries = function () {
-    return cloneGeometries(this.geometries_);
-  };
-  /**
-   * @return {Array<Geometry>} Geometries.
-   */
-
-
-  GeometryCollection.prototype.getGeometriesArray = function () {
-    return this.geometries_;
-  };
-  /**
-   * @return {Array<Geometry>} Geometries.
-   */
-
-
-  GeometryCollection.prototype.getGeometriesArrayRecursive = function () {
-    /** @type {Array<Geometry>} */
-    var geometriesArray = [];
-    var geometries = this.geometries_;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      if (geometries[i].getType() === this.getType()) {
-        geometriesArray = geometriesArray.concat(
-        /** @type {GeometryCollection} */
-        geometries[i].getGeometriesArrayRecursive());
-      } else {
-        geometriesArray.push(geometries[i]);
-      }
-    }
-
-    return geometriesArray;
-  };
-  /**
-   * Create a simplified version of this geometry using the Douglas Peucker algorithm.
-   * @param {number} squaredTolerance Squared tolerance.
-   * @return {GeometryCollection} Simplified GeometryCollection.
-   */
-
-
-  GeometryCollection.prototype.getSimplifiedGeometry = function (squaredTolerance) {
-    if (this.simplifiedGeometryRevision !== this.getRevision()) {
-      this.simplifiedGeometryMaxMinSquaredTolerance = 0;
-      this.simplifiedGeometryRevision = this.getRevision();
-    }
-
-    if (squaredTolerance < 0 || this.simplifiedGeometryMaxMinSquaredTolerance !== 0 && squaredTolerance < this.simplifiedGeometryMaxMinSquaredTolerance) {
-      return this;
-    }
-
-    var simplifiedGeometries = [];
-    var geometries = this.geometries_;
-    var simplified = false;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      var geometry = geometries[i];
-      var simplifiedGeometry = geometry.getSimplifiedGeometry(squaredTolerance);
-      simplifiedGeometries.push(simplifiedGeometry);
-
-      if (simplifiedGeometry !== geometry) {
-        simplified = true;
-      }
-    }
-
-    if (simplified) {
-      var simplifiedGeometryCollection = new GeometryCollection(null);
-      simplifiedGeometryCollection.setGeometriesArray(simplifiedGeometries);
-      return simplifiedGeometryCollection;
-    } else {
-      this.simplifiedGeometryMaxMinSquaredTolerance = squaredTolerance;
-      return this;
-    }
-  };
-  /**
-   * Get the type of this geometry.
-   * @return {import("./GeometryType.js").default} Geometry type.
-   * @api
-   */
-
-
-  GeometryCollection.prototype.getType = function () {
-    return _GeometryType.default.GEOMETRY_COLLECTION;
-  };
-  /**
-   * Test if the geometry and the passed extent intersect.
-   * @param {import("../extent.js").Extent} extent Extent.
-   * @return {boolean} `true` if the geometry and the extent intersect.
-   * @api
-   */
-
-
-  GeometryCollection.prototype.intersectsExtent = function (extent) {
-    var geometries = this.geometries_;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      if (geometries[i].intersectsExtent(extent)) {
-        return true;
-      }
-    }
-
-    return false;
-  };
-  /**
-   * @return {boolean} Is empty.
-   */
-
-
-  GeometryCollection.prototype.isEmpty = function () {
-    return this.geometries_.length === 0;
-  };
-  /**
-   * Rotate the geometry around a given coordinate. This modifies the geometry
-   * coordinates in place.
-   * @param {number} angle Rotation angle in radians.
-   * @param {import("../coordinate.js").Coordinate} anchor The rotation center.
-   * @api
-   */
-
-
-  GeometryCollection.prototype.rotate = function (angle, anchor) {
-    var geometries = this.geometries_;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      geometries[i].rotate(angle, anchor);
-    }
-
-    this.changed();
-  };
-  /**
-   * Scale the geometry (with an optional origin).  This modifies the geometry
-   * coordinates in place.
-   * @abstract
-   * @param {number} sx The scaling factor in the x-direction.
-   * @param {number=} opt_sy The scaling factor in the y-direction (defaults to sx).
-   * @param {import("../coordinate.js").Coordinate=} opt_anchor The scale origin (defaults to the center
-   *     of the geometry extent).
-   * @api
-   */
-
-
-  GeometryCollection.prototype.scale = function (sx, opt_sy, opt_anchor) {
-    var anchor = opt_anchor;
-
-    if (!anchor) {
-      anchor = (0, _extent.getCenter)(this.getExtent());
-    }
-
-    var geometries = this.geometries_;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      geometries[i].scale(sx, opt_sy, anchor);
-    }
-
-    this.changed();
-  };
-  /**
-   * Set the geometries that make up this geometry collection.
-   * @param {Array<Geometry>} geometries Geometries.
-   * @api
-   */
-
-
-  GeometryCollection.prototype.setGeometries = function (geometries) {
-    this.setGeometriesArray(cloneGeometries(geometries));
-  };
-  /**
-   * @param {Array<Geometry>} geometries Geometries.
-   */
-
-
-  GeometryCollection.prototype.setGeometriesArray = function (geometries) {
-    this.unlistenGeometriesChange_();
-    this.geometries_ = geometries;
-    this.listenGeometriesChange_();
-    this.changed();
-  };
-  /**
-   * Apply a transform function to the coordinates of the geometry.
-   * The geometry is modified in place.
-   * If you do not want the geometry modified in place, first `clone()` it and
-   * then use this function on the clone.
-   * @param {import("../proj.js").TransformFunction} transformFn Transform function.
-   * Called with a flat array of geometry coordinates.
-   * @api
-   */
-
-
-  GeometryCollection.prototype.applyTransform = function (transformFn) {
-    var geometries = this.geometries_;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      geometries[i].applyTransform(transformFn);
-    }
-
-    this.changed();
-  };
-  /**
-   * Translate the geometry.  This modifies the geometry coordinates in place.  If
-   * instead you want a new geometry, first `clone()` this geometry.
-   * @param {number} deltaX Delta X.
-   * @param {number} deltaY Delta Y.
-   * @api
-   */
-
-
-  GeometryCollection.prototype.translate = function (deltaX, deltaY) {
-    var geometries = this.geometries_;
-
-    for (var i = 0, ii = geometries.length; i < ii; ++i) {
-      geometries[i].translate(deltaX, deltaY);
-    }
-
-    this.changed();
-  };
-  /**
-   * Clean up.
-   */
-
-
-  GeometryCollection.prototype.disposeInternal = function () {
-    this.unlistenGeometriesChange_();
-
-    _super.prototype.disposeInternal.call(this);
-  };
-
-  return GeometryCollection;
-}(_Geometry.default);
-/**
- * @param {Array<Geometry>} geometries Geometries.
- * @return {Array<Geometry>} Cloned geometries.
- */
-
-
-function cloneGeometries(geometries) {
-  var clonedGeometries = [];
-
-  for (var i = 0, ii = geometries.length; i < ii; ++i) {
-    clonedGeometries.push(geometries[i].clone());
-  }
-
-  return clonedGeometries;
-}
-
-var _default = GeometryCollection;
-exports.default = _default;
-},{"../events/EventType.js":"../node_modules/ol/events/EventType.js","./Geometry.js":"../node_modules/ol/geom/Geometry.js","./GeometryType.js":"../node_modules/ol/geom/GeometryType.js","../extent.js":"../node_modules/ol/extent.js","../events.js":"../node_modules/ol/events.js"}],"../node_modules/ol/format/Feature.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.transformGeometryWithOptions = transformGeometryWithOptions;
-exports.transformExtentWithOptions = transformExtentWithOptions;
-exports.default = void 0;
-
-var _Units = _interopRequireDefault(require("../proj/Units.js"));
-
-var _util = require("../util.js");
-
-var _obj = require("../obj.js");
-
-var _proj = require("../proj.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @module ol/format/Feature
- */
-
-/**
- * @typedef {Object} ReadOptions
- * @property {import("../proj.js").ProjectionLike} [dataProjection] Projection of the data we are reading.
- * If not provided, the projection will be derived from the data (where possible) or
- * the `dataProjection` of the format is assigned (where set). If the projection
- * can not be derived from the data and if no `dataProjection` is set for a format,
- * the features will not be reprojected.
- * @property {import("../extent.js").Extent} [extent] Tile extent in map units of the tile being read.
- * This is only required when reading data with tile pixels as geometry units. When configured,
- * a `dataProjection` with `TILE_PIXELS` as `units` and the tile's pixel extent as `extent` needs to be
- * provided.
- * @property {import("../proj.js").ProjectionLike} [featureProjection] Projection of the feature geometries
- * created by the format reader. If not provided, features will be returned in the
- * `dataProjection`.
- */
-
-/**
- * @typedef {Object} WriteOptions
- * @property {import("../proj.js").ProjectionLike} [dataProjection] Projection of the data we are writing.
- * If not provided, the `dataProjection` of the format is assigned (where set).
- * If no `dataProjection` is set for a format, the features will be returned
- * in the `featureProjection`.
- * @property {import("../proj.js").ProjectionLike} [featureProjection] Projection of the feature geometries
- * that will be serialized by the format writer. If not provided, geometries are assumed
- * to be in the `dataProjection` if that is set; in other words, they are not transformed.
- * @property {boolean} [rightHanded] When writing geometries, follow the right-hand
- * rule for linear ring orientation.  This means that polygons will have counter-clockwise
- * exterior rings and clockwise interior rings.  By default, coordinates are serialized
- * as they are provided at construction.  If `true`, the right-hand rule will
- * be applied.  If `false`, the left-hand rule will be applied (clockwise for
- * exterior and counter-clockwise for interior rings).  Note that not all
- * formats support this.  The GeoJSON format does use this property when writing
- * geometries.
- * @property {number} [decimals] Maximum number of decimal places for coordinates.
- * Coordinates are stored internally as floats, but floating-point arithmetic can create
- * coordinates with a large number of decimal places, not generally wanted on output.
- * Set a number here to round coordinates. Can also be used to ensure that
- * coordinates read in can be written back out with the same number of decimals.
- * Default is no rounding.
- */
-
-/**
- * @classdesc
- * Abstract base class; normally only used for creating subclasses and not
- * instantiated in apps.
- * Base class for feature formats.
- * {@link module:ol/format/Feature~FeatureFormat} subclasses provide the ability to decode and encode
- * {@link module:ol/Feature~Feature} objects from a variety of commonly used geospatial
- * file formats.  See the documentation for each format for more details.
- *
- * @abstract
- * @api
- */
-var FeatureFormat =
-/** @class */
-function () {
-  function FeatureFormat() {
-    /**
-     * @protected
-     * @type {import("../proj/Projection.js").default}
-     */
-    this.dataProjection = null;
-    /**
-     * @protected
-     * @type {import("../proj/Projection.js").default}
-     */
-
-    this.defaultFeatureProjection = null;
-  }
-  /**
-   * Adds the data projection to the read options.
-   * @param {Document|Element|Object|string} source Source.
-   * @param {ReadOptions=} opt_options Options.
-   * @return {ReadOptions|undefined} Options.
-   * @protected
-   */
-
-
-  FeatureFormat.prototype.getReadOptions = function (source, opt_options) {
-    var options;
-
-    if (opt_options) {
-      var dataProjection = opt_options.dataProjection ? (0, _proj.get)(opt_options.dataProjection) : this.readProjection(source);
-
-      if (opt_options.extent && dataProjection && dataProjection.getUnits() === _Units.default.TILE_PIXELS) {
-        dataProjection = (0, _proj.get)(dataProjection);
-        dataProjection.setWorldExtent(opt_options.extent);
-      }
-
-      options = {
-        dataProjection: dataProjection,
-        featureProjection: opt_options.featureProjection
-      };
-    }
-
-    return this.adaptOptions(options);
-  };
-  /**
-   * Sets the `dataProjection` on the options, if no `dataProjection`
-   * is set.
-   * @param {WriteOptions|ReadOptions|undefined} options
-   *     Options.
-   * @protected
-   * @return {WriteOptions|ReadOptions|undefined}
-   *     Updated options.
-   */
-
-
-  FeatureFormat.prototype.adaptOptions = function (options) {
-    return (0, _obj.assign)({
-      dataProjection: this.dataProjection,
-      featureProjection: this.defaultFeatureProjection
-    }, options);
-  };
-  /**
-   * @abstract
-   * @return {import("./FormatType.js").default} Format.
-   */
-
-
-  FeatureFormat.prototype.getType = function () {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Read a single feature from a source.
-   *
-   * @abstract
-   * @param {Document|Element|Object|string} source Source.
-   * @param {ReadOptions=} opt_options Read options.
-   * @return {import("../Feature.js").FeatureLike} Feature.
-   */
-
-
-  FeatureFormat.prototype.readFeature = function (source, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Read all features from a source.
-   *
-   * @abstract
-   * @param {Document|Element|ArrayBuffer|Object|string} source Source.
-   * @param {ReadOptions=} opt_options Read options.
-   * @return {Array<import("../Feature.js").FeatureLike>} Features.
-   */
-
-
-  FeatureFormat.prototype.readFeatures = function (source, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Read a single geometry from a source.
-   *
-   * @abstract
-   * @param {Document|Element|Object|string} source Source.
-   * @param {ReadOptions=} opt_options Read options.
-   * @return {import("../geom/Geometry.js").default} Geometry.
-   */
-
-
-  FeatureFormat.prototype.readGeometry = function (source, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Read the projection from a source.
-   *
-   * @abstract
-   * @param {Document|Element|Object|string} source Source.
-   * @return {import("../proj/Projection.js").default} Projection.
-   */
-
-
-  FeatureFormat.prototype.readProjection = function (source) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Encode a feature in this format.
-   *
-   * @abstract
-   * @param {import("../Feature.js").default} feature Feature.
-   * @param {WriteOptions=} opt_options Write options.
-   * @return {string} Result.
-   */
-
-
-  FeatureFormat.prototype.writeFeature = function (feature, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Encode an array of features in this format.
-   *
-   * @abstract
-   * @param {Array<import("../Feature.js").default>} features Features.
-   * @param {WriteOptions=} opt_options Write options.
-   * @return {string} Result.
-   */
-
-
-  FeatureFormat.prototype.writeFeatures = function (features, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Write a single geometry in this format.
-   *
-   * @abstract
-   * @param {import("../geom/Geometry.js").default} geometry Geometry.
-   * @param {WriteOptions=} opt_options Write options.
-   * @return {string} Result.
-   */
-
-
-  FeatureFormat.prototype.writeGeometry = function (geometry, opt_options) {
-    return (0, _util.abstract)();
-  };
-
-  return FeatureFormat;
-}();
-
-var _default = FeatureFormat;
-/**
- * @param {import("../geom/Geometry.js").default} geometry Geometry.
- * @param {boolean} write Set to true for writing, false for reading.
- * @param {(WriteOptions|ReadOptions)=} opt_options Options.
- * @return {import("../geom/Geometry.js").default} Transformed geometry.
- */
-
-exports.default = _default;
-
-function transformGeometryWithOptions(geometry, write, opt_options) {
-  var featureProjection = opt_options ? (0, _proj.get)(opt_options.featureProjection) : null;
-  var dataProjection = opt_options ? (0, _proj.get)(opt_options.dataProjection) : null;
-  var transformed;
-
-  if (featureProjection && dataProjection && !(0, _proj.equivalent)(featureProjection, dataProjection)) {
-    transformed = (write ? geometry.clone() : geometry).transform(write ? featureProjection : dataProjection, write ? dataProjection : featureProjection);
-  } else {
-    transformed = geometry;
-  }
-
-  if (write && opt_options &&
-  /** @type {WriteOptions} */
-  opt_options.decimals !== undefined) {
-    var power_1 = Math.pow(10,
-    /** @type {WriteOptions} */
-    opt_options.decimals); // if decimals option on write, round each coordinate appropriately
-
-    /**
-     * @param {Array<number>} coordinates Coordinates.
-     * @return {Array<number>} Transformed coordinates.
-     */
-
-    var transform = function (coordinates) {
-      for (var i = 0, ii = coordinates.length; i < ii; ++i) {
-        coordinates[i] = Math.round(coordinates[i] * power_1) / power_1;
-      }
-
-      return coordinates;
-    };
-
-    if (transformed === geometry) {
-      transformed = geometry.clone();
-    }
-
-    transformed.applyTransform(transform);
-  }
-
-  return transformed;
-}
-/**
- * @param {import("../extent.js").Extent} extent Extent.
- * @param {ReadOptions=} opt_options Read options.
- * @return {import("../extent.js").Extent} Transformed extent.
- */
-
-
-function transformExtentWithOptions(extent, opt_options) {
-  var featureProjection = opt_options ? (0, _proj.get)(opt_options.featureProjection) : null;
-  var dataProjection = opt_options ? (0, _proj.get)(opt_options.dataProjection) : null;
-
-  if (featureProjection && dataProjection && !(0, _proj.equivalent)(featureProjection, dataProjection)) {
-    return (0, _proj.transformExtent)(extent, dataProjection, featureProjection);
-  } else {
-    return extent;
-  }
-}
-},{"../proj/Units.js":"../node_modules/ol/proj/Units.js","../util.js":"../node_modules/ol/util.js","../obj.js":"../node_modules/ol/obj.js","../proj.js":"../node_modules/ol/proj.js"}],"../node_modules/ol/format/JSONFeature.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _Feature = _interopRequireDefault(require("./Feature.js"));
-
-var _FormatType = _interopRequireDefault(require("./FormatType.js"));
-
-var _util = require("../util.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-/**
- * @module ol/format/JSONFeature
- */
-
-
-/**
- * @classdesc
- * Abstract base class; normally only used for creating subclasses and not
- * instantiated in apps.
- * Base class for JSON feature formats.
- *
- * @abstract
- */
-var JSONFeature =
-/** @class */
-function (_super) {
-  __extends(JSONFeature, _super);
-
-  function JSONFeature() {
-    return _super.call(this) || this;
-  }
-  /**
-   * @return {import("./FormatType.js").default} Format.
-   */
-
-
-  JSONFeature.prototype.getType = function () {
-    return _FormatType.default.JSON;
-  };
-  /**
-   * Read a feature.  Only works for a single feature. Use `readFeatures` to
-   * read a feature collection.
-   *
-   * @param {ArrayBuffer|Document|Element|Object|string} source Source.
-   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
-   * @return {import("../Feature.js").default} Feature.
-   * @api
-   */
-
-
-  JSONFeature.prototype.readFeature = function (source, opt_options) {
-    return this.readFeatureFromObject(getObject(source), this.getReadOptions(source, opt_options));
-  };
-  /**
-   * Read all features.  Works with both a single feature and a feature
-   * collection.
-   *
-   * @param {ArrayBuffer|Document|Element|Object|string} source Source.
-   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
-   * @return {Array<import("../Feature.js").default>} Features.
-   * @api
-   */
-
-
-  JSONFeature.prototype.readFeatures = function (source, opt_options) {
-    return this.readFeaturesFromObject(getObject(source), this.getReadOptions(source, opt_options));
-  };
-  /**
-   * @abstract
-   * @param {Object} object Object.
-   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
-   * @protected
-   * @return {import("../Feature.js").default} Feature.
-   */
-
-
-  JSONFeature.prototype.readFeatureFromObject = function (object, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * @abstract
-   * @param {Object} object Object.
-   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
-   * @protected
-   * @return {Array<import("../Feature.js").default>} Features.
-   */
-
-
-  JSONFeature.prototype.readFeaturesFromObject = function (object, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Read a geometry.
-   *
-   * @param {ArrayBuffer|Document|Element|Object|string} source Source.
-   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
-   * @return {import("../geom/Geometry.js").default} Geometry.
-   * @api
-   */
-
-
-  JSONFeature.prototype.readGeometry = function (source, opt_options) {
-    return this.readGeometryFromObject(getObject(source), this.getReadOptions(source, opt_options));
-  };
-  /**
-   * @abstract
-   * @param {Object} object Object.
-   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
-   * @protected
-   * @return {import("../geom/Geometry.js").default} Geometry.
-   */
-
-
-  JSONFeature.prototype.readGeometryFromObject = function (object, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Read the projection.
-   *
-   * @param {ArrayBuffer|Document|Element|Object|string} source Source.
-   * @return {import("../proj/Projection.js").default} Projection.
-   * @api
-   */
-
-
-  JSONFeature.prototype.readProjection = function (source) {
-    return this.readProjectionFromObject(getObject(source));
-  };
-  /**
-   * @abstract
-   * @param {Object} object Object.
-   * @protected
-   * @return {import("../proj/Projection.js").default} Projection.
-   */
-
-
-  JSONFeature.prototype.readProjectionFromObject = function (object) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Encode a feature as string.
-   *
-   * @param {import("../Feature.js").default} feature Feature.
-   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
-   * @return {string} Encoded feature.
-   * @api
-   */
-
-
-  JSONFeature.prototype.writeFeature = function (feature, opt_options) {
-    return JSON.stringify(this.writeFeatureObject(feature, opt_options));
-  };
-  /**
-   * @abstract
-   * @param {import("../Feature.js").default} feature Feature.
-   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
-   * @return {Object} Object.
-   */
-
-
-  JSONFeature.prototype.writeFeatureObject = function (feature, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Encode an array of features as string.
-   *
-   * @param {Array<import("../Feature.js").default>} features Features.
-   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
-   * @return {string} Encoded features.
-   * @api
-   */
-
-
-  JSONFeature.prototype.writeFeatures = function (features, opt_options) {
-    return JSON.stringify(this.writeFeaturesObject(features, opt_options));
-  };
-  /**
-   * @abstract
-   * @param {Array<import("../Feature.js").default>} features Features.
-   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
-   * @return {Object} Object.
-   */
-
-
-  JSONFeature.prototype.writeFeaturesObject = function (features, opt_options) {
-    return (0, _util.abstract)();
-  };
-  /**
-   * Encode a geometry as string.
-   *
-   * @param {import("../geom/Geometry.js").default} geometry Geometry.
-   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
-   * @return {string} Encoded geometry.
-   * @api
-   */
-
-
-  JSONFeature.prototype.writeGeometry = function (geometry, opt_options) {
-    return JSON.stringify(this.writeGeometryObject(geometry, opt_options));
-  };
-  /**
-   * @abstract
-   * @param {import("../geom/Geometry.js").default} geometry Geometry.
-   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
-   * @return {Object} Object.
-   */
-
-
-  JSONFeature.prototype.writeGeometryObject = function (geometry, opt_options) {
-    return (0, _util.abstract)();
-  };
-
-  return JSONFeature;
-}(_Feature.default);
-/**
- * @param {Document|Element|Object|string} source Source.
- * @return {Object} Object.
- */
-
-
-function getObject(source) {
-  if (typeof source === 'string') {
-    var object = JSON.parse(source);
-    return object ?
-    /** @type {Object} */
-    object : null;
-  } else if (source !== null) {
-    return source;
-  } else {
-    return null;
-  }
-}
-
-var _default = JSONFeature;
-exports.default = _default;
-},{"./Feature.js":"../node_modules/ol/format/Feature.js","./FormatType.js":"../node_modules/ol/format/FormatType.js","../util.js":"../node_modules/ol/util.js"}],"../node_modules/ol/format/GeoJSON.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _Feature = _interopRequireDefault(require("../Feature.js"));
-
-var _GeometryCollection = _interopRequireDefault(require("../geom/GeometryCollection.js"));
-
-var _GeometryType = _interopRequireDefault(require("../geom/GeometryType.js"));
-
-var _JSONFeature = _interopRequireDefault(require("./JSONFeature.js"));
-
-var _LineString = _interopRequireDefault(require("../geom/LineString.js"));
-
-var _MultiLineString = _interopRequireDefault(require("../geom/MultiLineString.js"));
-
-var _MultiPoint = _interopRequireDefault(require("../geom/MultiPoint.js"));
-
-var _MultiPolygon = _interopRequireDefault(require("../geom/MultiPolygon.js"));
-
-var _Point = _interopRequireDefault(require("../geom/Point.js"));
-
-var _Polygon = _interopRequireDefault(require("../geom/Polygon.js"));
-
-var _asserts = require("../asserts.js");
-
-var _obj = require("../obj.js");
-
-var _proj = require("../proj.js");
-
-var _Feature2 = require("./Feature.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @module ol/format/GeoJSON
- */
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-/**
- * @typedef {import("geojson").GeoJSON} GeoJSONObject
- * @typedef {import("geojson").Feature} GeoJSONFeature
- * @typedef {import("geojson").FeatureCollection} GeoJSONFeatureCollection
- * @typedef {import("geojson").Geometry} GeoJSONGeometry
- * @typedef {import("geojson").Point} GeoJSONPoint
- * @typedef {import("geojson").LineString} GeoJSONLineString
- * @typedef {import("geojson").Polygon} GeoJSONPolygon
- * @typedef {import("geojson").MultiPoint} GeoJSONMultiPoint
- * @typedef {import("geojson").MultiLineString} GeoJSONMultiLineString
- * @typedef {import("geojson").MultiPolygon} GeoJSONMultiPolygon
- * @typedef {import("geojson").GeometryCollection} GeoJSONGeometryCollection
- */
-
-/**
- * @typedef {Object} Options
- * @property {import("../proj.js").ProjectionLike} [dataProjection='EPSG:4326'] Default data projection.
- * @property {import("../proj.js").ProjectionLike} [featureProjection] Projection for features read or
- * written by the format.  Options passed to read or write methods will take precedence.
- * @property {string} [geometryName] Geometry name to use when creating features.
- * @property {boolean} [extractGeometryName=false] Certain GeoJSON providers include
- * the geometry_name field in the feature GeoJSON. If set to `true` the GeoJSON reader
- * will look for that field to set the geometry name. If both this field is set to `true`
- * and a `geometryName` is provided, the `geometryName` will take precedence.
- */
-
-/**
- * @classdesc
- * Feature format for reading and writing data in the GeoJSON format.
- *
- * @api
- */
-var GeoJSON =
-/** @class */
-function (_super) {
-  __extends(GeoJSON, _super);
-  /**
-   * @param {Options=} opt_options Options.
-   */
-
-
-  function GeoJSON(opt_options) {
-    var _this = this;
-
-    var options = opt_options ? opt_options : {};
-    _this = _super.call(this) || this;
-    /**
-     * @type {import("../proj/Projection.js").default}
-     */
-
-    _this.dataProjection = (0, _proj.get)(options.dataProjection ? options.dataProjection : 'EPSG:4326');
-
-    if (options.featureProjection) {
-      _this.defaultFeatureProjection = (0, _proj.get)(options.featureProjection);
-    }
-    /**
-     * Name of the geometry attribute for features.
-     * @type {string|undefined}
-     * @private
-     */
-
-
-    _this.geometryName_ = options.geometryName;
-    /**
-     * Look for the geometry name in the feature GeoJSON
-     * @type {boolean|undefined}
-     * @private
-     */
-
-    _this.extractGeometryName_ = options.extractGeometryName;
-    return _this;
-  }
-  /**
-   * @param {Object} object Object.
-   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
-   * @protected
-   * @return {import("../Feature.js").default} Feature.
-   */
-
-
-  GeoJSON.prototype.readFeatureFromObject = function (object, opt_options) {
-    /**
-     * @type {GeoJSONFeature}
-     */
-    var geoJSONFeature = null;
-
-    if (object['type'] === 'Feature') {
-      geoJSONFeature =
-      /** @type {GeoJSONFeature} */
-      object;
-    } else {
-      geoJSONFeature = {
-        'type': 'Feature',
-        'geometry':
-        /** @type {GeoJSONGeometry} */
-        object,
-        'properties': null
-      };
-    }
-
-    var geometry = readGeometry(geoJSONFeature['geometry'], opt_options);
-    var feature = new _Feature.default();
-
-    if (this.geometryName_) {
-      feature.setGeometryName(this.geometryName_);
-    } else if (this.extractGeometryName_ && 'geometry_name' in geoJSONFeature !== undefined) {
-      feature.setGeometryName(geoJSONFeature['geometry_name']);
-    }
-
-    feature.setGeometry(geometry);
-
-    if ('id' in geoJSONFeature) {
-      feature.setId(geoJSONFeature['id']);
-    }
-
-    if (geoJSONFeature['properties']) {
-      feature.setProperties(geoJSONFeature['properties'], true);
-    }
-
-    return feature;
-  };
-  /**
-   * @param {Object} object Object.
-   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
-   * @protected
-   * @return {Array<Feature>} Features.
-   */
-
-
-  GeoJSON.prototype.readFeaturesFromObject = function (object, opt_options) {
-    var geoJSONObject =
-    /** @type {GeoJSONObject} */
-    object;
-    /** @type {Array<import("../Feature.js").default>} */
-
-    var features = null;
-
-    if (geoJSONObject['type'] === 'FeatureCollection') {
-      var geoJSONFeatureCollection =
-      /** @type {GeoJSONFeatureCollection} */
-      object;
-      features = [];
-      var geoJSONFeatures = geoJSONFeatureCollection['features'];
-
-      for (var i = 0, ii = geoJSONFeatures.length; i < ii; ++i) {
-        features.push(this.readFeatureFromObject(geoJSONFeatures[i], opt_options));
-      }
-    } else {
-      features = [this.readFeatureFromObject(object, opt_options)];
-    }
-
-    return features;
-  };
-  /**
-   * @param {GeoJSONGeometry} object Object.
-   * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
-   * @protected
-   * @return {import("../geom/Geometry.js").default} Geometry.
-   */
-
-
-  GeoJSON.prototype.readGeometryFromObject = function (object, opt_options) {
-    return readGeometry(object, opt_options);
-  };
-  /**
-   * @param {Object} object Object.
-   * @protected
-   * @return {import("../proj/Projection.js").default} Projection.
-   */
-
-
-  GeoJSON.prototype.readProjectionFromObject = function (object) {
-    var crs = object['crs'];
-    var projection;
-
-    if (crs) {
-      if (crs['type'] == 'name') {
-        projection = (0, _proj.get)(crs['properties']['name']);
-      } else if (crs['type'] === 'EPSG') {
-        projection = (0, _proj.get)('EPSG:' + crs['properties']['code']);
-      } else {
-        (0, _asserts.assert)(false, 36); // Unknown SRS type
-      }
-    } else {
-      projection = this.dataProjection;
-    }
-
-    return (
-      /** @type {import("../proj/Projection.js").default} */
-      projection
-    );
-  };
-  /**
-   * Encode a feature as a GeoJSON Feature object.
-   *
-   * @param {import("../Feature.js").default} feature Feature.
-   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
-   * @return {GeoJSONFeature} Object.
-   * @api
-   */
-
-
-  GeoJSON.prototype.writeFeatureObject = function (feature, opt_options) {
-    opt_options = this.adaptOptions(opt_options);
-    /** @type {GeoJSONFeature} */
-
-    var object = {
-      'type': 'Feature',
-      geometry: null,
-      properties: null
-    };
-    var id = feature.getId();
-
-    if (id !== undefined) {
-      object.id = id;
-    }
-
-    if (!feature.hasProperties()) {
-      return object;
-    }
-
-    var properties = feature.getProperties();
-    var geometry = feature.getGeometry();
-
-    if (geometry) {
-      object.geometry = writeGeometry(geometry, opt_options);
-      delete properties[feature.getGeometryName()];
-    }
-
-    if (!(0, _obj.isEmpty)(properties)) {
-      object.properties = properties;
-    }
-
-    return object;
-  };
-  /**
-   * Encode an array of features as a GeoJSON object.
-   *
-   * @param {Array<import("../Feature.js").default>} features Features.
-   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
-   * @return {GeoJSONFeatureCollection} GeoJSON Object.
-   * @api
-   */
-
-
-  GeoJSON.prototype.writeFeaturesObject = function (features, opt_options) {
-    opt_options = this.adaptOptions(opt_options);
-    var objects = [];
-
-    for (var i = 0, ii = features.length; i < ii; ++i) {
-      objects.push(this.writeFeatureObject(features[i], opt_options));
-    }
-
-    return {
-      type: 'FeatureCollection',
-      features: objects
-    };
-  };
-  /**
-   * Encode a geometry as a GeoJSON object.
-   *
-   * @param {import("../geom/Geometry.js").default} geometry Geometry.
-   * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
-   * @return {GeoJSONGeometry|GeoJSONGeometryCollection} Object.
-   * @api
-   */
-
-
-  GeoJSON.prototype.writeGeometryObject = function (geometry, opt_options) {
-    return writeGeometry(geometry, this.adaptOptions(opt_options));
-  };
-
-  return GeoJSON;
-}(_JSONFeature.default);
-/**
- * @param {GeoJSONGeometry|GeoJSONGeometryCollection} object Object.
- * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
- * @return {import("../geom/Geometry.js").default} Geometry.
- */
-
-
-function readGeometry(object, opt_options) {
-  if (!object) {
-    return null;
-  }
-  /**
-   * @type {import("../geom/Geometry.js").default}
-   */
-
-
-  var geometry;
-
-  switch (object['type']) {
-    case _GeometryType.default.POINT:
-      {
-        geometry = readPointGeometry(
-        /** @type {GeoJSONPoint} */
-        object);
-        break;
-      }
-
-    case _GeometryType.default.LINE_STRING:
-      {
-        geometry = readLineStringGeometry(
-        /** @type {GeoJSONLineString} */
-        object);
-        break;
-      }
-
-    case _GeometryType.default.POLYGON:
-      {
-        geometry = readPolygonGeometry(
-        /** @type {GeoJSONPolygon} */
-        object);
-        break;
-      }
-
-    case _GeometryType.default.MULTI_POINT:
-      {
-        geometry = readMultiPointGeometry(
-        /** @type {GeoJSONMultiPoint} */
-        object);
-        break;
-      }
-
-    case _GeometryType.default.MULTI_LINE_STRING:
-      {
-        geometry = readMultiLineStringGeometry(
-        /** @type {GeoJSONMultiLineString} */
-        object);
-        break;
-      }
-
-    case _GeometryType.default.MULTI_POLYGON:
-      {
-        geometry = readMultiPolygonGeometry(
-        /** @type {GeoJSONMultiPolygon} */
-        object);
-        break;
-      }
-
-    case _GeometryType.default.GEOMETRY_COLLECTION:
-      {
-        geometry = readGeometryCollectionGeometry(
-        /** @type {GeoJSONGeometryCollection} */
-        object);
-        break;
-      }
-
-    default:
-      {
-        throw new Error('Unsupported GeoJSON type: ' + object.type);
-      }
-  }
-
-  return (0, _Feature2.transformGeometryWithOptions)(geometry, false, opt_options);
-}
-/**
- * @param {GeoJSONGeometryCollection} object Object.
- * @param {import("./Feature.js").ReadOptions=} opt_options Read options.
- * @return {GeometryCollection} Geometry collection.
- */
-
-
-function readGeometryCollectionGeometry(object, opt_options) {
-  var geometries = object['geometries'].map(
-  /**
-   * @param {GeoJSONGeometry} geometry Geometry.
-   * @return {import("../geom/Geometry.js").default} geometry Geometry.
-   */
-  function (geometry) {
-    return readGeometry(geometry, opt_options);
-  });
-  return new _GeometryCollection.default(geometries);
-}
-/**
- * @param {GeoJSONPoint} object Object.
- * @return {Point} Point.
- */
-
-
-function readPointGeometry(object) {
-  return new _Point.default(object['coordinates']);
-}
-/**
- * @param {GeoJSONLineString} object Object.
- * @return {LineString} LineString.
- */
-
-
-function readLineStringGeometry(object) {
-  return new _LineString.default(object['coordinates']);
-}
-/**
- * @param {GeoJSONMultiLineString} object Object.
- * @return {MultiLineString} MultiLineString.
- */
-
-
-function readMultiLineStringGeometry(object) {
-  return new _MultiLineString.default(object['coordinates']);
-}
-/**
- * @param {GeoJSONMultiPoint} object Object.
- * @return {MultiPoint} MultiPoint.
- */
-
-
-function readMultiPointGeometry(object) {
-  return new _MultiPoint.default(object['coordinates']);
-}
-/**
- * @param {GeoJSONMultiPolygon} object Object.
- * @return {MultiPolygon} MultiPolygon.
- */
-
-
-function readMultiPolygonGeometry(object) {
-  return new _MultiPolygon.default(object['coordinates']);
-}
-/**
- * @param {GeoJSONPolygon} object Object.
- * @return {Polygon} Polygon.
- */
-
-
-function readPolygonGeometry(object) {
-  return new _Polygon.default(object['coordinates']);
-}
-/**
- * @param {import("../geom/Geometry.js").default} geometry Geometry.
- * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
- * @return {GeoJSONGeometry} GeoJSON geometry.
- */
-
-
-function writeGeometry(geometry, opt_options) {
-  geometry = (0, _Feature2.transformGeometryWithOptions)(geometry, true, opt_options);
-  var type = geometry.getType();
-  /** @type {GeoJSONGeometry} */
-
-  var geoJSON;
-
-  switch (type) {
-    case _GeometryType.default.POINT:
-      {
-        geoJSON = writePointGeometry(
-        /** @type {Point} */
-        geometry, opt_options);
-        break;
-      }
-
-    case _GeometryType.default.LINE_STRING:
-      {
-        geoJSON = writeLineStringGeometry(
-        /** @type {LineString} */
-        geometry, opt_options);
-        break;
-      }
-
-    case _GeometryType.default.POLYGON:
-      {
-        geoJSON = writePolygonGeometry(
-        /** @type {Polygon} */
-        geometry, opt_options);
-        break;
-      }
-
-    case _GeometryType.default.MULTI_POINT:
-      {
-        geoJSON = writeMultiPointGeometry(
-        /** @type {MultiPoint} */
-        geometry, opt_options);
-        break;
-      }
-
-    case _GeometryType.default.MULTI_LINE_STRING:
-      {
-        geoJSON = writeMultiLineStringGeometry(
-        /** @type {MultiLineString} */
-        geometry, opt_options);
-        break;
-      }
-
-    case _GeometryType.default.MULTI_POLYGON:
-      {
-        geoJSON = writeMultiPolygonGeometry(
-        /** @type {MultiPolygon} */
-        geometry, opt_options);
-        break;
-      }
-
-    case _GeometryType.default.GEOMETRY_COLLECTION:
-      {
-        geoJSON = writeGeometryCollectionGeometry(
-        /** @type {GeometryCollection} */
-        geometry, opt_options);
-        break;
-      }
-
-    case _GeometryType.default.CIRCLE:
-      {
-        geoJSON = {
-          type: 'GeometryCollection',
-          geometries: []
-        };
-        break;
-      }
-
-    default:
-      {
-        throw new Error('Unsupported geometry type: ' + type);
-      }
-  }
-
-  return geoJSON;
-}
-/**
- * @param {GeometryCollection} geometry Geometry.
- * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
- * @return {GeoJSONGeometryCollection} GeoJSON geometry collection.
- */
-
-
-function writeGeometryCollectionGeometry(geometry, opt_options) {
-  var geometries = geometry.getGeometriesArray().map(function (geometry) {
-    var options = (0, _obj.assign)({}, opt_options);
-    delete options.featureProjection;
-    return writeGeometry(geometry, options);
-  });
-  return {
-    type: 'GeometryCollection',
-    geometries: geometries
-  };
-}
-/**
- * @param {LineString} geometry Geometry.
- * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
- * @return {GeoJSONGeometry} GeoJSON geometry.
- */
-
-
-function writeLineStringGeometry(geometry, opt_options) {
-  return {
-    type: 'LineString',
-    coordinates: geometry.getCoordinates()
-  };
-}
-/**
- * @param {MultiLineString} geometry Geometry.
- * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
- * @return {GeoJSONGeometry} GeoJSON geometry.
- */
-
-
-function writeMultiLineStringGeometry(geometry, opt_options) {
-  return {
-    type: 'MultiLineString',
-    coordinates: geometry.getCoordinates()
-  };
-}
-/**
- * @param {MultiPoint} geometry Geometry.
- * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
- * @return {GeoJSONGeometry} GeoJSON geometry.
- */
-
-
-function writeMultiPointGeometry(geometry, opt_options) {
-  return {
-    type: 'MultiPoint',
-    coordinates: geometry.getCoordinates()
-  };
-}
-/**
- * @param {MultiPolygon} geometry Geometry.
- * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
- * @return {GeoJSONGeometry} GeoJSON geometry.
- */
-
-
-function writeMultiPolygonGeometry(geometry, opt_options) {
-  var right;
-
-  if (opt_options) {
-    right = opt_options.rightHanded;
-  }
-
-  return {
-    type: 'MultiPolygon',
-    coordinates: geometry.getCoordinates(right)
-  };
-}
-/**
- * @param {Point} geometry Geometry.
- * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
- * @return {GeoJSONGeometry} GeoJSON geometry.
- */
-
-
-function writePointGeometry(geometry, opt_options) {
-  return {
-    type: 'Point',
-    coordinates: geometry.getCoordinates()
-  };
-}
-/**
- * @param {Polygon} geometry Geometry.
- * @param {import("./Feature.js").WriteOptions=} opt_options Write options.
- * @return {GeoJSONGeometry} GeoJSON geometry.
- */
-
-
-function writePolygonGeometry(geometry, opt_options) {
-  var right;
-
-  if (opt_options) {
-    right = opt_options.rightHanded;
-  }
-
-  return {
-    type: 'Polygon',
-    coordinates: geometry.getCoordinates(right)
-  };
-}
-
-var _default = GeoJSON;
-exports.default = _default;
-},{"../Feature.js":"../node_modules/ol/Feature.js","../geom/GeometryCollection.js":"../node_modules/ol/geom/GeometryCollection.js","../geom/GeometryType.js":"../node_modules/ol/geom/GeometryType.js","./JSONFeature.js":"../node_modules/ol/format/JSONFeature.js","../geom/LineString.js":"../node_modules/ol/geom/LineString.js","../geom/MultiLineString.js":"../node_modules/ol/geom/MultiLineString.js","../geom/MultiPoint.js":"../node_modules/ol/geom/MultiPoint.js","../geom/MultiPolygon.js":"../node_modules/ol/geom/MultiPolygon.js","../geom/Point.js":"../node_modules/ol/geom/Point.js","../geom/Polygon.js":"../node_modules/ol/geom/Polygon.js","../asserts.js":"../node_modules/ol/asserts.js","../obj.js":"../node_modules/ol/obj.js","../proj.js":"../node_modules/ol/proj.js","./Feature.js":"../node_modules/ol/format/Feature.js"}],"../node_modules/ol/render.js":[function(require,module,exports) {
+},{"./TileImage.js":"../node_modules/ol/source/TileImage.js","../tilegrid.js":"../node_modules/ol/tilegrid.js"}],"../node_modules/ol/render.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -93635,7 +90627,610 @@ function getGeometryType(type, numEnds) {
 
 var _default = MVT;
 exports.default = _default;
-},{"./Feature.js":"../node_modules/ol/format/Feature.js","./FormatType.js":"../node_modules/ol/format/FormatType.js","../geom/GeometryLayout.js":"../node_modules/ol/geom/GeometryLayout.js","../geom/GeometryType.js":"../node_modules/ol/geom/GeometryType.js","../geom/LineString.js":"../node_modules/ol/geom/LineString.js","../geom/MultiLineString.js":"../node_modules/ol/geom/MultiLineString.js","../geom/MultiPoint.js":"../node_modules/ol/geom/MultiPoint.js","../geom/MultiPolygon.js":"../node_modules/ol/geom/MultiPolygon.js","pbf":"../node_modules/pbf/index.js","../geom/Point.js":"../node_modules/ol/geom/Point.js","../geom/Polygon.js":"../node_modules/ol/geom/Polygon.js","../proj/Projection.js":"../node_modules/ol/proj/Projection.js","../render/Feature.js":"../node_modules/ol/render/Feature.js","../proj/Units.js":"../node_modules/ol/proj/Units.js","../asserts.js":"../node_modules/ol/asserts.js","../proj.js":"../node_modules/ol/proj.js","../geom/flat/orient.js":"../node_modules/ol/geom/flat/orient.js"}],"../node_modules/ol/layer/VectorTileRenderType.js":[function(require,module,exports) {
+},{"./Feature.js":"../node_modules/ol/format/Feature.js","./FormatType.js":"../node_modules/ol/format/FormatType.js","../geom/GeometryLayout.js":"../node_modules/ol/geom/GeometryLayout.js","../geom/GeometryType.js":"../node_modules/ol/geom/GeometryType.js","../geom/LineString.js":"../node_modules/ol/geom/LineString.js","../geom/MultiLineString.js":"../node_modules/ol/geom/MultiLineString.js","../geom/MultiPoint.js":"../node_modules/ol/geom/MultiPoint.js","../geom/MultiPolygon.js":"../node_modules/ol/geom/MultiPolygon.js","pbf":"../node_modules/pbf/index.js","../geom/Point.js":"../node_modules/ol/geom/Point.js","../geom/Polygon.js":"../node_modules/ol/geom/Polygon.js","../proj/Projection.js":"../node_modules/ol/proj/Projection.js","../render/Feature.js":"../node_modules/ol/render/Feature.js","../proj/Units.js":"../node_modules/ol/proj/Units.js","../asserts.js":"../node_modules/ol/asserts.js","../proj.js":"../node_modules/ol/proj.js","../geom/flat/orient.js":"../node_modules/ol/geom/flat/orient.js"}],"../node_modules/ol/renderer/canvas/TileLayer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Layer = _interopRequireDefault(require("./Layer.js"));
+
+var _TileRange = _interopRequireDefault(require("../../TileRange.js"));
+
+var _TileState = _interopRequireDefault(require("../../TileState.js"));
+
+var _transform = require("../../transform.js");
+
+var _obj = require("../../obj.js");
+
+var _extent = require("../../extent.js");
+
+var _canvas = require("../../render/canvas.js");
+
+var _proj = require("../../proj.js");
+
+var _util = require("../../util.js");
+
+var _array = require("../../array.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var __extends = void 0 && (void 0).__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+/**
+ * @module ol/renderer/canvas/TileLayer
+ */
+
+
+/**
+ * @classdesc
+ * Canvas renderer for tile layers.
+ * @api
+ */
+var CanvasTileLayerRenderer =
+/** @class */
+function (_super) {
+  __extends(CanvasTileLayerRenderer, _super);
+  /**
+   * @param {import("../../layer/Tile.js").default|import("../../layer/VectorTile.js").default} tileLayer Tile layer.
+   */
+
+
+  function CanvasTileLayerRenderer(tileLayer) {
+    var _this = _super.call(this, tileLayer) || this;
+    /**
+     * Rendered extent has changed since the previous `renderFrame()` call
+     * @type {boolean}
+     */
+
+
+    _this.extentChanged = true;
+    /**
+     * @private
+     * @type {?import("../../extent.js").Extent}
+     */
+
+    _this.renderedExtent_ = null;
+    /**
+     * @protected
+     * @type {number}
+     */
+
+    _this.renderedPixelRatio;
+    /**
+     * @protected
+     * @type {import("../../proj/Projection.js").default}
+     */
+
+    _this.renderedProjection = null;
+    /**
+     * @protected
+     * @type {number}
+     */
+
+    _this.renderedRevision;
+    /**
+     * @protected
+     * @type {!Array<import("../../Tile.js").default>}
+     */
+
+    _this.renderedTiles = [];
+    /**
+     * @private
+     * @type {boolean}
+     */
+
+    _this.newTiles_ = false;
+    /**
+     * @protected
+     * @type {import("../../extent.js").Extent}
+     */
+
+    _this.tmpExtent = (0, _extent.createEmpty)();
+    /**
+     * @private
+     * @type {import("../../TileRange.js").default}
+     */
+
+    _this.tmpTileRange_ = new _TileRange.default(0, 0, 0, 0);
+    return _this;
+  }
+  /**
+   * @protected
+   * @param {import("../../Tile.js").default} tile Tile.
+   * @return {boolean} Tile is drawable.
+   */
+
+
+  CanvasTileLayerRenderer.prototype.isDrawableTile = function (tile) {
+    var tileLayer = this.getLayer();
+    var tileState = tile.getState();
+    var useInterimTilesOnError = tileLayer.getUseInterimTilesOnError();
+    return tileState == _TileState.default.LOADED || tileState == _TileState.default.EMPTY || tileState == _TileState.default.ERROR && !useInterimTilesOnError;
+  };
+  /**
+   * @param {number} z Tile coordinate z.
+   * @param {number} x Tile coordinate x.
+   * @param {number} y Tile coordinate y.
+   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
+   * @return {!import("../../Tile.js").default} Tile.
+   */
+
+
+  CanvasTileLayerRenderer.prototype.getTile = function (z, x, y, frameState) {
+    var pixelRatio = frameState.pixelRatio;
+    var projection = frameState.viewState.projection;
+    var tileLayer = this.getLayer();
+    var tileSource = tileLayer.getSource();
+    var tile = tileSource.getTile(z, x, y, pixelRatio, projection);
+
+    if (tile.getState() == _TileState.default.ERROR) {
+      if (!tileLayer.getUseInterimTilesOnError()) {
+        // When useInterimTilesOnError is false, we consider the error tile as loaded.
+        tile.setState(_TileState.default.LOADED);
+      } else if (tileLayer.getPreload() > 0) {
+        // Preloaded tiles for lower resolutions might have finished loading.
+        this.newTiles_ = true;
+      }
+    }
+
+    if (!this.isDrawableTile(tile)) {
+      tile = tile.getInterimTile();
+    }
+
+    return tile;
+  };
+  /**
+   * @param {Object<number, Object<string, import("../../Tile.js").default>>} tiles Lookup of loaded tiles by zoom level.
+   * @param {number} zoom Zoom level.
+   * @param {import("../../Tile.js").default} tile Tile.
+   * @return {boolean|void} If `false`, the tile will not be considered loaded.
+   */
+
+
+  CanvasTileLayerRenderer.prototype.loadedTileCallback = function (tiles, zoom, tile) {
+    if (this.isDrawableTile(tile)) {
+      return _super.prototype.loadedTileCallback.call(this, tiles, zoom, tile);
+    }
+
+    return false;
+  };
+  /**
+   * Determine whether render should be called.
+   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
+   * @return {boolean} Layer is ready to be rendered.
+   */
+
+
+  CanvasTileLayerRenderer.prototype.prepareFrame = function (frameState) {
+    return !!this.getLayer().getSource();
+  };
+  /**
+   * Render the layer.
+   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
+   * @param {HTMLElement} target Target that may be used to render content to.
+   * @return {HTMLElement} The rendered element.
+   */
+
+
+  CanvasTileLayerRenderer.prototype.renderFrame = function (frameState, target) {
+    var layerState = frameState.layerStatesArray[frameState.layerIndex];
+    var viewState = frameState.viewState;
+    var projection = viewState.projection;
+    var viewResolution = viewState.resolution;
+    var viewCenter = viewState.center;
+    var rotation = viewState.rotation;
+    var pixelRatio = frameState.pixelRatio;
+    var tileLayer = this.getLayer();
+    var tileSource = tileLayer.getSource();
+    var sourceRevision = tileSource.getRevision();
+    var tileGrid = tileSource.getTileGridForProjection(projection);
+    var z = tileGrid.getZForResolution(viewResolution, tileSource.zDirection);
+    var tileResolution = tileGrid.getResolution(z);
+    var extent = frameState.extent;
+    var layerExtent = layerState.extent && (0, _proj.fromUserExtent)(layerState.extent, projection);
+
+    if (layerExtent) {
+      extent = (0, _extent.getIntersection)(extent, (0, _proj.fromUserExtent)(layerState.extent, projection));
+    }
+
+    var tilePixelRatio = tileSource.getTilePixelRatio(pixelRatio); // desired dimensions of the canvas in pixels
+
+    var width = Math.round(frameState.size[0] * tilePixelRatio);
+    var height = Math.round(frameState.size[1] * tilePixelRatio);
+
+    if (rotation) {
+      var size = Math.round(Math.sqrt(width * width + height * height));
+      width = size;
+      height = size;
+    }
+
+    var dx = tileResolution * width / 2 / tilePixelRatio;
+    var dy = tileResolution * height / 2 / tilePixelRatio;
+    var canvasExtent = [viewCenter[0] - dx, viewCenter[1] - dy, viewCenter[0] + dx, viewCenter[1] + dy];
+    var tileRange = tileGrid.getTileRangeForExtentAndZ(extent, z);
+    /**
+     * @type {Object<number, Object<string, import("../../Tile.js").default>>}
+     */
+
+    var tilesToDrawByZ = {};
+    tilesToDrawByZ[z] = {};
+    var findLoadedTiles = this.createLoadedTileFinder(tileSource, projection, tilesToDrawByZ);
+    var tmpExtent = this.tmpExtent;
+    var tmpTileRange = this.tmpTileRange_;
+    this.newTiles_ = false;
+
+    for (var x = tileRange.minX; x <= tileRange.maxX; ++x) {
+      for (var y = tileRange.minY; y <= tileRange.maxY; ++y) {
+        var tile = this.getTile(z, x, y, frameState);
+
+        if (this.isDrawableTile(tile)) {
+          var uid = (0, _util.getUid)(this);
+
+          if (tile.getState() == _TileState.default.LOADED) {
+            tilesToDrawByZ[z][tile.tileCoord.toString()] = tile;
+            var inTransition = tile.inTransition(uid);
+
+            if (!this.newTiles_ && (inTransition || this.renderedTiles.indexOf(tile) === -1)) {
+              this.newTiles_ = true;
+            }
+          }
+
+          if (tile.getAlpha(uid, frameState.time) === 1) {
+            // don't look for alt tiles if alpha is 1
+            continue;
+          }
+        }
+
+        var childTileRange = tileGrid.getTileCoordChildTileRange(tile.tileCoord, tmpTileRange, tmpExtent);
+        var covered = false;
+
+        if (childTileRange) {
+          covered = findLoadedTiles(z + 1, childTileRange);
+        }
+
+        if (!covered) {
+          tileGrid.forEachTileCoordParentTileRange(tile.tileCoord, findLoadedTiles, tmpTileRange, tmpExtent);
+        }
+      }
+    }
+
+    var canvasScale = tileResolution / viewResolution; // set forward and inverse pixel transforms
+
+    (0, _transform.compose)(this.pixelTransform, frameState.size[0] / 2, frameState.size[1] / 2, 1 / tilePixelRatio, 1 / tilePixelRatio, rotation, -width / 2, -height / 2);
+    var canvasTransform = (0, _canvas.createTransformString)(this.pixelTransform);
+    this.useContainer(target, canvasTransform, layerState.opacity);
+    var context = this.context;
+    var canvas = context.canvas;
+    (0, _transform.makeInverse)(this.inversePixelTransform, this.pixelTransform); // set scale transform for calculating tile positions on the canvas
+
+    (0, _transform.compose)(this.tempTransform, width / 2, height / 2, canvasScale, canvasScale, 0, -width / 2, -height / 2);
+
+    if (canvas.width != width || canvas.height != height) {
+      canvas.width = width;
+      canvas.height = height;
+    } else if (!this.containerReused) {
+      context.clearRect(0, 0, width, height);
+    }
+
+    if (layerExtent) {
+      this.clipUnrotated(context, frameState, layerExtent);
+    }
+
+    (0, _obj.assign)(context, tileSource.getContextOptions());
+    this.preRender(context, frameState);
+    this.renderedTiles.length = 0;
+    /** @type {Array<number>} */
+
+    var zs = Object.keys(tilesToDrawByZ).map(Number);
+    zs.sort(_array.numberSafeCompareFunction);
+    var clips, clipZs, currentClip;
+
+    if (layerState.opacity === 1 && (!this.containerReused || tileSource.getOpaque(frameState.viewState.projection))) {
+      zs = zs.reverse();
+    } else {
+      clips = [];
+      clipZs = [];
+    }
+
+    for (var i = zs.length - 1; i >= 0; --i) {
+      var currentZ = zs[i];
+      var currentTilePixelSize = tileSource.getTilePixelSize(currentZ, pixelRatio, projection);
+      var currentResolution = tileGrid.getResolution(currentZ);
+      var currentScale = currentResolution / tileResolution;
+      var dx_1 = currentTilePixelSize[0] * currentScale * canvasScale;
+      var dy_1 = currentTilePixelSize[1] * currentScale * canvasScale;
+      var originTileCoord = tileGrid.getTileCoordForCoordAndZ((0, _extent.getTopLeft)(canvasExtent), currentZ);
+      var originTileExtent = tileGrid.getTileCoordExtent(originTileCoord);
+      var origin_1 = (0, _transform.apply)(this.tempTransform, [tilePixelRatio * (originTileExtent[0] - canvasExtent[0]) / tileResolution, tilePixelRatio * (canvasExtent[3] - originTileExtent[3]) / tileResolution]);
+      var tileGutter = tilePixelRatio * tileSource.getGutterForProjection(projection);
+      var tilesToDraw = tilesToDrawByZ[currentZ];
+
+      for (var tileCoordKey in tilesToDraw) {
+        var tile =
+        /** @type {import("../../ImageTile.js").default} */
+        tilesToDraw[tileCoordKey];
+        var tileCoord = tile.tileCoord; // Calculate integer positions and sizes so that tiles align
+
+        var floatX = origin_1[0] - (originTileCoord[1] - tileCoord[1]) * dx_1;
+        var nextX = Math.round(floatX + dx_1);
+        var floatY = origin_1[1] - (originTileCoord[2] - tileCoord[2]) * dy_1;
+        var nextY = Math.round(floatY + dy_1);
+        var x = Math.round(floatX);
+        var y = Math.round(floatY);
+        var w = nextX - x;
+        var h = nextY - y;
+        var transition = z === currentZ;
+        var inTransition = transition && tile.getAlpha((0, _util.getUid)(this), frameState.time) !== 1;
+
+        if (!inTransition) {
+          if (clips) {
+            // Clip mask for regions in this tile that already filled by a higher z tile
+            context.save();
+            currentClip = [x, y, x + w, y, x + w, y + h, x, y + h];
+
+            for (var i_1 = 0, ii = clips.length; i_1 < ii; ++i_1) {
+              if (z !== currentZ && currentZ < clipZs[i_1]) {
+                var clip = clips[i_1];
+                context.beginPath(); // counter-clockwise (outer ring) for current tile
+
+                context.moveTo(currentClip[0], currentClip[1]);
+                context.lineTo(currentClip[2], currentClip[3]);
+                context.lineTo(currentClip[4], currentClip[5]);
+                context.lineTo(currentClip[6], currentClip[7]); // clockwise (inner ring) for higher z tile
+
+                context.moveTo(clip[6], clip[7]);
+                context.lineTo(clip[4], clip[5]);
+                context.lineTo(clip[2], clip[3]);
+                context.lineTo(clip[0], clip[1]);
+                context.clip();
+              }
+            }
+
+            clips.push(currentClip);
+            clipZs.push(currentZ);
+          } else {
+            context.clearRect(x, y, w, h);
+          }
+        }
+
+        this.drawTileImage(tile, frameState, x, y, w, h, tileGutter, transition, layerState.opacity);
+
+        if (clips && !inTransition) {
+          context.restore();
+        }
+
+        this.renderedTiles.push(tile);
+        this.updateUsedTiles(frameState.usedTiles, tileSource, tile);
+      }
+    }
+
+    this.renderedRevision = sourceRevision;
+    this.renderedResolution = tileResolution;
+    this.extentChanged = !this.renderedExtent_ || !(0, _extent.equals)(this.renderedExtent_, canvasExtent);
+    this.renderedExtent_ = canvasExtent;
+    this.renderedPixelRatio = pixelRatio;
+    this.renderedProjection = projection;
+    this.manageTilePyramid(frameState, tileSource, tileGrid, pixelRatio, projection, extent, z, tileLayer.getPreload());
+    this.scheduleExpireCache(frameState, tileSource);
+    this.postRender(context, frameState);
+
+    if (layerState.extent) {
+      context.restore();
+    }
+
+    if (canvasTransform !== canvas.style.transform) {
+      canvas.style.transform = canvasTransform;
+    }
+
+    return this.container;
+  };
+  /**
+   * @param {import("../../ImageTile.js").default} tile Tile.
+   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
+   * @param {number} x Left of the tile.
+   * @param {number} y Top of the tile.
+   * @param {number} w Width of the tile.
+   * @param {number} h Height of the tile.
+   * @param {number} gutter Tile gutter.
+   * @param {boolean} transition Apply an alpha transition.
+   * @param {number} opacity Opacity.
+   */
+
+
+  CanvasTileLayerRenderer.prototype.drawTileImage = function (tile, frameState, x, y, w, h, gutter, transition, opacity) {
+    var image = this.getTileImage(tile);
+
+    if (!image) {
+      return;
+    }
+
+    var uid = (0, _util.getUid)(this);
+    var tileAlpha = transition ? tile.getAlpha(uid, frameState.time) : 1;
+    var alpha = opacity * tileAlpha;
+    var alphaChanged = alpha !== this.context.globalAlpha;
+
+    if (alphaChanged) {
+      this.context.save();
+      this.context.globalAlpha = alpha;
+    }
+
+    this.context.drawImage(image, gutter, gutter, image.width - 2 * gutter, image.height - 2 * gutter, x, y, w, h);
+
+    if (alphaChanged) {
+      this.context.restore();
+    }
+
+    if (tileAlpha !== 1) {
+      frameState.animate = true;
+    } else if (transition) {
+      tile.endTransition(uid);
+    }
+  };
+  /**
+   * @return {HTMLCanvasElement} Image
+   */
+
+
+  CanvasTileLayerRenderer.prototype.getImage = function () {
+    var context = this.context;
+    return context ? context.canvas : null;
+  };
+  /**
+   * Get the image from a tile.
+   * @param {import("../../ImageTile.js").default} tile Tile.
+   * @return {HTMLCanvasElement|HTMLImageElement|HTMLVideoElement} Image.
+   * @protected
+   */
+
+
+  CanvasTileLayerRenderer.prototype.getTileImage = function (tile) {
+    return tile.getImage();
+  };
+  /**
+   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
+   * @param {import("../../source/Tile.js").default} tileSource Tile source.
+   * @protected
+   */
+
+
+  CanvasTileLayerRenderer.prototype.scheduleExpireCache = function (frameState, tileSource) {
+    if (tileSource.canExpireCache()) {
+      /**
+       * @param {import("../../source/Tile.js").default} tileSource Tile source.
+       * @param {import("../../PluggableMap.js").default} map Map.
+       * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
+       */
+      var postRenderFunction = function (tileSource, map, frameState) {
+        var tileSourceKey = (0, _util.getUid)(tileSource);
+
+        if (tileSourceKey in frameState.usedTiles) {
+          tileSource.expireCache(frameState.viewState.projection, frameState.usedTiles[tileSourceKey]);
+        }
+      }.bind(null, tileSource);
+
+      frameState.postRenderFunctions.push(
+      /** @type {import("../../PluggableMap.js").PostRenderFunction} */
+      postRenderFunction);
+    }
+  };
+  /**
+   * @param {!Object<string, !Object<string, boolean>>} usedTiles Used tiles.
+   * @param {import("../../source/Tile.js").default} tileSource Tile source.
+   * @param {import('../../Tile.js').default} tile Tile.
+   * @protected
+   */
+
+
+  CanvasTileLayerRenderer.prototype.updateUsedTiles = function (usedTiles, tileSource, tile) {
+    // FIXME should we use tilesToDrawByZ instead?
+    var tileSourceKey = (0, _util.getUid)(tileSource);
+
+    if (!(tileSourceKey in usedTiles)) {
+      usedTiles[tileSourceKey] = {};
+    }
+
+    usedTiles[tileSourceKey][tile.getKey()] = true;
+  };
+  /**
+   * Manage tile pyramid.
+   * This function performs a number of functions related to the tiles at the
+   * current zoom and lower zoom levels:
+   * - registers idle tiles in frameState.wantedTiles so that they are not
+   *   discarded by the tile queue
+   * - enqueues missing tiles
+   * @param {import("../../PluggableMap.js").FrameState} frameState Frame state.
+   * @param {import("../../source/Tile.js").default} tileSource Tile source.
+   * @param {import("../../tilegrid/TileGrid.js").default} tileGrid Tile grid.
+   * @param {number} pixelRatio Pixel ratio.
+   * @param {import("../../proj/Projection.js").default} projection Projection.
+   * @param {import("../../extent.js").Extent} extent Extent.
+   * @param {number} currentZ Current Z.
+   * @param {number} preload Load low resolution tiles up to 'preload' levels.
+   * @param {function(import("../../Tile.js").default)=} opt_tileCallback Tile callback.
+   * @protected
+   */
+
+
+  CanvasTileLayerRenderer.prototype.manageTilePyramid = function (frameState, tileSource, tileGrid, pixelRatio, projection, extent, currentZ, preload, opt_tileCallback) {
+    var tileSourceKey = (0, _util.getUid)(tileSource);
+
+    if (!(tileSourceKey in frameState.wantedTiles)) {
+      frameState.wantedTiles[tileSourceKey] = {};
+    }
+
+    var wantedTiles = frameState.wantedTiles[tileSourceKey];
+    var tileQueue = frameState.tileQueue;
+    var minZoom = tileGrid.getMinZoom();
+    var tileCount = 0;
+    var tile, tileRange, tileResolution, x, y, z;
+
+    for (z = minZoom; z <= currentZ; ++z) {
+      tileRange = tileGrid.getTileRangeForExtentAndZ(extent, z, tileRange);
+      tileResolution = tileGrid.getResolution(z);
+
+      for (x = tileRange.minX; x <= tileRange.maxX; ++x) {
+        for (y = tileRange.minY; y <= tileRange.maxY; ++y) {
+          if (currentZ - z <= preload) {
+            ++tileCount;
+            tile = tileSource.getTile(z, x, y, pixelRatio, projection);
+
+            if (tile.getState() == _TileState.default.IDLE) {
+              wantedTiles[tile.getKey()] = true;
+
+              if (!tileQueue.isKeyQueued(tile.getKey())) {
+                tileQueue.enqueue([tile, tileSourceKey, tileGrid.getTileCoordCenter(tile.tileCoord), tileResolution]);
+              }
+            }
+
+            if (opt_tileCallback !== undefined) {
+              opt_tileCallback(tile);
+            }
+          } else {
+            tileSource.useTile(z, x, y, projection);
+          }
+        }
+      }
+    }
+
+    tileSource.updateCacheSize(tileCount, projection);
+  };
+
+  return CanvasTileLayerRenderer;
+}(_Layer.default);
+/**
+ * @function
+ * @return {import("../../layer/Tile.js").default|import("../../layer/VectorTile.js").default}
+ */
+
+
+CanvasTileLayerRenderer.prototype.getLayer;
+var _default = CanvasTileLayerRenderer;
+exports.default = _default;
+},{"./Layer.js":"../node_modules/ol/renderer/canvas/Layer.js","../../TileRange.js":"../node_modules/ol/TileRange.js","../../TileState.js":"../node_modules/ol/TileState.js","../../transform.js":"../node_modules/ol/transform.js","../../obj.js":"../node_modules/ol/obj.js","../../extent.js":"../node_modules/ol/extent.js","../../render/canvas.js":"../node_modules/ol/render/canvas.js","../../proj.js":"../node_modules/ol/proj.js","../../util.js":"../node_modules/ol/util.js","../../array.js":"../node_modules/ol/array.js"}],"../node_modules/ol/layer/VectorTileRenderType.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -94506,7 +92101,27 @@ function (_super) {
 
 var _default = CanvasVectorTileLayerRenderer;
 exports.default = _default;
-},{"../../render/canvas/BuilderGroup.js":"../node_modules/ol/render/canvas/BuilderGroup.js","../../render/canvas/ExecutorGroup.js":"../node_modules/ol/render/canvas/ExecutorGroup.js","./TileLayer.js":"../node_modules/ol/renderer/canvas/TileLayer.js","../../events/EventType.js":"../node_modules/ol/events/EventType.js","../../render/canvas/BuilderType.js":"../node_modules/ol/render/canvas/BuilderType.js","../../TileState.js":"../node_modules/ol/TileState.js","../../layer/VectorTileRenderType.js":"../node_modules/ol/layer/VectorTileRenderType.js","../../ViewHint.js":"../node_modules/ol/ViewHint.js","../../transform.js":"../node_modules/ol/transform.js","../../extent.js":"../node_modules/ol/extent.js","../../obj.js":"../node_modules/ol/obj.js","../../render/canvas/hitdetect.js":"../node_modules/ol/render/canvas/hitdetect.js","../vector.js":"../node_modules/ol/renderer/vector.js","../../util.js":"../node_modules/ol/util.js","../../events.js":"../node_modules/ol/events.js","../../size.js":"../node_modules/ol/size.js","../../coordinate.js":"../node_modules/ol/coordinate.js"}],"../node_modules/ol/layer/VectorTile.js":[function(require,module,exports) {
+},{"../../render/canvas/BuilderGroup.js":"../node_modules/ol/render/canvas/BuilderGroup.js","../../render/canvas/ExecutorGroup.js":"../node_modules/ol/render/canvas/ExecutorGroup.js","./TileLayer.js":"../node_modules/ol/renderer/canvas/TileLayer.js","../../events/EventType.js":"../node_modules/ol/events/EventType.js","../../render/canvas/BuilderType.js":"../node_modules/ol/render/canvas/BuilderType.js","../../TileState.js":"../node_modules/ol/TileState.js","../../layer/VectorTileRenderType.js":"../node_modules/ol/layer/VectorTileRenderType.js","../../ViewHint.js":"../node_modules/ol/ViewHint.js","../../transform.js":"../node_modules/ol/transform.js","../../extent.js":"../node_modules/ol/extent.js","../../obj.js":"../node_modules/ol/obj.js","../../render/canvas/hitdetect.js":"../node_modules/ol/render/canvas/hitdetect.js","../vector.js":"../node_modules/ol/renderer/vector.js","../../util.js":"../node_modules/ol/util.js","../../events.js":"../node_modules/ol/events.js","../../size.js":"../node_modules/ol/size.js","../../coordinate.js":"../node_modules/ol/coordinate.js"}],"../node_modules/ol/layer/TileProperty.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/layer/TileProperty
+ */
+
+/**
+ * @enum {string}
+ */
+var _default = {
+  PRELOAD: 'preload',
+  USE_INTERIM_TILES_ON_ERROR: 'useInterimTilesOnError'
+};
+exports.default = _default;
+},{}],"../node_modules/ol/layer/VectorTile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -113643,7 +111258,7 @@ function _default(olLayer, glStyle, source, resolutions, spriteData, spriteImage
 
 }).call(this);
 
-},{}],"../node_modules/ol/Map.js":[function(require,module,exports) {
+},{}],"../node_modules/ol/layer/BaseTile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -113651,15 +111266,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _Composite = _interopRequireDefault(require("./renderer/Composite.js"));
+var _Layer = _interopRequireDefault(require("./Layer.js"));
 
-var _PluggableMap = _interopRequireDefault(require("./PluggableMap.js"));
+var _TileProperty = _interopRequireDefault(require("./TileProperty.js"));
 
-var _obj = require("./obj.js");
-
-var _control = require("./control.js");
-
-var _interaction = require("./interaction.js");
+var _obj = require("../obj.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -113687,95 +111298,131 @@ var __extends = void 0 && (void 0).__extends || function () {
   };
 }();
 /**
- * @module ol/Map
+ * @module ol/layer/BaseTile
  */
 
 
 /**
+ * @typedef {Object} Options
+ * @property {string} [className='ol-layer'] A CSS class name to set to the layer element.
+ * @property {number} [opacity=1] Opacity (0, 1).
+ * @property {boolean} [visible=true] Visibility.
+ * @property {import("../extent.js").Extent} [extent] The bounding extent for layer rendering.  The layer will not be
+ * rendered outside of this extent.
+ * @property {number} [zIndex] The z-index for layer rendering.  At rendering time, the layers
+ * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
+ * for layers that are added to the map's `layers` collection, or `Infinity` when the layer's `setMap()`
+ * method was used.
+ * @property {number} [minResolution] The minimum resolution (inclusive) at which this layer will be
+ * visible.
+ * @property {number} [maxResolution] The maximum resolution (exclusive) below which this layer will
+ * be visible.
+ * @property {number} [minZoom] The minimum view zoom level (exclusive) above which this layer will be
+ * visible.
+ * @property {number} [maxZoom] The maximum view zoom level (inclusive) at which this layer will
+ * be visible.
+ * @property {number} [preload=0] Preload. Load low-resolution tiles up to `preload` levels. `0`
+ * means no preloading.
+ * @property {import("../source/Tile.js").default} [source] Source for this layer.
+ * @property {import("../PluggableMap.js").default} [map] Sets the layer as overlay on a map. The map will not manage
+ * this layer in its layers collection, and the layer will be rendered on top. This is useful for
+ * temporary layers. The standard way to add a layer to a map and have it managed by the map is to
+ * use {@link module:ol/Map#addLayer}.
+ * @property {boolean} [useInterimTilesOnError=true] Use interim tiles on error.
+ */
+
+/**
  * @classdesc
- * The map is the core component of OpenLayers. For a map to render, a view,
- * one or more layers, and a target container are needed:
+ * For layer sources that provide pre-rendered, tiled images in grids that are
+ * organized by zoom levels for specific resolutions.
+ * Note that any property set in the options is set as a {@link module:ol/Object~BaseObject}
+ * property on the layer object; for example, setting `title: 'My Title'` in the
+ * options means that `title` is observable, and has get/set accessors.
  *
- *     import Map from 'ol/Map';
- *     import View from 'ol/View';
- *     import TileLayer from 'ol/layer/Tile';
- *     import OSM from 'ol/source/OSM';
- *
- *     var map = new Map({
- *       view: new View({
- *         center: [0, 0],
- *         zoom: 1
- *       }),
- *       layers: [
- *         new TileLayer({
- *           source: new OSM()
- *         })
- *       ],
- *       target: 'map'
- *     });
- *
- * The above snippet creates a map using a {@link module:ol/layer/Tile} to
- * display {@link module:ol/source/OSM~OSM} OSM data and render it to a DOM
- * element with the id `map`.
- *
- * The constructor places a viewport container (with CSS class name
- * `ol-viewport`) in the target element (see `getViewport()`), and then two
- * further elements within the viewport: one with CSS class name
- * `ol-overlaycontainer-stopevent` for controls and some overlays, and one with
- * CSS class name `ol-overlaycontainer` for other overlays (see the `stopEvent`
- * option of {@link module:ol/Overlay~Overlay} for the difference). The map
- * itself is placed in a further element within the viewport.
- *
- * Layers are stored as a {@link module:ol/Collection~Collection} in
- * layerGroups. A top-level group is provided by the library. This is what is
- * accessed by `getLayerGroup` and `setLayerGroup`. Layers entered in the
- * options are added to this group, and `addLayer` and `removeLayer` change the
- * layer collection in the group. `getLayers` is a convenience function for
- * `getLayerGroup().getLayers()`. Note that {@link module:ol/layer/Group~Group}
- * is a subclass of {@link module:ol/layer/Base}, so layers entered in the
- * options or added with `addLayer` can be groups, which can contain further
- * groups, and so on.
- *
+ * @extends {Layer<import("../source/Tile.js").default>}
  * @api
  */
-var Map =
+var BaseTileLayer =
 /** @class */
 function (_super) {
-  __extends(Map, _super);
+  __extends(BaseTileLayer, _super);
   /**
-   * @param {import("./PluggableMap.js").MapOptions} options Map options.
+   * @param {Options=} opt_options Tile layer options.
    */
 
 
-  function Map(options) {
+  function BaseTileLayer(opt_options) {
     var _this = this;
 
-    options = (0, _obj.assign)({}, options);
+    var options = opt_options ? opt_options : {};
+    var baseOptions = (0, _obj.assign)({}, options);
+    delete baseOptions.preload;
+    delete baseOptions.useInterimTilesOnError;
+    _this = _super.call(this, baseOptions) || this;
 
-    if (!options.controls) {
-      options.controls = (0, _control.defaults)();
-    }
+    _this.setPreload(options.preload !== undefined ? options.preload : 0);
 
-    if (!options.interactions) {
-      options.interactions = (0, _interaction.defaults)({
-        onFocusOnly: true
-      });
-    }
+    _this.setUseInterimTilesOnError(options.useInterimTilesOnError !== undefined ? options.useInterimTilesOnError : true);
 
-    _this = _super.call(this, options) || this;
     return _this;
   }
+  /**
+   * Return the level as number to which we will preload tiles up to.
+   * @return {number} The level to preload tiles up to.
+   * @observable
+   * @api
+   */
 
-  Map.prototype.createRenderer = function () {
-    return new _Composite.default(this);
+
+  BaseTileLayer.prototype.getPreload = function () {
+    return (
+      /** @type {number} */
+      this.get(_TileProperty.default.PRELOAD)
+    );
+  };
+  /**
+   * Set the level as number to which we will preload tiles up to.
+   * @param {number} preload The level to preload tiles up to.
+   * @observable
+   * @api
+   */
+
+
+  BaseTileLayer.prototype.setPreload = function (preload) {
+    this.set(_TileProperty.default.PRELOAD, preload);
+  };
+  /**
+   * Whether we use interim tiles on error.
+   * @return {boolean} Use interim tiles on error.
+   * @observable
+   * @api
+   */
+
+
+  BaseTileLayer.prototype.getUseInterimTilesOnError = function () {
+    return (
+      /** @type {boolean} */
+      this.get(_TileProperty.default.USE_INTERIM_TILES_ON_ERROR)
+    );
+  };
+  /**
+   * Set whether we use interim tiles on error.
+   * @param {boolean} useInterimTilesOnError Use interim tiles on error.
+   * @observable
+   * @api
+   */
+
+
+  BaseTileLayer.prototype.setUseInterimTilesOnError = function (useInterimTilesOnError) {
+    this.set(_TileProperty.default.USE_INTERIM_TILES_ON_ERROR, useInterimTilesOnError);
   };
 
-  return Map;
-}(_PluggableMap.default);
+  return BaseTileLayer;
+}(_Layer.default);
 
-var _default = Map;
+var _default = BaseTileLayer;
 exports.default = _default;
-},{"./renderer/Composite.js":"../node_modules/ol/renderer/Composite.js","./PluggableMap.js":"../node_modules/ol/PluggableMap.js","./obj.js":"../node_modules/ol/obj.js","./control.js":"../node_modules/ol/control.js","./interaction.js":"../node_modules/ol/interaction.js"}],"../node_modules/ol/layer/Tile.js":[function(require,module,exports) {
+},{"./Layer.js":"../node_modules/ol/layer/Layer.js","./TileProperty.js":"../node_modules/ol/layer/TileProperty.js","../obj.js":"../node_modules/ol/obj.js"}],"../node_modules/ol/layer/Tile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -117652,13 +115299,9 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _map = _interopRequireDefault(require("ol/map"));
+var _Map = _interopRequireDefault(require("ol/Map"));
 
-var _view = _interopRequireDefault(require("ol/view"));
-
-var _tile = _interopRequireDefault(require("ol/layer/tile"));
-
-var _osm = _interopRequireDefault(require("ol/source/osm"));
+var _View = _interopRequireDefault(require("ol/View"));
 
 var _MousePosition = _interopRequireDefault(require("ol/control/MousePosition"));
 
@@ -117758,10 +115401,10 @@ var Openlayers = /*#__PURE__*/function (_Component) {
         maxZoom: 20
       })
     });
-    _this.map = new _map.default({
+    _this.map = new _Map.default({
       target: null,
       layers: [_this.raster, _this.vector],
-      view: new _view.default({
+      view: new _View.default({
         center: _this.state.center,
         zoom: _this.state.zoom
       }),
@@ -117807,7 +115450,7 @@ var Openlayers = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       this.updateMap();
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+      return _react.default.createElement("div", null, _react.default.createElement("div", {
         id: "map",
         className: "map"
       }));
@@ -117819,7 +115462,7 @@ var Openlayers = /*#__PURE__*/function (_Component) {
 
 var _default = Openlayers;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","ol/map":"../node_modules/ol/map.js","ol/view":"../node_modules/ol/view.js","ol/layer/tile":"../node_modules/ol/layer/tile.js","ol/source/osm":"../node_modules/ol/source/osm.js","ol/control/MousePosition":"../node_modules/ol/control/MousePosition.js","ol/coordinate":"../node_modules/ol/coordinate.js","ol/control":"../node_modules/ol/control.js","ol/format/GeoJSON":"../node_modules/ol/format/GeoJSON.js","ol/source/Vector":"../node_modules/ol/source/Vector.js","ol/source/XYZ":"../node_modules/ol/source/XYZ.js","ol/style":"../node_modules/ol/style.js","ol/layer":"../node_modules/ol/layer.js","ol/loadingstrategy":"../node_modules/ol/loadingstrategy.js","./Openlayers.scss":"Components/Openlayers/Openlayers.scss"}],"Layouts/Main/Main.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","ol/Map":"../node_modules/ol/Map.js","ol/View":"../node_modules/ol/View.js","ol/control/MousePosition":"../node_modules/ol/control/MousePosition.js","ol/coordinate":"../node_modules/ol/coordinate.js","ol/control":"../node_modules/ol/control.js","ol/format/GeoJSON":"../node_modules/ol/format/GeoJSON.js","ol/source/Vector":"../node_modules/ol/source/Vector.js","ol/source/XYZ":"../node_modules/ol/source/XYZ.js","ol/style":"../node_modules/ol/style.js","ol/layer":"../node_modules/ol/layer.js","ol/loadingstrategy":"../node_modules/ol/loadingstrategy.js","./Openlayers.scss":"Components/Openlayers/Openlayers.scss"}],"Layouts/Main/Main.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -117873,10 +115516,10 @@ var Main = /*#__PURE__*/function (_Component) {
   _createClass(Main, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("div", {
+      return _react.default.createElement("div", {
         role: "main",
         className: "global-container"
-      }, /*#__PURE__*/_react.default.createElement("h1", null, "This is MAIN LAYOUT COMPONENT"), /*#__PURE__*/_react.default.createElement(_Openlayers.default, null));
+      }, _react.default.createElement("h1", null, "This is MAIN LAYOUT COMPONENT"), _react.default.createElement(_Openlayers.default, null));
     }
   }]);
 
@@ -117942,7 +115585,7 @@ var Footer = /*#__PURE__*/function (_Component) {
   _createClass(Footer, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("footer", {
+      return _react.default.createElement("footer", {
         role: "contentinfo"
       }, "This is Footer Component");
     }
@@ -117974,10 +115617,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /// importing global styles
 /// importing layout
 var Index = function Index() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_Main.default, null), /*#__PURE__*/_react.default.createElement(_Footer.default, null));
+  return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement(_Main.default, null), _react.default.createElement(_Footer.default, null));
 };
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(Index, null), document.getElementById('root'));
+_reactDom.default.render(_react.default.createElement(Index, null), document.getElementById('root'));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./index.scss":"index.scss","./Layouts/Header/Header":"Layouts/Header/Header.js","./Layouts/Main/Main":"Layouts/Main/Main.js","./Layouts/Footer/Footer":"Layouts/Footer/Footer.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -118006,7 +115649,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64765" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56673" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
