@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build --public-url . src/index.html --out-dir public",
+    "build": "parcel build --public-url . src/index.html --out-dir dist",
+    "vercel-build": "parcel build --public-url . src/index.html --out-dir .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
