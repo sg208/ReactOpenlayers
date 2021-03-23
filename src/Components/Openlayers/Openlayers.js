@@ -3,8 +3,6 @@ import React, { Component } from 'react'
 /// openlayers
 import Map from 'ol/map'
 import View from 'ol/view'
-import LayerTile from 'ol/layer/tile'
-import OSM from 'ol/source/osm'
 
 import MousePosition from 'ol/control/MousePosition'
 import { createStringXY } from 'ol/coordinate'
