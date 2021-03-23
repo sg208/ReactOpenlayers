@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 /// openlayers
-import Map from 'ol/Map'
-import View from 'ol/View'
+import Map from 'ol/Map';
+import View from 'ol/View';
 
-import MousePosition from 'ol/control/MousePosition'
-import { createStringXY } from 'ol/coordinate'
-import { defaults as defaultControls } from 'ol/control'
+import MousePosition from 'ol/control/MousePosition';
+import { createStringXY } from 'ol/coordinate';
+import { defaults as defaultControls } from 'ol/control';
 
 import GeoJSON from 'ol/format/GeoJSON';
 import VectorSource from 'ol/source/Vector';
@@ -121,4 +121,4 @@ class Openlayers extends Component {
     }
 }
 
-export default Openlayers
+export default Openlayers;
