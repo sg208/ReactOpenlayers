@@ -4,8 +4,8 @@ import './Footer.scss'
 export class Footer extends Component {
     render() {
         return (
-            <footer role="contentinfo">
-                This is Footer Component
+            <footer role="contentinfo" className='footer-container'>
+                <div className='footer-main-text'>With gratitude, github/sg208</div>
             </footer>
         )
     }
