@@ -29638,6 +29638,11 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Layouts/Header/Header.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Layouts/Header/Header.js":[function(require,module,exports) {
 "use strict";
 
@@ -29647,6 +29652,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = exports.Header = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
+
+require("./Header.scss");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -29688,9 +29695,14 @@ var Header = /*#__PURE__*/function (_Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("header", {
-        role: "banner"
-      }, "This is Header Layout Component");
+      return /*#__PURE__*/_react.default.createElement("header", {
+        role: "banner",
+        className: "header-container"
+      }, /*#__PURE__*/_react.default.createElement("h2", {
+        className: "header-main-text"
+      }, "React", /*#__PURE__*/_react.default.createElement("span", {
+        className: "plus-green"
+      }, "+"), "OpenLayers"));
     }
   }]);
 
@@ -29700,7 +29712,7 @@ var Header = /*#__PURE__*/function (_Component) {
 exports.Header = Header;
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../node_modules/ol/Disposable.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Header.scss":"Layouts/Header/Header.scss"}],"../node_modules/ol/Disposable.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -115450,7 +115462,7 @@ var Openlayers = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       this.updateMap();
-      return _react.default.createElement("div", null, _react.default.createElement("div", {
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
         id: "map",
         className: "map"
       }));
@@ -115516,10 +115528,12 @@ var Main = /*#__PURE__*/function (_Component) {
   _createClass(Main, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {
+      return /*#__PURE__*/_react.default.createElement("div", {
         role: "main",
         className: "global-container"
-      }, _react.default.createElement("h1", null, "This is MAIN LAYOUT COMPONENT"), _react.default.createElement(_Openlayers.default, null));
+      }, /*#__PURE__*/_react.default.createElement("h1", {
+        className: "zero-element"
+      }, "Here is The Map"), /*#__PURE__*/_react.default.createElement("p", null, "OpenLayers + React + SCSS + Babel + Parcel + Jest + Vercel CI/CD"), /*#__PURE__*/_react.default.createElement(_Openlayers.default, null));
     }
   }]);
 
@@ -115585,9 +115599,12 @@ var Footer = /*#__PURE__*/function (_Component) {
   _createClass(Footer, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("footer", {
-        role: "contentinfo"
-      }, "This is Footer Component");
+      return /*#__PURE__*/_react.default.createElement("footer", {
+        role: "contentinfo",
+        className: "footer-container"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "footer-main-text"
+      }, "With gratitude, github/sg208"));
     }
   }]);
 
@@ -115617,10 +115634,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /// importing global styles
 /// importing layout
 var Index = function Index() {
-  return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement(_Main.default, null), _react.default.createElement(_Footer.default, null));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_Main.default, null), /*#__PURE__*/_react.default.createElement(_Footer.default, null));
 };
 
-_reactDom.default.render(_react.default.createElement(Index, null), document.getElementById('root'));
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(Index, null), document.getElementById('root'));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./index.scss":"index.scss","./Layouts/Header/Header":"Layouts/Header/Header.js","./Layouts/Main/Main":"Layouts/Main/Main.js","./Layouts/Footer/Footer":"Layouts/Footer/Footer.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -115649,7 +115666,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56673" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58277" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

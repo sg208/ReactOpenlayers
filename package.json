@@ -1,5 +1,14 @@
 {
   "name": "ReactOpenlayers",
+  "jest": {
+    "verbose": true,
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTest.js"
+    ]
+  },
   "version": "1.0.0",
   "description": "React + OpenLayers + Parcel + Jest + Vercel (CI/CD)",
   "main": "index.js",
@@ -9,17 +18,22 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.12.13",
+    "babel-jest": "^26.6.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^26.6.3",
     "parcel-bundler": "^1.12.5",
+    "react-test-renderer": "^17.0.2",
     "sass": "^1.32.8"
   },
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build --public-url . src/index.html --out-dir dist",
     "vercel-build": "parcel build --public-url . src/index.html --out-dir .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
