@@ -1,0 +1,21 @@
+/// global config only =========================
+
+/// global color config ------------------------
+$global-bg-color: #f4f4f4;
+$global-text-color: #000000;
+
+/// global simple style ------------------------
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: $global-bg-color;
+    color: $global-text-color;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    .global {
+        &-container {
+            padding: 1rem;
+        }
+    }
+}
