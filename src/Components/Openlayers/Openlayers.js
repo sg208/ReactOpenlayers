@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 /// openlayers
-import Map from 'ol/Map';
-import View from 'ol/View';
+import Map from 'ol/Map'
+import View from 'ol/View'
 
-import MousePosition from 'ol/control/MousePosition';
-import { createStringXY } from 'ol/coordinate';
-import { defaults as defaultControls } from 'ol/control';
+import MousePosition from 'ol/control/MousePosition'
+import { createStringXY } from 'ol/coordinate'
+import { defaults as defaultControls } from 'ol/control'
 
-import GeoJSON from 'ol/format/GeoJSON';
-import VectorSource from 'ol/source/Vector';
-import XYZ from 'ol/source/XYZ';
-import { Stroke, Style } from 'ol/style';
-import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
-import { bbox as bboxStrategy } from 'ol/loadingstrategy';
+import GeoJSON from 'ol/format/GeoJSON'
+import VectorSource from 'ol/source/Vector'
+import XYZ from 'ol/source/XYZ'
+import { Stroke, Style } from 'ol/style'
+import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer'
+import { bbox as bboxStrategy } from 'ol/loadingstrategy'
 
 /// styles
 import './Openlayers.scss'
@@ -121,4 +121,4 @@ class Openlayers extends Component {
     }
 }
 
-export default Openlayers;
+export default Openlayers
