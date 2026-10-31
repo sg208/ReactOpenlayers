@@ -1,5 +1,8 @@
 {
   "name": "ReactOpenlayers",
+  "version": "1.0.0",
+  "description": "React + OpenLayers + Parcel + Jest + Vercel (CI/CD)",
+  "packageManager": "pnpm@10.34.8",
   "jest": {
     "verbose": true,
     "moduleNameMapper": {
@@ -9,8 +12,6 @@
       "<rootDir>/src/setupTest.js"
     ]
   },
-  "version": "1.0.0",
-  "description": "React + OpenLayers + Parcel + Jest + Vercel (CI/CD)",
   "main": "index.js",
   "dependencies": {
     "ol": "^6.5.0",
