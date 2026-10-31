@@ -1,50 +1,43 @@
 {
   "name": "ReactOpenlayers",
   "version": "1.0.0",
-  "description": "React + OpenLayers + Parcel + Jest + Vercel (CI/CD)",
+  "description": "React + OpenLayers + Vite + Vitest + Vercel",
   "packageManager": "pnpm@10.34.8",
-  "jest": {
-    "verbose": true,
-    "moduleNameMapper": {
-      "^.+\\.(css|less|scss)$": "babel-jest"
-    },
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTest.js"
-    ]
-  },
-  "main": "index.js",
-  "dependencies": {
-    "ol": "^6.5.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.13.10",
-    "@babel/preset-env": "^7.13.12",
-    "@babel/preset-react": "^7.12.13",
-    "babel-jest": "^26.6.3",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "jest": "^26.6.3",
-    "parcel-bundler": "^1.12.5",
-    "react-test-renderer": "^17.0.2",
-    "sass": "^1.32.8"
-  },
+  "type": "module",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build --public-url . src/index.html --out-dir dist",
-    "vercel-build": "parcel build --public-url . src/index.html --out-dir .",
-    "test": "jest"
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "ol": "^10.11.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sg208/ReactOpenlayers.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Syailendra Ginting",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sg208/ReactOpenlayers/issues"
   },
-  "homepage": "https://github.com/sg208/ReactOpenlayers#readme"
+  "homepage": "https://github.com/sg208/ReactOpenlayers#readme",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "jsdom": "^30.1.3",
+    "sass": "^1.107.1",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=24"
+  }
 }
