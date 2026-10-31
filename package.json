@@ -1,6 +1,6 @@
 {
   "name": "ReactOpenlayers",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "React + OpenLayers + Vite + Vitest + Vercel",
   "packageManager": "pnpm@10.34.8",
   "type": "module",
