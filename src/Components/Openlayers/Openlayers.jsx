@@ -18,11 +18,11 @@ import './Openlayers.scss'
 export const INITIAL_CENTER = [-8908887.277395891, 5381918.072437216]
 export const INITIAL_ZOOM = 12
 
-// Public MapTiler demo key, restricted on the MapTiler side.
+// Client-side MapTiler key: it ships in the browser bundle by design, so treat it as public.
 const MAPTILER_KEY = 'Qg3YFC9sjakX9lep4dSi'
 const ATTRIBUTIONS =
-    '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> | ' +
-    '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a>'
+    '<a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener noreferrer">&copy; MapTiler</a> | ' +
+    '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">&copy; OpenStreetMap</a>'
 
 export const buildWaterAreasUrl = (extent) =>
     'https://ahocevar.com/geoserver/wfs?service=WFS&' +
