@@ -27,6 +27,7 @@
         color: var(--text);
 
         &[aria-current='page'] {
+            font-weight: 600;
             text-decoration-thickness: 2px;
         }
     }

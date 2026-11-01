@@ -5,7 +5,7 @@
         max-width: 68ch;
     }
 
-    &:focus {
+    &:focus:not(:focus-visible) {
         outline: none;
     }
 

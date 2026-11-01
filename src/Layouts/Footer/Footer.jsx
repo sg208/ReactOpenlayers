@@ -31,7 +31,7 @@ export const Footer = ({ currentPage }) => (
             <a href="https://github.com/sg208" target="_blank" rel="noopener noreferrer">
                 github/sg208<span className="visually-hidden"> (opens in a new tab)</span>
             </a>{' '}
-            · MIT licensed
+            <span aria-hidden="true">·</span> MIT licensed
         </p>
     </footer>
 )
