@@ -1,7 +1,7 @@
 {
   "name": "ReactOpenlayers",
-  "version": "2.1.0",
-  "description": "React + OpenLayers + Vite + Vitest + Vercel",
+  "version": "2.2.0",
+  "description": "React + OpenLayers + Vite + Vitest map viewer",
   "packageManager": "pnpm@10.34.8",
   "type": "module",
   "scripts": {
@@ -9,7 +9,8 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "deploy": "pnpm build && wrangler deploy"
   },
   "dependencies": {
     "ol": "^10.11.0",
@@ -35,7 +36,8 @@
     "jsdom": "^30.1.3",
     "sass": "^1.107.1",
     "vite": "^8.3.5",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "wrangler": "^4.156.0"
   },
   "engines": {
     "node": ">=24"

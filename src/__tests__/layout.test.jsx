@@ -18,6 +18,13 @@ describe('layout', () => {
     it('renders the footer as contentinfo', () => {
         render(<Footer />)
         expect(screen.getByRole('contentinfo')).toHaveTextContent('With gratitude, github/sg208')
+        expect(screen.getByRole('link', { name: /^Source on GitHub.*opens in a new tab/ })).toHaveAttribute(
+            'href',
+            'https://github.com/sg208/ReactOpenlayers',
+        )
+        expect(screen.getByRole('link', { name: 'Accessibility' })).toHaveAttribute('href', '/accessibility/')
+        expect(screen.getByRole('link', { name: 'Privacy' })).toHaveAttribute('href', '/privacy/')
+        expect(screen.getByRole('link', { name: 'Terms' })).toHaveAttribute('href', '/terms/')
     })
 
     it('renders header, main with heading and map, and footer', () => {

@@ -352,3 +352,9 @@ MigrationBackup/
 
 # Build output
 dist/
+
+# wrangler
+.wrangler/
+
+# Vitest JSON reporter output
+.vitest/

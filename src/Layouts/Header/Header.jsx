@@ -1,6 +1,6 @@
 import './Header.scss'
 
-const REPO_URL = 'https://github.com/sg208/ReactOpenlayers'
+import { REPO_URL } from '../Footer/Footer'
 
 export const Header = () => (
     <header className="header">
