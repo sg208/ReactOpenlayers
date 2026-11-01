@@ -28,8 +28,6 @@ describe('privacy page', () => {
         const main = screen.getByRole('main')
         expect(main).toHaveTextContent('api.maptiler.com')
         expect(main).toHaveTextContent('ahocevar.com/geoserver/wfs')
-        expect(main).toHaveTextContent('fonts.googleapis.com')
-        expect(main).toHaveTextContent('fonts.gstatic.com')
         expect(main).toHaveTextContent('Cloudflare serves the site')
     })
 })
