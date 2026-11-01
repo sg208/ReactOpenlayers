@@ -9,7 +9,8 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "deploy": "pnpm build && wrangler deploy"
   },
   "dependencies": {
     "ol": "^10.11.0",

@@ -352,3 +352,6 @@ MigrationBackup/
 
 # Build output
 dist/
+
+# wrangler
+.wrangler/
