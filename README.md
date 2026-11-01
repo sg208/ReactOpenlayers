@@ -1,5 +1,5 @@
 # ReactOpenlayers
-This is a simple SPA based site with Openlayers map. It has one single component with three layout components.
+A single-page map viewer: MapTiler satellite imagery with OpenStreetMap water areas loaded from a WFS service. The map sits on a sheet with a collar that holds the layer toggle, the view centre and zoom, the pointer position and a reset button. Light and dark themes follow the system setting.
 https://react-openlayers.vercel.app/
 
 ## Stacks
@@ -18,8 +18,11 @@ pnpm test      # Vitest suite
 
 Vercel settings live in `vercel.json` (pnpm install, `pnpm build`, output `dist/`).
 
+## Accessibility
+The map takes keyboard focus (arrow keys pan, plus and minus zoom), every control has a visible focus ring, colours meet WCAG 2.2 AA contrast, and motion is reduced when the system asks for it.
+
 ## Backlogs
-- Basic accessibility features + more accessibility browser tests for color contrasts, etc.
+- Automated accessibility browser tests (contrast, focus order)
 - More unit tests
 
 ## Bug Reporting
