@@ -12,7 +12,7 @@ const Main = () => (
             </p>
         </div>
         <Openlayers />
-        <p className="sheet-stack">Built with OpenLayers, React, SCSS, Vite and Vitest. Hosted on Vercel.</p>
+        <p className="sheet-stack">Built with OpenLayers, React, SCSS, Vite and Vitest. Served by Cloudflare.</p>
     </main>
 )
 
