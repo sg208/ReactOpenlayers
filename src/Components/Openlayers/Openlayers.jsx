@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { toLonLat } from 'ol/proj'
 
-import { createMap, INITIAL_CENTER, INITIAL_ZOOM } from './createMap'
+import { createMap, INITIAL_CENTER, INITIAL_ZOOM, prefersReducedMotion } from './createMap'
 import { formatLonLat } from './formatCoordinate'
 import MapCollar from './MapCollar'
 
@@ -13,9 +13,6 @@ const readViewState = (view) => ({
     centre: formatLonLat(toLonLat(view.getCenter() ?? INITIAL_CENTER)),
     zoom: view.getZoom() ?? INITIAL_ZOOM,
 })
-
-const prefersReducedMotion = () =>
-    window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
 
 const Openlayers = () => {
     const mapElementRef = useRef(null)

@@ -28,13 +28,14 @@ const ATTRIBUTIONS =
 export const WATER_STROKE = '#7fd8ea'
 const WATER_HALO = 'rgba(6, 30, 38, 0.6)'
 
-const prefersReducedMotion = () =>
+export const prefersReducedMotion = () =>
     window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
 
 // OpenLayers names its buttons from their glyph ("+", "-", "i") and keeps the real name in `title`.
 const CONTROL_NAMES = {
     '.ol-zoom-in': 'Zoom in',
     '.ol-zoom-out': 'Zoom out',
+    '.ol-rotate button': 'Reset rotation',
     '.ol-attribution button': 'Toggle attributions',
 }
 

@@ -13,13 +13,13 @@ const MapCollar = ({ isWaterVisible, onWaterToggle, onResetView, viewState, poin
         </label>
 
         <dl className="map-readout">
-            <div className="map-readout-item">
+            <div className="map-readout-item" aria-live="polite" aria-atomic="true">
                 <dt>Centre</dt>
-                <dd className="map-figure" aria-live="polite">{viewState.centre}</dd>
+                <dd className="map-figure">{viewState.centre}</dd>
             </div>
-            <div className="map-readout-item">
+            <div className="map-readout-item" aria-live="polite" aria-atomic="true">
                 <dt>Zoom</dt>
-                <dd className="map-figure" aria-live="polite">{viewState.zoom.toFixed(1)}</dd>
+                <dd className="map-figure">{viewState.zoom.toFixed(1)}</dd>
             </div>
             <div className="map-readout-item map-readout-pointer">
                 <dt>Pointer</dt>
