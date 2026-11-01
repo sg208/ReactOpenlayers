@@ -11,7 +11,7 @@ const PrivacyPage = () => (
 
         <h2>Services your browser contacts</h2>
         <p>
-            To draw the map and the text, your browser loads files straight from these services. Each one sees
+            To draw the map, your browser loads files straight from these services. Each one sees
             your IP address and browser details, like any website you visit, and handles them under its own
             privacy policy.
         </p>
@@ -25,10 +25,6 @@ const PrivacyPage = () => (
                 <strong>ahocevar.com GeoServer</strong> (<code>ahocevar.com/geoserver/wfs</code>) is a public
                 GeoServer used by the OpenLayers examples. It returns the OpenStreetMap water areas for the
                 visible map area, so each request includes the bounding box of your current view.
-            </li>
-            <li>
-                <strong>Google Fonts</strong> (<code>fonts.googleapis.com</code> and{' '}
-                <code>fonts.gstatic.com</code>) serves the IBM Plex Sans and IBM Plex Mono typefaces.
             </li>
         </ul>
         <p>Links to GitHub, MapTiler and OpenStreetMap only contact those sites if you click them.</p>
