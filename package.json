@@ -1,6 +1,6 @@
 {
   "name": "ReactOpenlayers",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "React + OpenLayers + Vite + Vitest map viewer",
   "packageManager": "pnpm@10.34.8",
   "type": "module",
@@ -13,6 +13,8 @@
     "deploy": "pnpm build && wrangler deploy"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
     "ol": "^10.11.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
