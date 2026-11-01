@@ -37,7 +37,7 @@ export const createMap = ({ target, pointerTarget }) => {
     const raster = new TileLayer({
         source: new XYZ({
             attributions: ATTRIBUTIONS,
-            url: `https://api.maptiler.com/tiles/satellite/{z}/{x}/{y}.jpg?key=${MAPTILER_KEY}`,
+            url: `https://api.maptiler.com/tiles/satellite-v2/{z}/{x}/{y}.jpg?key=${MAPTILER_KEY}`,
             maxZoom: 20,
         }),
     })
