@@ -164,20 +164,22 @@
 .map-readout {
     grid-column: 1 / -1;
     grid-row: 2;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, auto));
-    justify-content: start;
+    display: flex;
+    flex-wrap: wrap;
     gap: 4px 24px;
     margin: 0;
 
+    // Items wrap as whole units; a figure too long for the row drops under its label.
     &-item {
         display: flex;
-        gap: 8px;
+        flex-wrap: wrap;
+        gap: 0 8px;
         min-width: 0;
+        max-width: 100%;
     }
 
     &-pointer {
-        grid-column: 1 / -1;
+        flex-basis: 100%;
     }
 
     dt {
@@ -190,6 +192,7 @@
 }
 
 .map-figure {
+    min-width: 0;
     font-family: var(--font-mono);
     font-size: 12.5px;
     font-variant-numeric: tabular-nums;
@@ -214,6 +217,12 @@
 
     &:active {
         transform: translateY(1px);
+    }
+}
+
+@media (max-width: 359px) {
+    .map-figure {
+        white-space: normal;
     }
 }
 
@@ -250,6 +259,7 @@
         gap: 4px 24px;
 
         &-pointer {
+            flex-basis: auto;
             min-width: 15rem;
         }
     }
