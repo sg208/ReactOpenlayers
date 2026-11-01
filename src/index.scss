@@ -1,26 +1,84 @@
-/// global config only =========================
+@use 'styles/tokens';
 
-/// global color config ------------------------
-$global-bg-color: #f4f4f4;
-$global-text-color: #000000;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-/// global simple style ------------------------
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: $global-bg-color;
-    color: $global-text-color;
-    padding: 0;
     margin: 0;
-    width: 100%;
+    min-width: 320px;
+    background-color: var(--ground);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: var(--fs-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
 
-    .global {
-        &-container {
-            padding: 1rem;
-        }
+a {
+    color: inherit;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+
+    &:hover {
+        text-decoration-thickness: 2px;
     }
+}
 
-    .zero-element {
-        padding: 0;
-        margin: 0;
+:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 10;
+    padding: 8px 12px;
+    border-radius: var(--radius-control);
+    background-color: var(--text);
+    color: var(--surface);
+    font-weight: 500;
+    transform: translateY(-200%);
+
+    &:focus-visible {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

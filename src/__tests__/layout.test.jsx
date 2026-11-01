@@ -24,7 +24,7 @@ describe('layout', () => {
         render(<App />)
         expect(screen.getByRole('banner')).toBeInTheDocument()
         expect(screen.getByRole('main')).toBeInTheDocument()
-        expect(screen.getByRole('heading', { level: 1, name: 'Here is The Map' })).toBeInTheDocument()
+        expect(screen.getByRole('heading', { level: 1, name: 'Satellite map with water areas' })).toBeInTheDocument()
         expect(screen.getByTestId('map-stub')).toBeInTheDocument()
         expect(screen.getByRole('contentinfo')).toBeInTheDocument()
     })

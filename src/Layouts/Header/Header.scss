@@ -1,23 +1,41 @@
 .header {
-    &-container {
-        background-color: #ffffff;
-        color: #0006B4;
-        height: 5rem;
-        padding: 0.25rem 1rem;
-        position: relative;
-        border-bottom: 1px solid #cccccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+    height: 48px;
+    padding-inline: 16px;
+
+    &-brand {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
     }
 
-    &-main-text {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.5rem;
-        padding: 0;
-        margin: 0;
+    &-plus {
+        margin-inline: 1px;
+        color: var(--accent);
+    }
 
-        .plus-green {
-            color: #49D900;
+    &-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding-inline: 4px;
+        color: var(--muted);
+        font-size: var(--fs-body);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--text);
+            text-decoration: underline;
         }
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        padding-inline: 20px;
     }
 }
