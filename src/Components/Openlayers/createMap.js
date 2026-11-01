@@ -3,6 +3,7 @@ import View from 'ol/View'
 import MousePosition from 'ol/control/MousePosition'
 import ScaleLine from 'ol/control/ScaleLine'
 import { defaults as defaultControls } from 'ol/control/defaults'
+import { defaults as defaultInteractions } from 'ol/interaction/defaults'
 import GeoJSON from 'ol/format/GeoJSON'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
@@ -26,6 +27,21 @@ const ATTRIBUTIONS =
 // Keep in sync with the legend swatch in Openlayers.scss.
 export const WATER_STROKE = '#7fd8ea'
 const WATER_HALO = 'rgba(6, 30, 38, 0.6)'
+
+const prefersReducedMotion = () =>
+    window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
+
+// OpenLayers names its buttons from their glyph ("+", "-", "i") and keeps the real name in `title`.
+const CONTROL_NAMES = {
+    '.ol-zoom-in': 'Zoom in',
+    '.ol-zoom-out': 'Zoom out',
+    '.ol-attribution button': 'Toggle attributions',
+}
+
+const nameControlButtons = (target) =>
+    Object.entries(CONTROL_NAMES).forEach(([selector, name]) =>
+        target?.querySelector?.(selector)?.setAttribute('aria-label', name),
+    )
 
 export const buildWaterAreasUrl = (extent) =>
     'https://ahocevar.com/geoserver/wfs?service=WFS&' +
@@ -64,12 +80,19 @@ export const createMap = ({ target, pointerTarget }) => {
 
     const view = new View({ center: INITIAL_CENTER, zoom: INITIAL_ZOOM })
 
+    const motionDuration = prefersReducedMotion() ? 0 : undefined
+
     const map = new Map({
         target,
         layers: [raster, waterLayer],
         view,
-        controls: defaultControls().extend([mousePosition, new ScaleLine()]),
+        controls: defaultControls({ zoomOptions: { duration: motionDuration } }).extend([
+            mousePosition,
+            new ScaleLine(),
+        ]),
+        interactions: defaultInteractions({ zoomDuration: motionDuration }),
     })
+    nameControlButtons(target)
 
     return { map, view, waterLayer }
 }

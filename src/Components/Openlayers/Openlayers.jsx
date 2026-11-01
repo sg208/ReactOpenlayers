@@ -61,7 +61,7 @@ const Openlayers = () => {
     }
 
     return (
-        <section className="map-panel" aria-label="Map viewer">
+        <section className="map-panel">
             <div
                 ref={mapElementRef}
                 id="map"
