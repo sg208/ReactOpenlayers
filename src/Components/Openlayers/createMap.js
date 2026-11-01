@@ -19,9 +19,10 @@ export const INITIAL_ZOOM = 12
 
 // Client-side MapTiler key: it ships in the browser bundle by design, so treat it as public.
 const MAPTILER_KEY = 'Qg3YFC9sjakX9lep4dSi'
-const ATTRIBUTIONS =
-    '<a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener noreferrer">&copy; MapTiler</a> | ' +
-    '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">&copy; OpenStreetMap</a>'
+const NEW_TAB_NOTE = '<span class="visually-hidden"> (opens in a new tab)</span>'
+export const ATTRIBUTIONS =
+    `<a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener noreferrer">&copy; MapTiler${NEW_TAB_NOTE}</a> | ` +
+    `<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">&copy; OpenStreetMap${NEW_TAB_NOTE}</a>`
 
 // Water outline: a pale line on a dark halo so it reads over any imagery.
 // Keep in sync with the legend swatch in Openlayers.scss.

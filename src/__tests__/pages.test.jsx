@@ -29,5 +29,7 @@ describe('privacy page', () => {
         expect(main).toHaveTextContent('api.maptiler.com')
         expect(main).toHaveTextContent('ahocevar.com/geoserver/wfs')
         expect(main).toHaveTextContent('Cloudflare serves the site')
+        expect(main).not.toHaveTextContent('fonts.googleapis.com')
+        expect(main).not.toHaveTextContent('fonts.gstatic.com')
     })
 })

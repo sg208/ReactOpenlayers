@@ -20,7 +20,7 @@ PURPOSE: architecture · data flow · key decisions. Maintained by enggflo (`/en
 
 1. `Openlayers.jsx:27-44` → `createMap({ target, pointerTarget })` on mount → returns `{ map, view, waterLayer }` kept in a ref.
 2. Raster tiles → `api.maptiler.com/tiles/satellite-v2` (`createMap.js:57`).
-3. Water areas → `VectorSource` with `bboxStrategy`; URL per extent from `buildWaterAreasUrl` → `ahocevar.com/geoserver/wfs` GeoJSON (`createMap.js:47-51,62-72`).
+3. Water areas → `VectorSource` with `bboxStrategy`; URL per extent from `buildWaterAreasUrl` → `ahocevar.com/geoserver/wfs` GeoJSON (`createMap.js:48-52,63-73`).
 4. `moveend` → `readViewState` → `viewState` → collar readout (`Openlayers.jsx:12-15,33`).
 5. Pointer position → `MousePosition` control renders straight into collar `<dd>` via `pointerRef` (`createMap.js:74-80`).
 6. Toggle → `waterLayer.setVisible` (`Openlayers.jsx:46-50`); reset → `view.animate` to initial centre/zoom (`Openlayers.jsx:52-58`).
@@ -40,4 +40,4 @@ PURPOSE: architecture · data flow · key decisions. Maintained by enggflo (`/en
 | service | used by | status |
 |---|---|---|
 | MapTiler satellite-v2 tiles | `createMap.js:57` | ok |
-| ahocevar.com GeoServer WFS (`osm:water_areas`) | `createMap.js:48` | 403 on all requests since 2026-11-01 (upstream); see `.enggflo/brain.md` Open threads |
+| ahocevar.com GeoServer WFS (`osm:water_areas`) | `createMap.js:49` | Works from browsers (rechecked 2026-11-01); `curl`/scripts get 403 from an upstream bot filter |

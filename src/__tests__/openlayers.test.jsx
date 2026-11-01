@@ -75,3 +75,15 @@ describe('Openlayers', () => {
         expect(url).toMatch(/bbox=1,2,3,4,EPSG:3857$/)
     })
 })
+
+describe('map attributions', () => {
+    it('tells screen readers that each attribution link opens a new tab', async () => {
+        const { ATTRIBUTIONS } = await import('../Components/Openlayers/createMap')
+        const container = document.createElement('div')
+        container.innerHTML = ATTRIBUTIONS
+        const links = [...container.querySelectorAll('a[target="_blank"]')]
+
+        expect(links).toHaveLength(2)
+        links.forEach((link) => expect(link.textContent).toMatch(/\(opens in a new tab\)$/))
+    })
+})
