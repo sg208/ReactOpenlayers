@@ -1,0 +1,61 @@
+/// Design tokens: a hydrographic chart sheet.
+/// The frame is a low-chroma green-grey, the work sits on a white sheet,
+/// and the one hue (chart teal) belongs to water and focus.
+
+:root {
+    color-scheme: light dark;
+
+    --ground: #f2f5f4;
+    --surface: #ffffff;
+    --raised: #f4f6f6;
+    --border: #e3e8e7;
+    --control: #c7cecd;
+    --text: #131416;
+    --muted: #55595a;
+    --accent: #1b6c80;
+    --accent-ink: #ffffff;
+    --focus: #1b6c80;
+    --water: #7fd8ea;
+    --water-halo: rgba(6, 30, 38, 0.6);
+
+    --font: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+    --fs-title: 22px;
+    --fs-body: 14px;
+    --fs-small: 12px;
+
+    --radius-sheet: 16px;
+    --radius-control: 6px;
+    --sheet-inset: 8px;
+    --pad: 24px;
+    --gap: 16px;
+    --control-height: 36px;
+
+    // OpenLayers' own control variables, mapped onto ours.
+    --ol-background-color: var(--surface);
+    --ol-accent-background-color: var(--raised);
+    --ol-subtle-background-color: var(--border);
+    --ol-partial-background-color: color-mix(in srgb, var(--surface) 88%, transparent);
+    --ol-foreground-color: var(--text);
+    --ol-subtle-foreground-color: var(--muted);
+    --ol-brand-color: var(--accent);
+}
+
+@mixin dark-tokens {
+    --ground: #0f1111;
+    --surface: #171a1a;
+    --raised: #202424;
+    --border: #2b302f;
+    --control: #4a5150;
+    --text: #f1f3f3;
+    --muted: #a8afae;
+    --accent: #6cc3d6;
+    --accent-ink: #0b1f24;
+    --focus: #8fd6e6;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark-tokens;
+    }
+}

@@ -1,84 +1,84 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { toLonLat } from 'ol/proj'
 
-import Map from 'ol/Map'
-import View from 'ol/View'
-import MousePosition from 'ol/control/MousePosition'
-import { defaults as defaultControls } from 'ol/control/defaults'
-import { createStringXY } from 'ol/coordinate'
-import GeoJSON from 'ol/format/GeoJSON'
-import TileLayer from 'ol/layer/Tile'
-import VectorLayer from 'ol/layer/Vector'
-import { bbox as bboxStrategy } from 'ol/loadingstrategy'
-import VectorSource from 'ol/source/Vector'
-import XYZ from 'ol/source/XYZ'
-import { Stroke, Style } from 'ol/style'
+import { createMap, INITIAL_CENTER, INITIAL_ZOOM, prefersReducedMotion } from './createMap'
+import { formatLonLat } from './formatCoordinate'
+import MapCollar from './MapCollar'
 
 import './Openlayers.scss'
 
-export const INITIAL_CENTER = [-8908887.277395891, 5381918.072437216]
-export const INITIAL_ZOOM = 12
+export { buildWaterAreasUrl, INITIAL_CENTER, INITIAL_ZOOM } from './createMap'
 
-// Client-side MapTiler key: it ships in the browser bundle by design, so treat it as public.
-const MAPTILER_KEY = 'Qg3YFC9sjakX9lep4dSi'
-const ATTRIBUTIONS =
-    '<a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener noreferrer">&copy; MapTiler</a> | ' +
-    '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">&copy; OpenStreetMap</a>'
-
-export const buildWaterAreasUrl = (extent) =>
-    'https://ahocevar.com/geoserver/wfs?service=WFS&' +
-    'version=1.1.0&request=GetFeature&typename=osm:water_areas&' +
-    'outputFormat=application/json&srsname=EPSG:3857&' +
-    `bbox=${extent.join(',')},EPSG:3857`
-
-const createMap = (target) => {
-    const raster = new TileLayer({
-        source: new XYZ({
-            attributions: ATTRIBUTIONS,
-            url: `https://api.maptiler.com/tiles/satellite/{z}/{x}/{y}.jpg?key=${MAPTILER_KEY}`,
-            maxZoom: 20,
-        }),
-    })
-
-    const vector = new VectorLayer({
-        source: new VectorSource({
-            format: new GeoJSON(),
-            url: buildWaterAreasUrl,
-            strategy: bboxStrategy,
-        }),
-        style: new Style({
-            stroke: new Stroke({ color: 'rgba(0, 0, 255, 1.0)', width: 2 }),
-        }),
-    })
-
-    const mousePosition = new MousePosition({
-        coordinateFormat: createStringXY(4),
-        projection: 'EPSG:4326',
-        placeholder: 'Mouse Position',
-    })
-
-    return new Map({
-        target,
-        layers: [raster, vector],
-        view: new View({ center: INITIAL_CENTER, zoom: INITIAL_ZOOM }),
-        controls: defaultControls().extend([mousePosition]),
-    })
-}
+const readViewState = (view) => ({
+    centre: formatLonLat(toLonLat(view.getCenter() ?? INITIAL_CENTER)),
+    zoom: view.getZoom() ?? INITIAL_ZOOM,
+})
 
 const Openlayers = () => {
     const mapElementRef = useRef(null)
+    const pointerRef = useRef(null)
+    const mapStateRef = useRef(null)
+    const [isWaterVisible, setIsWaterVisible] = useState(true)
+    const [viewState, setViewState] = useState(() => ({
+        centre: formatLonLat(toLonLat(INITIAL_CENTER)),
+        zoom: INITIAL_ZOOM,
+    }))
 
     useEffect(() => {
-        const map = createMap(mapElementRef.current)
+        const mapState = createMap({
+            target: mapElementRef.current,
+            pointerTarget: pointerRef.current,
+        })
+        const { map, view } = mapState
+        const handleMoveEnd = () => setViewState(readViewState(view))
+
+        mapStateRef.current = mapState
+        map.on?.('moveend', handleMoveEnd)
+
         return () => {
+            map.un?.('moveend', handleMoveEnd)
             map.setTarget(undefined)
             map.dispose()
+            mapStateRef.current = null
         }
     }, [])
 
+    const handleWaterToggle = (event) => {
+        const isChecked = event.target.checked
+        setIsWaterVisible(isChecked)
+        mapStateRef.current?.waterLayer.setVisible(isChecked)
+    }
+
+    const handleResetView = () => {
+        mapStateRef.current?.view.animate({
+            center: INITIAL_CENTER,
+            zoom: INITIAL_ZOOM,
+            duration: prefersReducedMotion() ? 0 : 450,
+        })
+    }
+
     return (
-        <div>
-            <div ref={mapElementRef} id="map" className="map" role="region" aria-label="Map" />
-        </div>
+        <section className="map-panel">
+            <div
+                ref={mapElementRef}
+                id="map"
+                className="map"
+                role="region"
+                aria-label="Map"
+                aria-describedby="map-keyboard-hint"
+                tabIndex={0}
+            />
+            <p id="map-keyboard-hint" className="visually-hidden">
+                Arrow keys pan the map. Plus and minus zoom in and out.
+            </p>
+            <MapCollar
+                isWaterVisible={isWaterVisible}
+                onWaterToggle={handleWaterToggle}
+                onResetView={handleResetView}
+                viewState={viewState}
+                pointerRef={pointerRef}
+            />
+        </section>
     )
 }
 

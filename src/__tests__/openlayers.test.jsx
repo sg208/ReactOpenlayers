@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const mapInstances = vi.hoisted(() => [])
@@ -8,6 +8,8 @@ vi.mock('ol/Map', () => ({
         this.options = options
         this.setTarget = vi.fn()
         this.dispose = vi.fn()
+        this.on = vi.fn()
+        this.un = vi.fn()
         mapInstances.push(this)
     }),
 }))
@@ -38,8 +40,33 @@ describe('Openlayers', () => {
         const [map] = mapInstances
         unmount()
 
+        expect(map.un).toHaveBeenCalledWith('moveend', expect.any(Function))
         expect(map.setTarget).toHaveBeenCalledWith(undefined)
         expect(map.dispose).toHaveBeenCalledOnce()
+    })
+
+    it('makes the map keyboard focusable', () => {
+        render(<Openlayers />)
+        expect(screen.getByRole('region', { name: 'Map' })).toHaveAttribute('tabindex', '0')
+    })
+
+    it('toggles the water-areas layer from the legend', () => {
+        render(<Openlayers />)
+        const [map] = mapInstances
+        const waterLayer = map.options.layers[1]
+        const toggle = screen.getByRole('checkbox', { name: 'Water areas' })
+
+        expect(toggle).toBeChecked()
+        fireEvent.click(toggle)
+        expect(toggle).not.toBeChecked()
+        expect(waterLayer.getVisible()).toBe(false)
+    })
+
+    it('shows the initial centre and zoom in the collar', () => {
+        render(<Openlayers />)
+        expect(screen.getByText(/° N, .*° W/)).toBeInTheDocument()
+        expect(screen.getByText('12.0')).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Reset view' })).toBeInTheDocument()
     })
 
     it('builds the WFS water-areas URL for an extent', () => {
