@@ -24,7 +24,7 @@ The build has four pages: the map (`src/index.html`) and the accessibility, priv
 
 ## Deploy
 
-`pnpm run deploy` builds and runs `wrangler deploy`. `wrangler.jsonc` serves `dist/` on the `react-openlayers.engg.app` custom domain and falls back to `index.html` for unknown paths. It needs a global `wrangler` v4 and `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in the environment.
+`pnpm run deploy` builds and runs `wrangler deploy`. `wrangler.jsonc` serves `dist/` on the `react-openlayers.engg.app` custom domain and falls back to `index.html` for unknown paths. Wrangler 4 is a dev dependency, so it only needs `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in the environment.
 
 ## Accessibility
 
