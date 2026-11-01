@@ -19,7 +19,7 @@ PURPOSE: architecture · data flow · key decisions. Maintained by enggflo (`/en
 ## Data flow
 
 1. `Openlayers.jsx:27-44` → `createMap({ target, pointerTarget })` on mount → returns `{ map, view, waterLayer }` kept in a ref.
-2. Raster tiles → `api.maptiler.com/tiles/satellite-v2` (`createMap.js:57`).
+2. Raster tiles → `api.maptiler.com/tiles/satellite-v2` (`createMap.js:58`).
 3. Water areas → `VectorSource` with `bboxStrategy`; URL per extent from `buildWaterAreasUrl` → `ahocevar.com/geoserver/wfs` GeoJSON (`createMap.js:48-52,63-73`).
 4. `moveend` → `readViewState` → `viewState` → collar readout (`Openlayers.jsx:12-15,33`).
 5. Pointer position → `MousePosition` control renders straight into collar `<dd>` via `pointerRef` (`createMap.js:74-80`).
@@ -39,5 +39,5 @@ PURPOSE: architecture · data flow · key decisions. Maintained by enggflo (`/en
 
 | service | used by | status |
 |---|---|---|
-| MapTiler satellite-v2 tiles | `createMap.js:57` | ok |
+| MapTiler satellite-v2 tiles | `createMap.js:58` | ok |
 | ahocevar.com GeoServer WFS (`osm:water_areas`) | `createMap.js:49` | Works from browsers (rechecked 2026-11-01); `curl`/scripts get 403 from an upstream bot filter |
