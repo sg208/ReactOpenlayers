@@ -1,6 +1,6 @@
 {
   "name": "ReactOpenlayers",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "React + OpenLayers + Vite + Vitest map viewer",
   "packageManager": "pnpm@10.34.8",
   "type": "module",
