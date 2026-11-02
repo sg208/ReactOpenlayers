@@ -17,21 +17,6 @@
         margin-inline: 1px;
         color: var(--accent);
     }
-
-    &-link {
-        display: inline-flex;
-        align-items: center;
-        min-height: 44px;
-        padding-inline: 4px;
-        color: var(--muted);
-        font-size: var(--fs-body);
-        text-decoration: none;
-
-        &:hover {
-            color: var(--text);
-            text-decoration: underline;
-        }
-    }
 }
 
 @media (min-width: 768px) {
