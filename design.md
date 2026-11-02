@@ -12,7 +12,7 @@ PURPOSE: architecture · data flow · key decisions. Maintained by enggflo (`/en
 | map factory | `src/Components/Openlayers/createMap.js:53-99` | builds `ol/Map`: MapTiler XYZ raster + WFS water vector layer + controls |
 | map collar | `src/Components/Openlayers/MapCollar.jsx:2-34` | water toggle · centre/zoom/pointer readout · reset button |
 | legal pages | `src/{accessibility,privacy,terms}/index.html` → `src/pages/renderPage.jsx:10-23` | `data-page` picks page component; unknown → `TermsPage` |
-| footer | `src/Layouts/Footer/Footer.jsx:5-36` | links Accessibility · Privacy · Terms · GitHub repo (`REPO_URL`) |
+| footer | `src/Layouts/Footer/Footer.jsx:5-42` | links Accessibility · Privacy · Terms · one GitHub icon link to the repo (`REPO_URL`) |
 | tokens | `src/styles/_tokens.scss` | colour/size tokens; light + dark via system setting |
 | hosting | `wrangler.jsonc` | Cloudflare Worker static assets from `dist/`, SPA fallback, custom domain `react-openlayers.engg.app` |
 
