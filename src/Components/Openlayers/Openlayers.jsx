@@ -66,6 +66,7 @@ const Openlayers = () => {
                 role="region"
                 aria-label="Map"
                 aria-describedby="map-keyboard-hint"
+                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                 tabIndex={0}
             />
             <p id="map-keyboard-hint" className="visually-hidden">
