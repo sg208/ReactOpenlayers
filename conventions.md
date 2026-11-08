@@ -1,6 +1,6 @@
 # Conventions
 
-PURPOSE: patterns the repo follows implicitly (no ESLint/Prettier config in repo). Maintained by enggflo (`/enggflo-init`).
+PURPOSE: patterns the repo follows implicitly (ESLint flat config in `eslint.config.js`; no Prettier, formatting is by convention). Maintained by enggflo (`/enggflo-init`).
 
 ## Naming
 
@@ -12,7 +12,8 @@ PURPOSE: patterns the repo follows implicitly (no ESLint/Prettier config in repo
 
 ## Style
 
-- Arrow-function components; `const` only; `?.` / `??` for optional access (`createMap.js:32,44`).
+- Arrow-function components; `const` only; `?.` / `??` for optional access.
+- Font sizes in `rem` (WCAG 1.4.4); layout sizes may stay `px`.
 - 4-space indent · single quotes · no semicolons · trailing commas (`vite.config.js`, `Footer.jsx`).
 - Components export default; shared constants/helpers as named exports (`Footer.jsx:3,11,38`).
 - Side-effect imports (`./X.scss`) after module imports.

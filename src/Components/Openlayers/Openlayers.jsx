@@ -7,8 +7,6 @@ import MapCollar from './MapCollar'
 
 import './Openlayers.scss'
 
-export { buildWaterAreasUrl, INITIAL_CENTER, INITIAL_ZOOM } from './createMap'
-
 const readViewState = (view) => ({
     centre: formatLonLat(toLonLat(view.getCenter() ?? INITIAL_CENTER)),
     zoom: view.getZoom() ?? INITIAL_ZOOM,
@@ -33,10 +31,10 @@ const Openlayers = () => {
         const handleMoveEnd = () => setViewState(readViewState(view))
 
         mapStateRef.current = mapState
-        map.on?.('moveend', handleMoveEnd)
+        map.on('moveend', handleMoveEnd)
 
         return () => {
-            map.un?.('moveend', handleMoveEnd)
+            map.un('moveend', handleMoveEnd)
             map.setTarget(undefined)
             map.dispose()
             mapStateRef.current = null

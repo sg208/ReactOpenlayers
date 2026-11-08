@@ -14,9 +14,8 @@ vi.mock('ol/Map', () => ({
     }),
 }))
 
-const { default: Openlayers, INITIAL_CENTER, INITIAL_ZOOM, buildWaterAreasUrl } = await import(
-    '../Components/Openlayers/Openlayers'
-)
+const { default: Openlayers } = await import('../Components/Openlayers/Openlayers')
+const { INITIAL_CENTER, INITIAL_ZOOM, buildWaterAreasUrl } = await import('../Components/Openlayers/createMap')
 
 describe('Openlayers', () => {
     beforeEach(() => {

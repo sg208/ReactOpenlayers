@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import AccessibilityPage from '../pages/AccessibilityPage'
+import NotFoundPage from '../pages/NotFoundPage'
 import PrivacyPage from '../pages/PrivacyPage'
 import TermsPage from '../pages/TermsPage'
 
@@ -31,5 +32,15 @@ describe('privacy page', () => {
         expect(main).toHaveTextContent('Cloudflare serves the site')
         expect(main).not.toHaveTextContent('fonts.googleapis.com')
         expect(main).not.toHaveTextContent('fonts.gstatic.com')
+    })
+})
+
+describe('not found page', () => {
+    it('has one h1, a way back to the map and no current footer link', () => {
+        render(<NotFoundPage />)
+        expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
+        expect(screen.getByRole('heading', { level: 1, name: 'Page not found' })).toBeInTheDocument()
+        expect(screen.getByRole('link', { name: 'Back to the map' })).toHaveAttribute('href', '/')
+        expect(document.querySelector('[aria-current="page"]')).toBeNull()
     })
 })
