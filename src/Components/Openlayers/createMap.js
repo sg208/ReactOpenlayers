@@ -25,7 +25,7 @@ export const ATTRIBUTIONS =
     `<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">&copy; OpenStreetMap${NEW_TAB_NOTE}</a>`
 
 // Water outline: a pale line on a dark halo so it reads over any imagery.
-// Keep in sync with the legend swatch in Openlayers.scss.
+// Keep in sync with --water in styles/_tokens.scss (used by the legend swatch).
 export const WATER_STROKE = '#7fd8ea'
 const WATER_HALO = 'rgba(6, 30, 38, 0.6)'
 
@@ -40,10 +40,11 @@ const CONTROL_NAMES = {
     '.ol-attribution button': 'Toggle attributions',
 }
 
-const nameControlButtons = (target) =>
-    Object.entries(CONTROL_NAMES).forEach(([selector, name]) =>
-        target?.querySelector?.(selector)?.setAttribute('aria-label', name),
-    )
+const nameControlButtons = (target) => {
+    for (const [selector, name] of Object.entries(CONTROL_NAMES)) {
+        target.querySelector(selector)?.setAttribute('aria-label', name)
+    }
+}
 
 export const buildWaterAreasUrl = (extent) =>
     'https://ahocevar.com/geoserver/wfs?service=WFS&' +

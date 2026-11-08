@@ -2,12 +2,11 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// eslint-disable-next-line no-undef
 const page = (path) => fileURLToPath(new URL(`./src/${path}`, import.meta.url))
 
 export default defineConfig({
     root: 'src',
-    base: './',
+    base: '/',
     plugins: [react()],
     build: {
         outDir: '../dist',
@@ -15,15 +14,15 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: page('index.html'),
+                notFound: page('404.html'),
                 accessibility: page('accessibility/index.html'),
                 privacy: page('privacy/index.html'),
                 terms: page('terms/index.html'),
             },
             output: {
-                manualChunks(id) {
-                    if (id.includes('node_modules/ol/') || id.includes('node_modules/ol')) {
-                        return 'ol'
-                    }
+                manualChunks: (id) => {
+                    if (id.includes('node_modules/ol/')) return 'ol'
+                    if (id.includes('node_modules/react')) return 'react'
                     return undefined
                 },
             },

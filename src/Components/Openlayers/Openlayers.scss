@@ -43,7 +43,7 @@
         background-color: var(--surface);
         color: var(--text);
         font-family: var(--font);
-        font-size: 20px;
+        font-size: 1.25rem;
         font-weight: 400;
         transition: background-color 120ms ease;
 
@@ -90,7 +90,7 @@
     .ol-scale-line-inner {
         border-color: var(--text);
         color: var(--text);
-        font-size: 11px;
+        font-size: 0.6875rem;
         font-variant-numeric: tabular-nums;
     }
 
@@ -100,7 +100,7 @@
         max-width: calc(100% - 140px);
         border-radius: var(--radius-control);
         background-color: var(--surface);
-        font-size: 11px;
+        font-size: 0.6875rem;
 
         &.ol-uncollapsible {
             border-radius: var(--radius-control);
@@ -118,7 +118,7 @@
         button {
             width: 28px;
             height: 28px;
-            font-size: 14px;
+            font-size: 0.875rem;
         }
     }
 }
@@ -131,7 +131,7 @@
     padding: 12px 16px;
     border-top: 1px solid var(--border);
     background-color: var(--raised);
-    font-size: 13px;
+    font-size: 0.8125rem;
 }
 
 .map-legend {
@@ -164,7 +164,7 @@
             position: absolute;
             inset: 6px 4px;
             border-radius: 1px;
-            background-color: #7fd8ea;
+            background-color: var(--water);
         }
     }
 
@@ -206,7 +206,7 @@
 .map-figure {
     min-width: 0;
     font-family: var(--font-mono);
-    font-size: 12.5px;
+    font-size: 0.78125rem;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
 }

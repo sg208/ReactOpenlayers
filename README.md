@@ -20,11 +20,11 @@ pnpm build     # production build to dist/
 pnpm preview   # serve the build
 ```
 
-The build has four pages: the map (`src/index.html`) and the accessibility, privacy and terms pages (`src/accessibility/`, `src/privacy/`, `src/terms/`), all listed as inputs in `vite.config.js`.
+The build has five pages: the map (`src/index.html`), the not-found page (`src/404.html`) and the accessibility, privacy and terms pages (`src/accessibility/`, `src/privacy/`, `src/terms/`), all listed as inputs in `vite.config.js`. Response headers live in `src/public/_headers`.
 
 ## Deploy
 
-`pnpm run deploy` builds and runs `wrangler deploy`. `wrangler.jsonc` serves `dist/` on the `react-openlayers.engg.app` custom domain and falls back to `index.html` for unknown paths. Wrangler 4 is a dev dependency, so it only needs `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in the environment.
+`pnpm run deploy` builds and runs `wrangler deploy`. `wrangler.jsonc` serves `dist/` on the `react-openlayers.engg.app` custom domain and serves `404.html` with a 404 status for unknown paths. Wrangler 4 is a dev dependency, so it only needs `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in the environment.
 
 ## Accessibility
 

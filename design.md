@@ -6,15 +6,16 @@ PURPOSE: architecture · data flow · key decisions. Maintained by enggflo (`/en
 
 | layer | path | role |
 |---|---|---|
-| build | `vite.config.js:8-25` | `root: src`, `outDir: ../dist`; 4 HTML inputs (map + accessibility/privacy/terms) |
+| build | `vite.config.js` | `root: src`, `base: /`, `outDir: ../dist`; 5 HTML inputs (map + 404 + accessibility/privacy/terms); `ol` and `react` chunks |
 | map entry | `src/index.html` → `src/main.jsx` → `src/App.jsx:5-14` | skip link → Header · Main · Footer |
 | map component | `src/Components/Openlayers/Openlayers.jsx:17-83` | owns React state (water visibility, view readout); mounts map in `useEffect` |
 | map factory | `src/Components/Openlayers/createMap.js:53-99` | builds `ol/Map`: MapTiler XYZ raster + WFS water vector layer + controls |
 | map collar | `src/Components/Openlayers/MapCollar.jsx:2-34` | water toggle · centre/zoom/pointer readout · reset button |
-| legal pages | `src/{accessibility,privacy,terms}/index.html` → `src/pages/renderPage.jsx:10-23` | `data-page` picks page component; unknown → `TermsPage` |
+| legal + 404 pages | `src/{accessibility,privacy,terms}/index.html` · `src/404.html` → `src/pages/renderPage.jsx:10-23` | `data-page` picks page component; unknown → `NotFoundPage` |
 | footer | `src/Layouts/Footer/Footer.jsx:5-42` | links Accessibility · Privacy · Terms · one GitHub icon link to the repo (`REPO_URL`) |
 | tokens | `src/styles/_tokens.scss` | colour/size tokens; light + dark via system setting |
-| hosting | `wrangler.jsonc` | Cloudflare Worker static assets from `dist/`, SPA fallback, custom domain `react-openlayers.engg.app` |
+| hosting | `wrangler.jsonc` | Cloudflare Worker static assets from `dist/`, `404.html` for unknown paths, custom domain `react-openlayers.engg.app` |
+| headers | `src/public/_headers` | nosniff, referrer, permissions policy; immutable cache on `/assets/*`; copied to `dist/` by Vite |
 
 ## Data flow
 
@@ -29,6 +30,7 @@ PURPOSE: architecture · data flow · key decisions. Maintained by enggflo (`/en
 ## Key decisions
 
 - Map built outside React in `createMap.js`; React holds only UI state. WHY: OL owns its DOM; one effect, clean dispose, mockable in jsdom (`src/__tests__/openlayers.test.jsx`).
+- `base: '/'` (absolute asset URLs). WHY: `404.html` is served at any unknown depth; relative `./assets` would break on `/a/b`.
 - Legal pages = separate Vite HTML inputs, not a router. WHY: static pages, no client routing dependency (`vite.config.js:15-20`).
 - Reduced motion → zoom/reset durations 0 (`createMap.js:31-32,84`; `Openlayers.jsx:56`).
 - OL control buttons get `aria-label` from `CONTROL_NAMES` (`createMap.js:35-45`). WHY: OL names buttons by glyph.
